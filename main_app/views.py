@@ -95,6 +95,15 @@ class BoardCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+class BoardUpdate(UpdateView):
+    model = Board
+    fields = [ 'title', 'subject']
+
+
+class BoardDelete(DeleteView):
+    model = Board
+    success_url = '/boards/'
+
 def boards_index(request):
   boards = Board.objects.all()
   return render(request, 'boards/index.html', {'boards': boards})
@@ -104,3 +113,5 @@ def boards_detail(request, board_id,):
     board = Board.objects.get(id = board_id)
    
     return render(request, 'boards/detail.html', {'board': board})
+
+

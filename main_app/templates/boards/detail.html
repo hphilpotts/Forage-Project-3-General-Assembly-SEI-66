@@ -17,6 +17,11 @@
 
     {% endfor %}
     </div>
+
+    <div class="card-action">
+        <a href="{% url 'board_update' board.id %}">Edit</a>
+        <a href="{% url 'board_delete' board.id %}">Delete</a>
+    </div>
 </div>
 
 

@@ -3,7 +3,7 @@
 {% block content %}
 
 {% if object %}
- <h1>Edit <span class='teal-text'> {{object.name}}</span></h1>
+ <h1>Edit <span class='teal-text'> {{object.title}}</span></h1>
 {%else%}
  <h1>Create Board</h1>
 {% endif %}
@@ -15,7 +15,11 @@
         {{ form.as_table }}
         </table>
 
-<input type="submit" value="Create Board" class ='btn'>
+        {% if object %}
+        <input type="submit" value="Update Board" class="btn">
+       {%else%}
+       <input type="submit" value="Create Board" class="btn">
+       {% endif %}
 </form>
 
 {% endblock %}
