@@ -1,12 +1,13 @@
 from django.urls import path
 from . import views
 
-urlpatterns =[
+urlpatterns = [
      path('', views.home, name='home'),
      path('about/', views.about, name='about'),
    
      # image urls 
-    path('images/', views.Image_Index, name='image_index'),
+
+    path('images/', views.Image_Index, name='index'),
     path('images/<int:image_id>', views.images_detail, name='detail'),
     path('images/create/', views.ImageCreate.as_view(), name='images_create'),
     path('images/<int:pk>/update/', views.ImageUpdate.as_view(), name='images_update'),
@@ -30,9 +31,8 @@ urlpatterns =[
      
 
     # authenitcation urls 
-# Signup:
-     path('accounts/signup/', views.signup, name='signup'),
-     
+
+
 
 
 
@@ -40,7 +40,6 @@ urlpatterns =[
 
 
      # board urls 
-     path('boards/', views.boards_index, name='index')
 
 
 
