@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Image
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from main_app.models import Board
+
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth import login
 # from django.contrib.auth.decorators import login_required

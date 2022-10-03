@@ -25,7 +25,6 @@ class Image(models.Model):
 
 
 
-# board model 
 
 class Board(models.Model):
     author=models.ForeignKey( User, on_delete=models.CASCADE)
@@ -34,7 +33,9 @@ class Board(models.Model):
     # images= models.ManyToManyField(Image)
     date = models.DateField('Created At')
 
-
+    def __str__(self):
+        return self.subject
+   
 
 
 
