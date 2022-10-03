@@ -45,7 +45,7 @@ class Board(models.Model):
 
 
 # user profile model 
-class Profile(models.model):
+class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     user_bio = models.TextField(max_length=500)
     user_profile_pic = models.ImageField(upload_to='profilepics')
