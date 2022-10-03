@@ -27,11 +27,12 @@ class Image(models.Model):
 
 
 class Board(models.Model):
-    author=models.ForeignKey( User, on_delete=models.CASCADE)
+    author=models.CharField(max_length=150)
     title = models.CharField(max_length=250)
     subject= models.CharField(max_length=250)
-    # images= models.ManyToManyField(Image)
+    images= models.ManyToManyField(Image)
     date = models.DateField('Created At')
+    user = models.ForeignKey( User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.subject
