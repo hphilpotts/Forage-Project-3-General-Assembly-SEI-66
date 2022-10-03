@@ -76,13 +76,8 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
-<<<<<<< HEAD
-     # board views 
 
 def boards_index(request):
-  
   boards = Board.objects.all()
   return render(request, 'boards/index.html', {'boards': boards})
-=======
      # board views 
->>>>>>> a40a972 (Authentication added, Signup added. Tested working ok.)
