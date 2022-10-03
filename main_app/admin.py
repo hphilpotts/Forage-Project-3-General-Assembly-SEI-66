@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Image
-from .models import Board
+from .models import Board, Image , Profile
+
 
 
 
@@ -11,6 +11,9 @@ from .models import Board
 
 admin.site.register(Board)
 admin.site.register(Image)
+admin.site.register(Profile)
+
+
 
 
 

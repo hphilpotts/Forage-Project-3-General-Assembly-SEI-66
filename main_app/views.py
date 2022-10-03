@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Image
+
+from .models import Image, Board
+
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
-from main_app.models import Board
+
 
 # Create your views here.
 # from django.contrib.auth.forms import UserCreationForm
