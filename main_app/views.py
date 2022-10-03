@@ -1,10 +1,13 @@
+import profile
 from django.shortcuts import render, redirect
-from .models import Image, Board
+from .models import Image
+from .forms import ProfileForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
-
+from main_app.models import Board, User, Profile
 
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth import login
@@ -56,10 +59,17 @@ def add_to_board(request, image_id):
     return redirect('detail', image_id = image_id)
 
      # userprofile views
+def profile_detail(request, user_id):
+    user = User.objects.get(id = user_id)
+    profile_form = ProfileForm()
+    return render(request, 'profiles/detail.html', {'user': user, 'profile-form': profile_form})
 
-
-
-     
+# def profile_update(request, user_id):
+#      user - User.objects.get(id = user_id)
+#      form = ProfileForm(request.POST)
+#      if form.is_valid():
+#       user.save()
+#     return 
 
     # authenitcation views
 def signup(request):
@@ -75,9 +85,8 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
-     # board views 
 
 def boards_index(request):
-  
   boards = Board.objects.all()
   return render(request, 'boards/index.html', {'boards': boards})
+     # board views 

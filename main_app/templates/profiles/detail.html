@@ -1,0 +1,16 @@
+<!-- Template  -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>User details</h1>
+<h4>{{ user.username }}</h4>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ profile_form.as_p }}
+    <input type="submit" value="Update Profile" class="btn">
+</form>
+
+{% endblock %}
