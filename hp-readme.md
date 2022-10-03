@@ -26,5 +26,6 @@ Created database in _pgAdmin4_ and successfully migrated, checked working ok in 
 
 Starting on auth route. We'll need to go back later and update this path to a more interesting page than 'Home' one the right paths are set up. I've added this to Trello Board so that this doesn't get missed! Ditto `redirect` path in `signup` view.        
 
+[git struggles in here]     
 
-
+User details page added: R from Read!
