@@ -1,10 +1,16 @@
 from django.contrib import admin
+
 from .models import Image
+from .models import Board
 
 
 
+
+
+# Register your models here.
+
+admin.site.register(Board)
 admin.site.register(Image)
-
 
 
 
@@ -13,5 +19,3 @@ class List:
         arr = [i for i in integer_list if i not in values_list]
         return arr
 
-
-# Register your models here.

@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [
+urlpatterns =[
      path('', views.home, name='home'),
      path('about/', views.about, name='about'),
    
@@ -31,8 +31,9 @@ urlpatterns = [
      
 
     # authenitcation urls 
-
-
+# Signup:
+     path('accounts/signup/', views.signup, name='signup'),
+     
 
 
 
@@ -40,6 +41,7 @@ urlpatterns = [
 
 
      # board urls 
+     path('boards/', views.boards_index, name='index')
 
 
 
