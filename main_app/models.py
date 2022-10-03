@@ -1,7 +1,11 @@
 
 from django.db import models
+<<<<<<< HEAD
 from django.contrib.auth.models import User
 from django.urls import reverse
+=======
+from django.contrib.auth.models import User # used for profile model
+>>>>>>> 02e511f (Profile model added to models.py, not yet tested.)
 
 # Create your models here.
 
@@ -48,7 +52,11 @@ class Board(models.Model):
 
 
 # user profile model 
+<<<<<<< HEAD
 class Profile(models.Model):
+=======
+class Profile(models.model):
+>>>>>>> 02e511f (Profile model added to models.py, not yet tested.)
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     user_bio = models.TextField(max_length=500)
     user_profile_pic = models.ImageField(upload_to='profilepics')
