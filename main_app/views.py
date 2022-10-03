@@ -35,26 +35,22 @@ class ImageUpdate(UpdateView):
 
 class ImageDelete(DeleteView):
     model = Image
-    success_url = '/images/'
+    success_url = 'images/index.html/'
 
-def images_index(request):
-    images = Image.objects.filter(user = request.user)
-    return render(request, 'images/index.html', { 'images': images})
-
-
+def Image_Index(request):
+# One To look at
+    return render(request,'index.html')
 
 
 
+def images_detail(request, image_id):
+    # SELECT * FROM main_app_image WHERE id = image_id
+    image = Image.objects.get(id = image_id)
 
+def add_to_board(request, image_id):
+    return redirect('detail', image_id = image_id)
 
-# def images_detail(request, image_id):
-#     # SELECT * FROM main_app_image WHERE id = image_id
-#     image = Image.objects.get(id = image_id)
-
-# def add_to_board(request, image_id):
-#     return redirect('detail', image_id = image_id)
-
-     # userprofile views
+    #  userprofile views
 
 
 
