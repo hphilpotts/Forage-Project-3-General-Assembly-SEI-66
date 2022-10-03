@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+from datetime import date
+
 
 # Create your models here.
 
@@ -16,14 +18,7 @@ class Image(models.Model):
 
     def __str__(self):
         return self.subject
-    
-    def get_absolute_url(self):
-        return reverse('toys_detail', kwargs={'pk': self.id})
-
-    def get_absolute_url(self):
-        return reverse('toys_detail', kwargs={'pk': self.id})
-
-
+  
 
 
 

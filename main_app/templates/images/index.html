@@ -4,6 +4,28 @@
 
 {% block content %}
 
-<!-- dazzlingly brillant code goes in here -->
+<div class="card">
+
+    <a href="{% url 'detail' image.id %}">
+        <div class="card-content">
+            <div class="flex-container">
+                <div>
+                <span class="card-title"> {{ image.name }} </span>
+                <p>Description : {{ image.description }} </p>
+                </div>
+    
+                <div>
+                    {% load static %}
+                    <img width="150px" height="150px" src={% static image.image|cut:'main_app/static/' %} />
+                </div>
+    
+        </div>
+    
+    
+    </div>
+    </a>
+    </div>
+
+
 
 {% endblock %}
