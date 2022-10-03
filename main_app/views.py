@@ -39,10 +39,10 @@ class ImageDelete(DeleteView):
     model = Image
     success_url = 'images/index.html/'
 
-def image_Index(request):
-# One To look at
-    return render(request,'/index')
 
+def image_Index(request):
+    images = Image.objects.filter(user = request.user)
+    return render(request, 'images/index.html', { 'images': images})
 
 
 def images_detail(request, image_id):
