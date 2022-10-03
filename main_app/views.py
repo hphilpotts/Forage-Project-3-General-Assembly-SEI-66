@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import Image, Board
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.http import HttpResponse
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
-
+from main_app.models import Board
 
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth import login
@@ -75,9 +76,13 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
+<<<<<<< HEAD
      # board views 
 
 def boards_index(request):
   
   boards = Board.objects.all()
   return render(request, 'boards/index.html', {'boards': boards})
+=======
+     # board views 
+>>>>>>> a40a972 (Authentication added, Signup added. Tested working ok.)
