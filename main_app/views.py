@@ -86,7 +86,21 @@ def signup(request):
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
 
+
+class BoardCreate(CreateView):
+    model = Board
+    fields = [ 'title', 'subject']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 def boards_index(request):
   boards = Board.objects.all()
   return render(request, 'boards/index.html', {'boards': boards})
      # board views 
+
+def boards_detail(request, board_id,):
+    board = Board.objects.get(id = board_id)
+   
+    return render(request, 'boards/detail.html', {'board': board})

@@ -32,6 +32,8 @@ urlpatterns = [
      
 
     # authenitcation urls 
+    # Signup:
+     path('accounts/signup/', views.signup, name='signup'),
 
 
 
@@ -41,6 +43,9 @@ urlpatterns = [
 
 
      # board urls 
+     path('boards/', views.boards_index, name='board_index'),
+     path('boards/<int:board_id>', views.boards_detail, name='board_detail'),
+     path('boards/create/',views.BoardCreate.as_view(), name='board_create'),
 
 
 

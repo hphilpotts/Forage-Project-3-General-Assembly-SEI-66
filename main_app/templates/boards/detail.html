@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{board.title }}</h1>
+<p> {{board.subject }}</p>
+<p> {{board.date}}</p>
+
+<div>
+    <div>
+
+       {% for image in board.images.all %}
+
+       {% load static %}
+       <img width="150px" height="150px" src={% static image.img|cut:'main_app/static/' %}>
+    
+
+    {% endfor %}
+    </div>
+</div>
+
+
+
+
+        
+
+
+     
+      
+
+</div>
+<!-- dazzlingly brillant code goes in here -->
+
+{% endblock %}
