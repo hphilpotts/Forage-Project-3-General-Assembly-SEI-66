@@ -67,3 +67,8 @@ def add_to_board(request, image_id):
 
 
      # board views 
+
+def boards_index(request):
+  
+  boards = Board.objects.all()
+  return render(request, 'boards/index.html', {'boards': boards})

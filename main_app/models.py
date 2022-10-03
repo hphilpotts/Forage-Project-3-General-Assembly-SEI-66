@@ -1,4 +1,6 @@
+
 from django.db import models
+from django.contrib.auth.models import User
 from django.urls import reverse
 
 # Create your models here.
@@ -17,10 +19,21 @@ class Image(models.Model):
     def get_absolute_url(self):
         return reverse('toys_detail', kwargs={'pk': self.id})
 
+    def get_absolute_url(self):
+        return reverse('toys_detail', kwargs={'pk': self.id})
+
 
 
 
 # board model 
+
+class Board(models.Model):
+    author=models.ForeignKey( User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    subject= models.CharField(max_length=250)
+    # images= models.ManyToManyField(Image)
+    date = models.DateField('Created At')
+
 
 
 
@@ -31,10 +44,6 @@ class Image(models.Model):
 
 
 # user profile model 
-
-
-
-
 
 # authentication model 
 
