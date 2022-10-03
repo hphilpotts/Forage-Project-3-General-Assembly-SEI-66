@@ -15,4 +15,16 @@ We have set up a Trello board to manage workflow, established a main Repo and fo
 Early Wireframe completed and ERD started. Advice taken on how to relation our tables. At one stage, we were deciding between a three-table join table (User, Image, Board) and three join tables. Eventually we decided upon a single join table for Image-Board M-M and 1-M for User-Image and User-Board.
 
 ## Planning Stage 2, Day 02:        
-Site roadmap set up in Excel document, 
+Site roadmap set up in Excel document,      
+
+[add rest of Day 02 here]       
+
+## Production Stage 1, Day 03:      
+
+Decided to extend built-in Django User model by adding User Profile model linked One-One. Not yet tested working as Auth fnc. has not been added at this stage. Model added to `models.py`, with image upload fnc which will need to be tweaked once testing can begin.     
+Created database in _pgAdmin4_ and successfully migrated, checked working ok in GUI.        
+
+Starting on auth route. We'll need to go back later and update this path to a more interesting page than 'Home' one the right paths are set up. I've added this to Trello Board so that this doesn't get missed! Ditto `redirect` path in `signup` view.        
+
+
+
