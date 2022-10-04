@@ -29,7 +29,7 @@ urlpatterns = [
      path('users/edit/<int:user_id>/', views.profile_detail, name='profile_detail'),
      path('users/view/<int:user_id>/', views.profile_viewer, name='profile_viewer'),
      path('users/<int:user_id>/delete', views.profile_delete, name='profile_delete'),
-
+     path('users/<int:user_id>/confirmdelete', views.profile_confirm_delete, name='profile_confirm_delete'),
      
 
     # authenitcation urls 

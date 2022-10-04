@@ -53,3 +53,28 @@
 }
 
 
+
+/* || USER PROFILE STYLES */
+
+/* Containers: */
+#pb-container {
+    width: auto;
+    min-height: 100px;
+    margin: 0% 20%;
+    border: 1px solid black;
+}
+
+#profile-form-container {
+    width: 50%;
+    color: black;
+    background-color: lightgray;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+    border: 0px none;
+    border-radius: 10px;
+    padding: 50px;
+}
