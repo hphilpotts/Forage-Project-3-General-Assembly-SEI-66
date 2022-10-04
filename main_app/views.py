@@ -101,14 +101,13 @@ def profile_viewer(request, user_id):
     return render(request, 'profiles/view.html', {'user': user})
 
 
-# # DELETE - not working
-# # error seen: relation "main_app_board" does not exist
-# def profile_delete(request, user_id):
-#     if user.id != request.user.id:
-#         return redirect('home')
-#     user = User.objects.get(id = user_id)
-#     user.delete()
-#     return render('about')
+# DELETE
+def profile_delete(request, user_id):
+    if user_id != request.user.id:
+        return redirect('home')
+    user = User.objects.get(id = user_id)
+    user.delete()
+    return redirect('home')
 
 
     # authenitcation views
@@ -119,7 +118,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('about') # change this once index or profile is added
+            return redirect('profile_detail', user_id = user.id) # change this once index or profile is added
         else:
             error_message = "Invalid signup - Please try again later"
     form = UserCreationForm()

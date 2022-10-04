@@ -92,5 +92,8 @@ Instead I have moved onto User Profile Index. Rudimentary index page added. Now 
 
 Getting errors when attempting to use newly merged Create Board / Create Image - lost migrations during merges, running `python3 manage.py migrate main_app` on a new DB fixed this.        
 
-Now protecting routes:
+Now protecting User Profile routes: index restricted to staff only, profile detail views restricted to logged in users only, additionally the edit (and when implemented, delete) views restricted to users whose ID matches the user_id being acted upon.      
+
+I'm now going to reattempt to add delete user functionality: it looks as if the issue seen before was caused by the migration issue. Now works with some tweaks to the additional user id check protection and a change from render to redirect.        
+
 

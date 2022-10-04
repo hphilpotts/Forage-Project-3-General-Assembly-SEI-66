@@ -29,11 +29,9 @@
         <input type="submit" value="Update User" class="btn">
     </form>
 
-    <!-- <hr>
-    -> not working, throws err relation "main_app_board" does not exist
-    pass url 'profile_delete' user.id as DTL into href (just commenting out still runs DTL)
-    <a href=""class="btn">Delete User</a>
-    <hr> -->
+    <hr>
+    <a href="{% url 'profile_delete' user.id %}"class="btn">Delete User</a>
+    <hr>
 </div>
 
 <script>
