@@ -1,6 +1,7 @@
 
 * {
     text-align: center;
+
 }
 
 
@@ -19,3 +20,36 @@
     background-size: contain;
     background-color: aqua;
 }
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto   ;
+    grid-template-rows: auto auto auto auto  ;
+    justify-content: left;
+    padding: 10px 10px;
+    margin: 0px;
+   
+}
+
+.popup-overlay {
+   visibility:hidden;
+ }
+    
+.popup-content {
+    visibility:hidden;
+}
+
+.popup-overlay.active{
+     visibility:visible;
+ }
+        
+.popup-content.active {
+        visibility:visible;
+ }
+
+#boarddetail {
+    margin: 0;
+}
+
+

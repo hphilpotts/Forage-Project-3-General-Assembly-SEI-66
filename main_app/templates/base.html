@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest-type App</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="jquery-3.6.0.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 <body>
     <header class="navbar-fixed">
         <nav>
@@ -40,7 +41,7 @@
                     <li><a href="{% url 'profile_detail' user.id %}">Hi, {{ user.username}}</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                    <li><a href="">Signup</a></li>
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
                     <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
 
