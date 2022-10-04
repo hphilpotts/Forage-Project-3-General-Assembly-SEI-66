@@ -88,5 +88,9 @@ Again, a change of image is accepted but not saved. After reading the documentat
 
 Show/hide functionality added to User Profile form. I started working on User Delete functionality but got: `relation "main_app_board" does not exist` - will attempt to implement later if possible.       
 
-Instead I have moved onto User Profile Index. Rudimentary index page added. Now adding 'view other user' page which will link from a user.
+Instead I have moved onto User Profile Index. Rudimentary index page added. Now adding 'view other user' page which will link from a user. This now works! I have not provided a link to users index at this stage as it is not needed.     
+
+Getting errors when attempting to use newly merged Create Board / Create Image - lost migrations during merges, running `python3 manage.py migrate main_app` on a new DB fixed this.        
+
+
 
