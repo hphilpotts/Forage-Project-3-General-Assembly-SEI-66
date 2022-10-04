@@ -4,13 +4,29 @@
 
 {% block content %}
 
-<h1>User details</h1>
-<h4>{{ user.username }}</h4>
+<h1>User Profile</h1>
+<!-- I've used the style attribute here in order to avoid using CSS at this stage -->
+<!-- TODO: change to CSS styling later -->
+<img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" style="max-height: 200px; border: 2px solid black; border-radius: 8px;">
 
-<form action="" method="post">
+<h4> Username: {{ user.username }} </h4>
+<h6> Name: {{ user.first_name }} {{ user.last_name }} </h6>
+<p> Bio: {{ user.profile.user_bio }}</p>
+
+<br><br><hr>
+
+<button class="btn" id="edit-profile-button">Edit Profile</button><hr>
+
+<div id="profile-form-container">
+<h4>Update User Profile Form:</h4>
+
+<form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
+    {{ user_form.as_p }}
     {{ profile_form.as_p }}
-    <input type="submit" value="Update Profile" class="btn">
+    <br><hr>
+    <input type="submit" value="Update" class="btn">
 </form>
+</div>
 
 {% endblock %}
