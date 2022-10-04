@@ -41,7 +41,7 @@
                     <li><a href="{% url 'profile_detail' user.id %}">Hi, {{ user.username}}</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                    <li><a href="">Signup</a></li>
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
                     <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
 
