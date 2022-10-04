@@ -9,13 +9,12 @@
 {% for board in boards %}
 
 <div class = "card">
-
-    <div class="card-content">
-        
-        <span class="card-title">{{ board.title}}</span>
-        <p>{{ board.subject}} </p>
+    <div class="card-content" >
+        <a href= "{% url 'board_detail' board.id %}">
+        <span class="card-title">{{ board.title}}</span> </a>
+        <p>Subject:{{board.subject}} </p>
         <p>Created On: {{board.date}} </p>
-        <p>By {{board.author}} </p>
+        <p>By: {{board.user}} </p>
 
     </div>
 
