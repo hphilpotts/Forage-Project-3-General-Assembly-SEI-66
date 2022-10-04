@@ -6,16 +6,14 @@
 
 
 
-{% for img in images %}
-<a href=""
-<div class="container pic">
-    <figure>
+{% for image in images %}
+<span class="img">
+<a href="{% url 'images_detail' image.id %}">
     {% load static %}
-    <img width="150px" height="150px" src= {% static img.img|cut:'main_app/static/'%} />
-    <figcaption><a href="#"></a></figcaption>
-    </figure>
-</div>
-</a>
+    <img width="150px" height="250px" src= {% static image.img|cut:'main_app/static/'%} />
+</a></span>
+
+
 
 {% endfor %}
 {% endblock %}
