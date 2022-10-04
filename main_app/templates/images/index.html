@@ -7,14 +7,15 @@
 
 
 {% for img in images %}
-<div class="container">
+<a href="{% url 'detail' image.id %}"
+<div class="container pic">
     <figure>
     {% load static %}
     <img width="150px" height="150px" src= {% static img.img|cut:'main_app/static/'%} />
     <figcaption><a href="#"></a></figcaption>
     </figure>
 </div>
-
+</a>
 
 {% endfor %}
 {% endblock %}
