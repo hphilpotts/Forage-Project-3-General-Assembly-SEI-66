@@ -12,11 +12,13 @@ from django.contrib.auth.forms import UserCreationForm
 
 from main_app.models import Board, User, Profile
 
+# Authorization imports:
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
-# from django.contrib.auth.forms import UserCreationForm
-# from django.contrib.auth import login
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Define the home view:
 def home(request):
 
@@ -60,13 +62,21 @@ def add_to_board(request, image_id):
 # User Profile views:
 
 # READ (Index):
+@staff_member_required # protected route: staff only
 def profile_index(request):
     users = User.objects.all()
     return render(request, 'profiles/index.html', {'users': users})
 
 # READ (Detail) with UPDATE form:
+@login_required
+    # This is not enough protection on its own as users could manually enter urls to edit other users, see check two lines below:
 def profile_detail(request, user_id):
     user = User.objects.get(id = user_id)
+    # Below checks if logged in user's id matches the id of the user being edited, if not this redirects to home.
+    # This prevents manual url entry in order to edit other users!    
+    if user.id != request.user.id:
+        return redirect('home')
+    # If there is a match, below code can run to POST or GET the User Profile Detail page (with UPDATE form).
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance=request.user)
         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -85,14 +95,17 @@ def profile_detail(request, user_id):
     return render(request, 'profiles/detail.html', {'user': user, 'user_form': user_form, 'profile_form': profile_form})
 
 # READ (Detail) other User Profile:
+@login_required
 def profile_viewer(request, user_id):
     user = User.objects.get(id = user_id)
     return render(request, 'profiles/view.html', {'user': user})
 
 
-# DELETE - not working
-# relation "main_app_board" does not exist
+# # DELETE - not working
+# # error seen: relation "main_app_board" does not exist
 # def profile_delete(request, user_id):
+#     if user.id != request.user.id:
+#         return redirect('home')
 #     user = User.objects.get(id = user_id)
 #     user.delete()
 #     return render('about')

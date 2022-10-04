@@ -92,5 +92,5 @@ Instead I have moved onto User Profile Index. Rudimentary index page added. Now 
 
 Getting errors when attempting to use newly merged Create Board / Create Image - lost migrations during merges, running `python3 manage.py migrate main_app` on a new DB fixed this.        
 
-
+Now protecting routes:
 
