@@ -58,6 +58,8 @@ def add_to_board(request, image_id):
     return redirect('detail', image_id = image_id)
 
 # User Profile views:
+
+# READ with UPDATE form
 def profile_detail(request, user_id):
     user = User.objects.get(id = user_id)
     if request.method == 'POST':
@@ -67,7 +69,7 @@ def profile_detail(request, user_id):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            return redirect('/')
+            return redirect('profile_detail', user_id = user_id)
 
     else:
         user_form = UpdateUserForm(instance=request.user)
@@ -77,30 +79,13 @@ def profile_detail(request, user_id):
 
     return render(request, 'profiles/detail.html', {'user': user, 'user_form': user_form, 'profile_form': profile_form})
 
-# -- Earlier attempt - not working! --  
-# def profile_detail(request, user_id):
-#     error_message = ""
-#     if request.method == 'POST':
-#         # profile_form = ProfileForm(request.POST, request.FILES)
-#         pass
 
-#         # if profile_form.is_valid():
-#         #     profile_form.save()
-#         #     # messages.success(request, 'Updated successfully!')
-#         #         # import from django.contrib : messages
-#         #     return redirect(to='profile_detail')
-    
-#     user = User.objects.get(id = user_id)   
-#     profile_form = UpdateProfileForm(instance=user)
-#     user_form = UpdateUserForm(instance=user)
-#     return render(request, 'profiles/detail.html', context={'user': user, 'profile-form': profile_form, 'user_form': user_form})
-
-# def profile_update(request, user_id):
-#      user - User.objects.get(id = user_id)
-#      form = ProfileForm(request.POST)
-#      if form.is_valid():
-#       user.save()
-#     return 
+# DELETE - not working
+# relation "main_app_board" does not exist
+# def profile_delete(request, user_id):
+#     user = User.objects.get(id = user_id)
+#     user.delete()
+#     return render('about')
 
 
     # authenitcation views

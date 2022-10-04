@@ -86,3 +86,5 @@ No luck. Image upload works through `/admin/` and I've been able to get the imag
 
 Again, a change of image is accepted but not saved. After reading the documentation, updating the `profile_detail` view with `request.FILES` as follows seemed to be the solution: `profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)` - and it works!       
 
+Show/hide functionality added to User Profile form.     
+

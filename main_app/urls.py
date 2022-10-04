@@ -26,8 +26,8 @@ urlpatterns = [
 
      # userprofile urls 
      path('users/<int:user_id>/', views.profile_detail, name='profile_detail'),
-     # path('users/<int:user_id>/update', views.profile_update, name='profile_update'),
-     # path('users/<int:user_id>/delete', views.profile_delete, name='profile_delete'),
+     # path('users/<int:user_id>/delete', views.profile_delete, name='profile_delete') not working
+     # throws err -> relation "main_app_board" does not exist
 
      
 
