@@ -59,7 +59,12 @@ def add_to_board(request, image_id):
 
 # User Profile views:
 
-# READ with UPDATE form
+# READ (Index):
+def profile_index(request):
+    users = User.objects.all()
+    return render(request, 'profiles/index.html', {'users': users})
+
+# READ (Detail) with UPDATE form:
 def profile_detail(request, user_id):
     user = User.objects.get(id = user_id)
     if request.method == 'POST':
@@ -78,6 +83,11 @@ def profile_detail(request, user_id):
         profile_form.fields['user_profile_pic'].initial = user.profile.user_profile_pic
 
     return render(request, 'profiles/detail.html', {'user': user, 'user_form': user_form, 'profile_form': profile_form})
+
+# READ (Detail) other User Profile:
+def profile_viewer(request, user_id):
+    user = User.objects.get(id = user_id)
+    return render(request, 'profiles/view.html', {'user': user})
 
 
 # DELETE - not working

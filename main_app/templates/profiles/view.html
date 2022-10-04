@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>User Profile</h1>
+<!-- I've used the style attribute here in order to avoid using CSS at this stage -->
+<!-- TODO: change to CSS styling later -->
+<img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" style="max-height: 200px; border: 2px solid black; border-radius: 8px;">
+
+<h4> Username: {{ user.username }} </h4>
+<h6> Name: {{ user.first_name }} {{ user.last_name }} </h6>
+<p> Bio: {{ user.profile.user_bio }}</p>
+
+<br><br><hr>
+
+{% endblock %}
