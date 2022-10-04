@@ -1,13 +1,24 @@
 
-#grid-section{
+* {
     text-align: center;
-    border-width: 1px;
-    border: 1px cornsilk;
-    background-color: white;
-    margin: 5px;
-    
+
+}
 
 
+.img:hover {
+    filter: brightness(80%);
+    background-size: cover;
+  }
+
+.brand-logo{
+    left: 23px
+}
+.image_detail{
+    float:right;
+    width: 300px;
+    height: 300px;
+    background-size: contain;
+    background-color: aqua;
 }
 
 
@@ -42,4 +53,3 @@
 }
 
 
-  

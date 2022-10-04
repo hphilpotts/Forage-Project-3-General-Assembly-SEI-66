@@ -22,7 +22,7 @@ class Image(models.Model):
         return self.subject
     
     def get_absolute_url(self):
-     return reverse('detail', kwargs = {'pk': self.id})
+     return reverse('images_detail', kwargs = {'pk': self.id})
   
 
 

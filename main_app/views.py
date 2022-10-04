@@ -50,9 +50,15 @@ def image_Index(request):
     images = Image.objects.filter()
     return render(request, 'images/index.html', { 'images': images})
 
+
+
+
 def images_detail(request, image_id):
     # SELECT * FROM main_app_image WHERE id = image_id
     image = Image.objects.get(id = image_id)
+    return render(request, 'images/detail.html', {'image': image})
+
+
 
 def add_to_board(request, image_id):
     return redirect('detail', image_id = image_id)
