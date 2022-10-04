@@ -8,22 +8,80 @@
 
 <div>
     <div>
-
-       {% for image in board.images.all %}
-
-       {% load static %}
-       <img width="150px" height="150px" src={% static image.img|cut:'main_app/static/' %}>
+        <div>
+            <a href="{% url 'board_update' board.id %}">Edit</a>
+            <a href="{% url 'board_delete' board.id %}">Delete</a>
+        </div>
     
 
-    {% endfor %}
-    </div>
+         <div>
+            <h3> {{ board.subject}} Images</h3>
+            <div class='grid-container'>
+                {% if board.images.count %}
+                {% for image in board.images.all %}
+                <div id='grid-section'>
 
-    <div class="card-action">
-        <a href="{% url 'board_update' board.id %}">Edit</a>
-        <a href="{% url 'board_delete' board.id %}">Delete</a>
-    </div>
-</div>
+                    <div>
+                        
+                            {% load static %}
+                                <img width="150px" height="150px" src={% static image.img|cut:'main_app/static/' %} />
+                        
+                    </div>
+                    
+                    <div>
+                        <form action="{% url 'unassoc_image' board.id image.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn"> Remove Image </button>
+                        </form>
+                    </div>
+                 </div>
+                {% endfor %}
+                </div>
+                {% else %}
+                <h5> Add Image</h5>
+                {% endif %}
 
+            </div>
+
+
+           
+         
+            
+        </div>
+    
+        <div>
+            <h3>Available Images</h3>
+            <div class='grid-container'>
+    
+            {% if image.count %}
+    
+            {% for image in image.all %}
+                <div id='grid-section'>
+               
+                    <div >
+                       
+                            {% load static %}
+                            <img width="150px" height="150px" src={% static image.img|cut:'main_app/static/' %} />
+                    </div>
+    
+                    <div>
+                        <form action="{% url 'assoc_image' board.id image.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn"> Add Image </button>
+                        </form>
+                    </div>
+    
+                </div>
+                {% endfor %}
+    
+                {% else %}
+                <h5>All Images Added</h5>
+                {% endif %}
+            </div>
+        </div>
+    
+    </div>
+    
 
 
 
