@@ -29,25 +29,26 @@ def about(request):
      # image views
 class ImageCreate(CreateView):
     model = Image
-    fields = ['img', 'subject', 'description', 'created_at'] # All fields mentioned in models.py file
-    # success_url = '/cats/'
+    fields = ['img', 'subject', 'description', ] # All fields mentioned in models.py file
+    success_url = '/images/'
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 class ImageUpdate(UpdateView):
     model = Image
-    fields = ['img', 'subject', 'description', 'created_at']
-
+    fields = ['img', 'subject', 'description', ]
 class ImageDelete(DeleteView):
     model = Image
     success_url = 'images/index.html/'
 
 
+# def image_Index(request):
+   
+#     return render(request, 'images/index.html')
 def image_Index(request):
-    images = Image.objects.filter(user = request.user)
+    images = Image.objects.filter()
     return render(request, 'images/index.html', { 'images': images})
-
 
 def images_detail(request, image_id):
     # SELECT * FROM main_app_image WHERE id = image_id

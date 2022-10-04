@@ -15,7 +15,7 @@ class Image(models.Model):
     subject = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.subject

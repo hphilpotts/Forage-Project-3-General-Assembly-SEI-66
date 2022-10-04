@@ -28,4 +28,4 @@ Starting on auth route. We'll need to go back later and update this path to a mo
 
 [git struggles in here]     
 
-User details page added: R from Read!
+User detail page added: R from Read!
