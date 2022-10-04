@@ -14,8 +14,8 @@
         </div>
     
 
-         <div>
-            <h3> {{ board.subject}} Images</h3>
+         <div id="boardimages">
+            
             <div class='grid-container'>
                 {% if board.images.count %}
                 {% for image in board.images.all %}
@@ -31,7 +31,7 @@
                     <div>
                         <form action="{% url 'unassoc_image' board.id image.id %}" method="post">
                             {% csrf_token %}
-                            <button type="submit" class="btn"> Remove Image </button>
+                            <button id= "association" type="submit" class="btn"> Remove Image </button>
                         </form>
                     </div>
                  </div>
@@ -50,7 +50,9 @@
         </div>
     
         <div>
-            <h3>Available Images</h3>
+            <button class="open">Available Images</button>
+            <div class="popup-overlay">
+            <div class="popup-content">
             <div class='grid-container'>
     
             {% if image.count %}
@@ -67,31 +69,39 @@
                     <div>
                         <form action="{% url 'assoc_image' board.id image.id %}" method="post">
                             {% csrf_token %}
-                            <button type="submit" class="btn"> Add Image </button>
+                            <button id="association" type="submit" class="btn"> Add Image </button>
                         </form>
                     </div>
     
                 </div>
                 {% endfor %}
-    
-                {% else %}
-                <h5>All Images Added</h5>
                 {% endif %}
+                
+             </div>
+             <button class="close">Close</button> 
+             </div>
+               
+              
             </div>
         </div>
     
     </div>
-    
 
-
-
-        
-
-
-     
-      
 
 </div>
 <!-- dazzlingly brillant code goes in here -->
+
+<script>
+$('.open').on("click", function() {
+$(".popup-overlay, .popup-content").addClass('active');
+});
+
+//removes the "active" class to .popup and .popup-content when the "Close" button is clicked 
+$(".close, .popup-overlay").on("click", function() {
+$(".popup-overlay, .popup-content").removeClass('active');
+});
+
+$('main').attr('id', 'boarddetail');
+</script>
 
 {% endblock %}
