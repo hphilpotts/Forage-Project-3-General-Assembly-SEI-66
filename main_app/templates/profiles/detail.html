@@ -16,11 +16,11 @@
 {% endif %}
 
 {% if user.first_name and user.last_name %}
-<h6> Name: {{ user.first_name }} {{ user.last_name }} </h6>
+<h6> Full name: {{ user.first_name }} {{ user.last_name }} </h6>
 {% else %}
 <h6>Click 'Edit Profile' below to add your name!</h6>
 {% endif %}
-<h6>User Bio:</h6>
+<h6>User Bio here:</h6>
 <div id="pb-container">
 {% if user.profile.user_bio %}
 <p>{{ user.profile.user_bio }}</p>
@@ -30,8 +30,8 @@
 </div>
 
 <br><br><hr>
+<p>PLACEHOLDER - HERO BOARDS HERE</p><br><hr><br>
 
-<!-- Script not added yet! -->
 <button class="btn" id="edit-profile-button">Edit Profile</button><hr>
 
 <div id="profile-form-container">
