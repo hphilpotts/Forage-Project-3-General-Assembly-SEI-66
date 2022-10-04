@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>User Profile Index</h1>
+
+{% for user in users %}
+<div class="card">
+    <div class="card-content">
+        <div class="flex-container">
+            <div>
+                <a href="{% url 'profile_viewer' user.id %}"><span class="card-title"> {{ user.username }} </span></a>
+                <p> Name: {{ user.first_name }} {{ user.last_name }} </p>
+            </div>
+            <div>
+                <a href="">
+                    <img class="card-img" src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" style="max-height: 200px; border: 2px solid black; border-radius: 8px;">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

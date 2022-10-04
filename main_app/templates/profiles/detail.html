@@ -26,12 +26,27 @@
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
         <br><hr>
-        <input type="submit" value="Update" class="btn">
+        <input type="submit" value="Update User" class="btn">
     </form>
+
+    <hr>
+    <a href="{% url 'profile_delete' user.id %}"class="btn">Delete User</a>
+    <hr>
 </div>
 
 <script>
-    // Show/hide form script goes in here 
+    // Show/hide form on button click
+    const profileForm = document.getElementById('profile-form-container');
+    profileForm.style.display = 'none';
+    const profileFormButton = document.getElementById('edit-profile-button');
+    profileFormButton.onclick = function() {
+        console.log('click')
+        if (profileForm.style.display != 'none') {
+            profileForm.style.display = 'none'
+        } else {
+            profileForm.style.display = 'block'
+        }
+    };
 </script>
 
 {% endblock %}

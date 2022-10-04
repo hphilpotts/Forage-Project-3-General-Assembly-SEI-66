@@ -86,3 +86,14 @@ No luck. Image upload works through `/admin/` and I've been able to get the imag
 
 Again, a change of image is accepted but not saved. After reading the documentation, updating the `profile_detail` view with `request.FILES` as follows seemed to be the solution: `profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)` - and it works!       
 
+Show/hide functionality added to User Profile form. I started working on User Delete functionality but got: `relation "main_app_board" does not exist` - will attempt to implement later if possible.       
+
+Instead I have moved onto User Profile Index. Rudimentary index page added. Now adding 'view other user' page which will link from a user. This now works! I have not provided a link to users index at this stage as it is not needed.     
+
+Getting errors when attempting to use newly merged Create Board / Create Image - lost migrations during merges, running `python3 manage.py migrate main_app` on a new DB fixed this.        
+
+Now protecting User Profile routes: index restricted to staff only, profile detail views restricted to logged in users only, additionally the edit (and when implemented, delete) views restricted to users whose ID matches the user_id being acted upon.      
+
+I'm now going to reattempt to add delete user functionality: it looks as if the issue seen before was caused by the migration issue. Now works with some tweaks to the additional user id check protection and a change from render to redirect.        
+
+
