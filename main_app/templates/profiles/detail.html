@@ -15,18 +15,23 @@
 
 <br><br><hr>
 
+<!-- Script not added yet! -->
 <button class="btn" id="edit-profile-button">Edit Profile</button><hr>
 
 <div id="profile-form-container">
-<h4>Update User Profile Form:</h4>
+    <h4>Update User Profile Form:</h4>
 
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ user_form.as_p }}
-    {{ profile_form.as_p }}
-    <br><hr>
-    <input type="submit" value="Update" class="btn">
-</form>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ profile_form.as_p }}
+        <br><hr>
+        <input type="submit" value="Update" class="btn">
+    </form>
 </div>
+
+<script>
+    // Show/hide form script goes in here 
+</script>
 
 {% endblock %}
