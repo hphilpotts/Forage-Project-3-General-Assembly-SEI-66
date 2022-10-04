@@ -90,7 +90,7 @@ def signup(request):
 
 class BoardCreate(CreateView):
     model = Board
-    fields = [ 'title', 'subject']
+    fields = [ 'title', 'subject' ]
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -112,7 +112,19 @@ def boards_index(request):
 
 def boards_detail(request, board_id,):
     board = Board.objects.get(id = board_id)
+    image= Image.objects.exclude(id__in= board.images.all().values_list('id'))
    
-    return render(request, 'boards/detail.html', {'board': board})
+    return render(request, 'boards/detail.html', {'board': board, 'image': image})
+
+def assoc_image(request , board_id, image_id):
+
+     Board.objects.get(id = board_id).images.add(image_id)
+     return redirect('board_detail', board_id =board_id)
+
+def unassoc_image(request , board_id, image_id):
+
+    
+    Board.objects.get(id = board_id).images.remove(image_id)
+    return redirect('board_detail', board_id = board_id)
 
 

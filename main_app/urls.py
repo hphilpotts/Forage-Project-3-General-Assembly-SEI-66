@@ -48,6 +48,8 @@ urlpatterns = [
      path('boards/create/',views.BoardCreate.as_view(), name='board_create'),
      path('boards/<int:pk>/update/', views.BoardUpdate.as_view(),name='board_update'),
      path('boards/<int:pk>/delete/', views.BoardDelete.as_view(),name='board_delete'),
+     path('boards/<int:board_id>/assoc_image/<int:image_id>', views.assoc_image, name='assoc_image'),
+     path('boards/<int:board_id>/unassoc_image/<int:image_id>', views.unassoc_image, name="unassoc_image"),
 
 
 
