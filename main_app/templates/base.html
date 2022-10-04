@@ -1,10 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinterest-type App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="jquery-3.6.0.min.js"></script>
+
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
@@ -20,17 +25,25 @@
                 <ul class="right">
 
                     <li><a href="/about">About</a></li>
+
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'index' %}">All Boards</a></li>
+
+                    
                     <li><a href="">Create Board</a></li>
-                    <li><a href="">Add Image</a></li>
-                    <li><a href="">View Images</a></li>
+                    <li><a href="{% url 'images_create'%}">Add Image</a></li>
+                    <li><a href="{% url 'image_Index' %}">View Images</a></li>
+
+                    <li><a href="{% url 'board_index' %}">All Boards</a></li>
+                    <li><a href="{% url 'board_create'%}">Create Board</a></li>
+
+
                     <li><a href="{% url 'profile_detail' user.id %}">Hi, {{ user.username}}</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                    <li><a href="">Signup</a></li>
                     <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
+
 
                 </ul>
             </div>

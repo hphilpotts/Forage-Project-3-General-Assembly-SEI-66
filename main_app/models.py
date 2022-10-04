@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from PIL import Image
 
+from datetime import date
+from django.utils.timezone import now
+
 
 # Create your models here.
 
@@ -13,32 +16,26 @@ class Image(models.Model):
     subject = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.subject
     
     def get_absolute_url(self):
-        return reverse('toys_detail', kwargs={'pk': self.id})
-
-    def get_absolute_url(self):
-        return reverse('toys_detail', kwargs={'pk': self.id})
-
-
+     return reverse('detail', kwargs = {'pk': self.id})
+  
 
 
 
 class Board(models.Model):
-    author=models.CharField(max_length=150)
     title = models.CharField(max_length=250)
     subject= models.CharField(max_length=250)
     images= models.ManyToManyField(Image)
-    date = models.DateField('Created At')
+    date = models.DateField('Created At', default=now, editable=False)
     user = models.ForeignKey( User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.subject
-   
+    def get_absolute_url(self):
+     return reverse('board_detail', kwargs = {'board_id': self.id})
 
 
     def __str__(self):

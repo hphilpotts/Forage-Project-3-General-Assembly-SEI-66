@@ -1,9 +1,21 @@
-<!-- Template  -->
-
 {% extends 'base.html' %}
 
 {% block content %}
 
-<!-- dazzlingly brillant code goes in here -->
+<h1> Image</h1>
 
+
+
+{% for img in images %}
+<a href=""
+<div class="container pic">
+    <figure>
+    {% load static %}
+    <img width="150px" height="150px" src= {% static img.img|cut:'main_app/static/'%} />
+    <figcaption><a href="#"></a></figcaption>
+    </figure>
+</div>
+</a>
+
+{% endfor %}
 {% endblock %}
