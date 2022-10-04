@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 
 
 from .models import Image, Board
-from .forms import ProfileForm
+from .forms import UpdateProfileForm, UpdateUserForm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
@@ -57,12 +57,43 @@ def images_detail(request, image_id):
 def add_to_board(request, image_id):
     return redirect('detail', image_id = image_id)
 
-
-     # userprofile views
+# User Profile views:
 def profile_detail(request, user_id):
     user = User.objects.get(id = user_id)
-    profile_form = ProfileForm()
-    return render(request, 'profiles/detail.html', {'user': user, 'profile-form': profile_form})
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            return redirect('/')
+
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user)
+        profile_form.fields['user_bio'].initial = user.profile.user_bio
+        profile_form.fields['user_profile_pic'].initial = user.profile.user_profile_pic
+
+    return render(request, 'profiles/detail.html', {'user': user, 'user_form': user_form, 'profile_form': profile_form})
+
+# -- Earlier attempt - not working! --  
+# def profile_detail(request, user_id):
+#     error_message = ""
+#     if request.method == 'POST':
+#         # profile_form = ProfileForm(request.POST, request.FILES)
+#         pass
+
+#         # if profile_form.is_valid():
+#         #     profile_form.save()
+#         #     # messages.success(request, 'Updated successfully!')
+#         #         # import from django.contrib : messages
+#         #     return redirect(to='profile_detail')
+    
+#     user = User.objects.get(id = user_id)   
+#     profile_form = UpdateProfileForm(instance=user)
+#     user_form = UpdateUserForm(instance=user)
+#     return render(request, 'profiles/detail.html', context={'user': user, 'profile-form': profile_form, 'user_form': user_form})
 
 # def profile_update(request, user_id):
 #      user - User.objects.get(id = user_id)
