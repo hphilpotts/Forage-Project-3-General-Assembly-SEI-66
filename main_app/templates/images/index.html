@@ -7,12 +7,16 @@
 
 
 {% for image in images %}
-<span class="img">
+
 <a href="{% url 'images_detail' image.id %}">
-    <img width="150px" height="250px" src='/media/{{image.img}}'/>
-</a></span>
+
+    {% load static %}
+    <span class='box box1'><img  id="pic" width="150px" height="250px" src='/media/{{image.img}}'/></span>
+</a>
 
 
 
 {% endfor %}
+
+
 {% endblock %}

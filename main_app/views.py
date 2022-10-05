@@ -1,12 +1,13 @@
+from http.client import HTTPResponse
 import profile
 from django.shortcuts import render, redirect
 
 
 from .models import Image, Board
-from .forms import UpdateProfileForm, UpdateUserForm
+from .forms import ImageForm, UpdateProfileForm, UpdateUserForm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 
@@ -36,13 +37,15 @@ class ImageCreate(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+     
 
 class ImageUpdate(LoginRequiredMixin, UpdateView):
     model = Image
     fields = ['img', 'subject', 'description', ]
+
 class ImageDelete(LoginRequiredMixin, DeleteView):
     model = Image
-    success_url = 'images/index.html/'
+    success_url = '/images/'
 
 
 # def image_Index(request):
@@ -173,8 +176,29 @@ def boards_index(request):
 def boards_detail(request, board_id,):
     board = Board.objects.get(id = board_id)
     image= Image.objects.exclude(id__in= board.images.all().values_list('id'))
+    image_form =ImageForm()
    
-    return render(request, 'boards/detail.html', {'board': board, 'image': image})
+    return render(request, 'boards/detail.html', {'board': board, 'image': image , 'image_form': image_form})
+
+def add_image(request, board_id):
+    print('add image fire')
+    print(request.POST)
+    form = ImageForm(request.POST, request.FILES)
+     
+    if form.is_valid():
+        print(' image form valid')
+        new_image = form.save(commit =False)
+        new_image.save()
+    return add_image_board( board_id = board_id, image_id=new_image.id)
+
+    # else:
+    #  print('no image fired')
+    #  return None
+
+def add_image_board(board_id , image_id):
+    Board.objects.get(id = board_id).images.add(image_id)
+    return redirect('board_detail', board_id =board_id)
+
 
 @login_required
 def assoc_image(request , board_id, image_id):

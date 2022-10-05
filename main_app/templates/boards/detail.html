@@ -12,7 +12,15 @@
             <a href="{% url 'board_update' board.id %}">Edit</a>
             <a href="{% url 'board_delete' board.id %}">Delete</a>
         </div>
-    
+
+         <form method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+            {{ image_form.as_table }}
+            </table>
+            <input type="submit" value="Add Image" class="btn">
+        </form>
+     
 
          <div id="boardimages">
             
@@ -23,9 +31,8 @@
 
                     <div>
                         
-                            {% load static %}
-                                <img width="150px" height="150px" src='/media/{{image.img}}' />
-                        
+                            
+                            <img width="150px" height="250px" src='/media/{{image.img}}'/>
                     </div>
                     
                     <div>
@@ -47,7 +54,7 @@
            
          
             
-        </div>
+    
     
         <div>
             <button class="open">Available Images</button>
@@ -62,8 +69,8 @@
                
                     <div >
                        
-                            {% load static %}
-                            <img width="150px" height="150px" src='/media/{{image.img}}' />
+                            
+                        <img width="150px" height="250px" src='/media/{{image.img}}'/>
                     </div>
     
                     <div>
@@ -102,6 +109,10 @@ $(".popup-overlay, .popup-content").removeClass('active');
 });
 
 $('main').attr('id', 'boarddetail');
+
+$('input').on("click", function() {
+  console.log('button fired')
+});
 </script>
 
 {% endblock %}

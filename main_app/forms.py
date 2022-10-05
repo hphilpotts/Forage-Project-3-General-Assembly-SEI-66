@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile , Image
 
 # Edit User form - currently working: renders and saves.
 class UpdateUserForm(forms.ModelForm):
@@ -23,5 +23,15 @@ class UpdateProfileForm(ModelForm):
         model = Profile
         fields = ['user_bio', 'user_profile_pic']
 
+
+class ImageForm(ModelForm):
+
+    # img = forms.ImageField()
+    # subject = forms.CharField(max_length=25)
+    # description = forms.CharField(max_length=250)
+
+    class Meta:
+        model = Image
+        fields = '__all__'
 
 

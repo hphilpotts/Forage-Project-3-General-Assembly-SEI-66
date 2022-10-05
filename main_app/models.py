@@ -1,4 +1,5 @@
 
+from pickle import TRUE
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -12,7 +13,8 @@ from django.utils.timezone import now
 
 # image model
 class Image(models.Model):
-    img = models.ImageField(upload_to = 'main_app/static/uploads', default="")
+
+    img = models.ImageField(upload_to = 'main_app/static/uploads', default="", blank= TRUE )
     subject = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
