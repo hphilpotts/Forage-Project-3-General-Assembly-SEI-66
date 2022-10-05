@@ -12,7 +12,7 @@ from django.utils.timezone import now
 
 # image model
 class Image(models.Model):
-    img = models.ImageField(upload_to = 'main_app/static/uploads', default="")
+    img = models.ImageField(upload_to = 'project03/main_app/static/uploads', default="")
     subject = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
     # user = models.ForeignKey(User, on_delete=models.CASCADE)

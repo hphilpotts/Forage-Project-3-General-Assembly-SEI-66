@@ -21,18 +21,22 @@
                 
                 <ul>
                     <li><a href="/" class="left brand-logo">Forage</a></li>
+                    
+
                 </ul>
                 
                 <ul class="right">
-
+                    
                     <li><a href="/about">About</a></li>
-
+                   
                     {% if user.is_authenticated %}
+                    
 
                     
                     <li><a href="">Create Board</a></li>
                     <li><a href="{% url 'images_create'%}">Add Image</a></li>
                     <li><a href="{% url 'image_Index' %}">View Images</a></li>
+
 
                     <li><a href="{% url 'board_index' %}">All Boards</a></li>
                     <li><a href="{% url 'board_create'%}">Create Board</a></li>
@@ -45,26 +49,28 @@
                     <li><a href="{% url 'login' %}">Sign In</a></li>
                     {% endif %}
 
-
                 </ul>
             </div>
         </nav>
     </header>
-
     <main class="container">
         {% block content %}
         {% endblock %}
     </main>
-
-
-    <footer class="page-footer">
+    <footer class="page-footer light-green">
+        <div class="left"> <span class="butback"><button class='button' onclick="myFunction()">Dark Mode</button> </span></div>
         <div class="right">
             All Rights Reserved, &copy; 2022 Pinterest-type App
         </div>
     </footer>
 </body>
 </html>
-<body>
-
+<script>
+    function myFunction() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
+    }
+</script>
+    
     
 

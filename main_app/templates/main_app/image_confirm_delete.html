@@ -9,11 +9,11 @@
     <span class="teal-text"> {{ object.name }} </span>?
 
 </h4>
-
 <form action="" method="post">
 {% csrf_token %}
 <input type="submit" value="Yes - Delete" class="btn">
-<a href="{% url 'detail' image.id %}">Cancel</a>
+
+<a href="{% url 'images_detail' image.id %}">Cancel</a>
 
 </form>
 
