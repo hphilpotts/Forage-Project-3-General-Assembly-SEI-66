@@ -4,27 +4,76 @@
 
 {% load static %}
 
-<h1>User Profile</h1>
-<!-- I've used the style attribute here in order to avoid using CSS at this stage -->
-<!-- TODO: change to CSS styling later -->
+<h1 class="profile-greentext">{{ user.username }}'s Profile</h1>
+<div class="profile-pic-container p-container">
 {% if user.profile.user_profile_pic != 'no image' %}
-<img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" style="max-height: 200px; border: 2px solid black; border-radius: 8px;">
+<img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" class="profile-pic">
 {% else %}
-<img src="{% static 'images/project-default-profile-pic.gif' %}" alt="">
+<img src="{% static 'images/project-default-profile-pic.gif' %}" alt="" class="profile-pic">
 {% endif %}
-
-{% if user.first_name and user.last_name %}
-<h6> Name: {{ user.first_name }} {{ user.last_name }} </h6>
-{% endif %}
-{% if user.profile.user_bio %}
-<h6>User Bio:</h6>
-<div id="pb-container">
-<p>{{ user.profile.user_bio }}</p>
 </div>
+{% if user.first_name and user.last_name %}
+<h5 class="profile-greentext">{{ user.first_name }} {{ user.last_name }} </h5>
 {% endif %}
+<div class="p-container" id="profile-bio-container">
+{% if user.profile.user_bio %}
+<p>{{ user.profile.user_bio }}</p>
+{% else %}
+<p>{{ user.username}} hasn't added a bio yet! </p>
+{% endif %}
+</div><br>
 
-<br><br><hr>
-<p>Placeholder for hero boards</p>
-<hr><br>
+
+
+<!-- Hero Boards here: -->
+<div class="p-hero-outer">
+
+    <!-- iterates over user's boards (filtered from views.py) a max of 4 times -->
+    {% for board in boards %}
+    {% if forloop.counter < 5 %}
+    <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row">
+        <div class="p-hero-title">
+            <!-- TODO remove primary key reference once testing complete -->
+            <span>{{board.title}} (primary key = {{board.pk}})</span>
+        </div>
+        {% if board.images.count > 4 %}
+            <!-- If there are 5 or more images, run below-->
+            <!-- ? Could change this to select images from the board at random ? -->
+            {%  for image in board.images.all %}
+            <!-- Stop iterating over board.images once five images have populated -->
+                {% if forloop.counter < 6 %}
+                <div class="p-hero-card p-container-sm">
+                    <img src="/media/{{image.img}}" class="p-hero-image"/>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+        {% else %}
+            <!-- ? Possibly change this so no board row loads above at all if no of images < 5 ? -->
+            <!-- If the board has fewer than 5 images, loads blank -->
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+        {% endif %}
+    </div></a>
+    {% endif %}
+    {% endfor %}
+
+    <!-- TODO - add 'show all user's boards functionality -->
+
+</div>
+
 
 {% endblock %}
