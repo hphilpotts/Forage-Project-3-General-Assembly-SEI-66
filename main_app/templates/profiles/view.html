@@ -28,9 +28,10 @@
 <!-- Hero Boards here: -->
 <div class="p-hero-outer">
 
-    <!-- iterates over user's boards (filtered from views.py) -->
+    <!-- iterates over user's boards (filtered from views.py) a max of 4 times -->
     {% for board in boards %}
-    <div class="p-hero-row">
+    {% if forloop.counter < 5 %}
+    <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row">
         <div class="p-hero-title">
             <!-- TODO remove primary key reference once testing complete -->
             <span>{{board.title}} (primary key = {{board.pk}})</span>
@@ -66,8 +67,11 @@
                 <div class="p-hero-image"></div>
             </div>
         {% endif %}
-    </div>
+    </div></a>
+    {% endif %}
     {% endfor %}
+
+    <!-- TODO - add 'show all user's boards functionality -->
 
 </div>
 
