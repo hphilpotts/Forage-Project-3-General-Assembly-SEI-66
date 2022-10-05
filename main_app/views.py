@@ -71,7 +71,10 @@ def add_to_board(request, image_id):
 # User Profile views:
 
 # READ (Index):
-@staff_member_required # protected route: staff only
+# ! Important
+# TODO: revert to @staff_memeber_required before deployment?
+# @staff_member_required # protected route: staff only
+@login_required
 def profile_index(request):
     users = User.objects.all()
     return render(request, 'profiles/index.html', {'users': users})
