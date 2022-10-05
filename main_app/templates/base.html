@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinterest-type App</title>
-    
+    <title>'Forage' - Project 3: Django-SQL</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Materialize CSS -->
@@ -20,6 +20,7 @@
             <div class="nav-wrapper light-green">
                 
                 <ul>
+                    <li>&nbsp;</li>
                     <li><a href="/" class="left brand-logo">Forage</a></li>
                     
 
@@ -33,7 +34,6 @@
                     
 
                     
-                    <li><a href="">Create Board</a></li>
                     <li><a href="{% url 'images_create'%}">Add Image</a></li>
                     <li><a href="{% url 'image_Index' %}">View Images</a></li>
 

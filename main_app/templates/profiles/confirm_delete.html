@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Delete Account</h1>
+
+<h4>Are you sure you want to delete your account,
+    {% if user.first_name %}
+    <span> {{ user.first_name }} </span>
+    {% else %}
+    <span> {{ user.username }} </span>
+    {% endif %}
+    ?
+</h4>
+
+<a href="{% url 'profile_delete' user.id %}"class="btn red">Yes, Delete User</a>
+
+<a href="{% url 'profile_detail' user.id %}" class="btn">No, Cancel</a>
+
+{% endblock %}

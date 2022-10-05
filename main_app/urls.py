@@ -1,6 +1,5 @@
 from django.urls import path
-from . import views
-
+from . import views 
 urlpatterns = [
      path('', views.home, name='home'),
      path('about/', views.about, name='about'),
@@ -25,10 +24,12 @@ urlpatterns = [
 
 
      # userprofile urls 
-     path('users/<int:user_id>/', views.profile_detail, name='profile_detail'),
-     # path('users/<int:user_id>/update', views.profile_update, name='profile_update'),
-     # path('users/<int:user_id>/delete', views.profile_delete, name='profile_delete'),
-
+     path('users/', views.profile_index, name='profile_index'),
+     path('users/edit/<int:user_id>/', views.profile_detail, name='profile_detail'),
+     path('users/view/<int:user_id>/', views.profile_viewer, name='profile_viewer'),
+     path('users/<int:user_id>/delete', views.profile_delete, name='profile_delete'),
+     path('users/<int:user_id>/confirmdelete', views.profile_confirm_delete, name='profile_confirm_delete'),
+     
      
 
     # authenitcation urls 
@@ -50,6 +51,7 @@ urlpatterns = [
      path('boards/<int:pk>/delete/', views.BoardDelete.as_view(),name='board_delete'),
      path('boards/<int:board_id>/assoc_image/<int:image_id>', views.assoc_image, name='assoc_image'),
      path('boards/<int:board_id>/unassoc_image/<int:image_id>', views.unassoc_image, name="unassoc_image"),
+     path('boards/<int:board_id>/add_image/', views.add_image , name='add_image'),
 
 
 

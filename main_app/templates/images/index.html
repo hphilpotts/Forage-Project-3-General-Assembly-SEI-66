@@ -9,6 +9,7 @@
 {% for image in images %}
 
 <a href="{% url 'images_detail' image.id %}">
+
     {% load static %}
     <span class='box box1'><img  id="pic" width="150px" height="250px" src='/media/{{image.img}}'/></span>
 </a>
