@@ -1,3 +1,4 @@
+/* || GLOBAL STYLES */
 
 * {
     text-align: center;
@@ -20,6 +21,11 @@ footer.page-footer {
     text-align: right;
 }
 
+.btn {
+    background-color: #8bc34a;
+}
+
+/* ---------- */
 
 .img:hover {
     filter: brightness(80%);
@@ -75,22 +81,36 @@ footer.page-footer {
 /* Containers: */
 #pb-container {
     width: auto;
-    min-height: 100px;
+    min-height: 4em;
     margin: 0% 20%;
-    border: 1px solid black;
+    padding: 1em;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.profile-form {
+    border: 0px none;
+    border-radius: 10px;
 }
 
 #profile-form-container {
     width: 50%;
     color: black;
-    background-color: lightgray;
+    background-color: #8bc34ab0;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     top: 10%;
-    border: 0px none;
-    border-radius: 10px;
-    padding: 50px;
+    border-radius: 15px;
+
+}
+
+#profile-form-inner {
+    margin: 20px;
+    padding: 20px;
+
+    background-color: white;
 }

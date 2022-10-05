@@ -104,6 +104,8 @@ Issue found where newer images not rendering: this was where I had changed `MEDI
 
 Authorization protection added to views.        
 
+Made minor formatting changes to base.html and confirmdelete.       
+
 Now adding 'hero board' functionality to user pages which currently look like:      
 
 [screenshot1]       
