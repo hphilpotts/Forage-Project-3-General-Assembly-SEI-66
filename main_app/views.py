@@ -84,6 +84,7 @@ def profile_index(request):
     # This is not enough protection on its own as users could manually enter urls to edit other users, see check two lines below:
 def profile_detail(request, user_id):
     user = User.objects.get(id = user_id)
+    boards = Board.objects.filter(user = request.user)
     # Below checks if logged in user's id matches the id of the user being edited, if not this redirects to home.
     # This prevents manual url entry in order to edit other users!    
     if user.id != request.user.id:
@@ -104,7 +105,7 @@ def profile_detail(request, user_id):
         profile_form.fields['user_bio'].initial = user.profile.user_bio
         profile_form.fields['user_profile_pic'].initial = user.profile.user_profile_pic
 
-    return render(request, 'profiles/detail.html', {'user': user, 'user_form': user_form, 'profile_form': profile_form})
+    return render(request, 'profiles/detail.html', {'user': user, 'user_form': user_form, 'profile_form': profile_form, 'boards': boards})
 
 # READ (Detail) other User Profile:
 @login_required

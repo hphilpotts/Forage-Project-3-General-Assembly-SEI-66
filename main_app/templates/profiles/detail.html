@@ -17,7 +17,7 @@
 </div>
 
 {% if user.first_name and user.last_name %}
-<h6 class="profile-greentext">{{ user.first_name }} {{ user.last_name }} - <span style="font-style: italic;">{{ user.email }}</span> </h6>
+<h6 class="profile-greentext">{{ user.first_name }} {{ user.last_name }}</h6>
 {% else %}
 <h6>Click 'Edit Profile' below to add your name!</h6>
 {% endif %}
@@ -32,71 +32,41 @@
 <br><button class="btn" id="edit-profile-button">Edit My Profile</button><br><br>
 
 
+
+
 <!-- Hero Boards within here: -->
 <div class="p-hero-outer">
-
+    {% for board in boards %}
     <div class="p-hero-row">
         <div class="p-hero-title">
-            <span>Board 1 Title</span>
+            <span>{{board.title}} (primary key = {{board.pk}})</span>
+        </div>
+        <!-- ! Need to work out how to handle board size > 5 images...! -->
+        {% if board.images.count %}
+        {%  for image in board.images.all %}
+        <div class="p-hero-card p-container-sm">
+            <img src="/media/{{image.img}}" class="p-hero-image"/>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="p-hero-card p-container-sm">
+            <div class="p-hero-image">{{i}}</div>
         </div>
         <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
+            <div class="p-hero-image">{{i}}</div>
         </div>
         <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
+            <div class="p-hero-image">{{i}}</div>
         </div>
         <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
+            <div class="p-hero-image">{{i}}</div>
         </div>
         <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
+            <div class="p-hero-image">{{i}}</div>
         </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
+        {% endif %}
     </div>
-
-    <div class="p-hero-row">
-        <div class="p-hero-title">
-            <span>Board 2 Title</span>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-    </div>
-
-    <div class="p-hero-row">
-        <div class="p-hero-title">
-            <span>Board 3 Title</span>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-    </div>
+    {% endfor %}
 
 </div>
 
