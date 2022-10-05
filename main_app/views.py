@@ -29,7 +29,7 @@ def about(request):
   return render(request, 'about.html')
 
      # image views
-class ImageCreate(CreateView):
+class ImageCreate(LoginRequiredMixin, CreateView):
     model = Image
     fields = ['img', 'subject', 'description', ] # All fields mentioned in models.py file
     success_url = '/images/'
@@ -37,10 +37,10 @@ class ImageCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class ImageUpdate(UpdateView):
+class ImageUpdate(LoginRequiredMixin, UpdateView):
     model = Image
     fields = ['img', 'subject', 'description', ]
-class ImageDelete(DeleteView):
+class ImageDelete(LoginRequiredMixin, DeleteView):
     model = Image
     success_url = 'images/index.html/'
 
@@ -48,6 +48,7 @@ class ImageDelete(DeleteView):
 # def image_Index(request):
    
 #     return render(request, 'images/index.html')
+@login_required
 def image_Index(request):
     images = Image.objects.filter()
     return render(request, 'images/index.html', { 'images': images})
@@ -55,6 +56,7 @@ def image_Index(request):
 
 
 
+@login_required
 def images_detail(request, image_id):
     # SELECT * FROM main_app_image WHERE id = image_id
     image = Image.objects.get(id = image_id)
@@ -62,6 +64,7 @@ def images_detail(request, image_id):
 
 
 
+@login_required
 def add_to_board(request, image_id):
     return redirect('detail', image_id = image_id)
 
@@ -108,6 +111,7 @@ def profile_viewer(request, user_id):
 
 
 # DELETE
+@login_required
 def profile_delete(request, user_id):
     if user_id != request.user.id:
         return redirect('home')
@@ -116,6 +120,7 @@ def profile_delete(request, user_id):
     return redirect('home')
 
 # Confirm Delete Page:
+@login_required
 def profile_confirm_delete(request, user_id):
     user = User.objects.get(id = user_id)
     return render(request, 'profiles/confirm_delete.html', {'user': user})
@@ -136,7 +141,7 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-class BoardCreate(CreateView):
+class BoardCreate(LoginRequiredMixin, CreateView):
     model = Board
     fields = [ 'title', 'subject' ]
 
@@ -144,31 +149,35 @@ class BoardCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class BoardUpdate(UpdateView):
+class BoardUpdate(LoginRequiredMixin, UpdateView):
     model = Board
     fields = [ 'title', 'subject']
 
 
-class BoardDelete(DeleteView):
+class BoardDelete(LoginRequiredMixin, DeleteView):
     model = Board
     success_url = '/boards/'
 
+@login_required
 def boards_index(request):
   boards = Board.objects.all()
   return render(request, 'boards/index.html', {'boards': boards})
      # board views 
 
+@login_required
 def boards_detail(request, board_id,):
     board = Board.objects.get(id = board_id)
     image= Image.objects.exclude(id__in= board.images.all().values_list('id'))
    
     return render(request, 'boards/detail.html', {'board': board, 'image': image})
 
+@login_required
 def assoc_image(request , board_id, image_id):
 
      Board.objects.get(id = board_id).images.add(image_id)
      return redirect('board_detail', board_id =board_id)
 
+@login_required
 def unassoc_image(request , board_id, image_id):
 
     
