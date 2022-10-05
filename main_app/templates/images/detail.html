@@ -9,7 +9,7 @@
 <div class="detail-img">
 <h1>{{ image.subject }}</h1>
 <h2>{{ image.description }}</h2>
-{% load static %}
-<span class="image_detail"><img class  src= {% static image.img|cut:'main_app/static/'%} /></span>
+
+ <span class="image_detail"><img class  src='/media/{{image.img}}' /></span>
 </div>
 {% endblock %}

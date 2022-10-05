@@ -1,6 +1,5 @@
 from django.urls import path
-from . import views
-
+from . import views 
 urlpatterns = [
      path('', views.home, name='home'),
      path('about/', views.about, name='about'),
@@ -31,6 +30,7 @@ urlpatterns = [
      path('users/<int:user_id>/delete', views.profile_delete, name='profile_delete'),
      path('users/<int:user_id>/confirmdelete', views.profile_confirm_delete, name='profile_confirm_delete'),
      
+     
 
     # authenitcation urls 
     # Signup:
@@ -51,6 +51,7 @@ urlpatterns = [
      path('boards/<int:pk>/delete/', views.BoardDelete.as_view(),name='board_delete'),
      path('boards/<int:board_id>/assoc_image/<int:image_id>', views.assoc_image, name='assoc_image'),
      path('boards/<int:board_id>/unassoc_image/<int:image_id>', views.unassoc_image, name="unassoc_image"),
+     path('boards/<int:board_id>/add_image/', views.add_image , name='add_image'),
 
 
 
