@@ -94,6 +94,20 @@ Getting errors when attempting to use newly merged Create Board / Create Image -
 
 Now protecting User Profile routes: index restricted to staff only, profile detail views restricted to logged in users only, additionally the edit (and when implemented, delete) views restricted to users whose ID matches the user_id being acted upon.      
 
-I'm now going to reattempt to add delete user functionality: it looks as if the issue seen before was caused by the migration issue. Now works with some tweaks to the additional user id check protection and a change from render to redirect.        
+I'm now going to reattempt to add delete user functionality: it looks as if the issue seen before was caused by the migration issue. Now works with some tweaks to the additional user id check protection and a change from render to redirect.    
+
+[rest of day 4]     
+
+## Production Stage 3, Day 05:      
+
+Issue found where newer images not rendering: this was where I had changed `MEDIA_ROOT` to set a target for profile pics, this in turn had changed where all uploaded images are saved. Image detail and image index pages were looking in `main_app/static` but images uploaded to `main_app/media` - src changed, issue resolved.     
+
+Authorization protection added to views.        
+
+Now adding 'hero board' functionality to user pages which currently look like:      
+
+[screenshot1]       
+
+
 
 
