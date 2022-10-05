@@ -4,34 +4,48 @@
 
 {% block content %}
 
-<h1>User Profile</h1>
+{% load static %}
+
+<h1>{{ user.username }}</h1>
 <!-- I've used the style attribute here in order to avoid using CSS at this stage -->
 <!-- TODO: change to CSS styling later -->
+{% if user.profile.user_profile_pic != 'no image' %}
 <img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" style="max-height: 200px; border: 2px solid black; border-radius: 8px;">
+{% else %}
+<img src="{% static 'images/project-default-profile-pic.gif' %}" alt="">
+{% endif %}
 
-<h4> Username: {{ user.username }} </h4>
-<h6> Name: {{ user.first_name }} {{ user.last_name }} </h6>
-<p> Bio: {{ user.profile.user_bio }}</p>
+{% if user.first_name and user.last_name %}
+<h6> Full name: {{ user.first_name }} {{ user.last_name }} </h6>
+{% else %}
+<h6>Click 'Edit Profile' below to add your name!</h6>
+{% endif %}
+<h6>User Bio here:</h6>
+<div id="pb-container">
+{% if user.profile.user_bio %}
+<p>{{ user.profile.user_bio }}</p>
+{% else %}
+<p>Click 'Edit Profile' below to add a bio!</p>
+{% endif %}
+</div>
 
 <br><br><hr>
+<p>PLACEHOLDER - HERO BOARDS HERE</p><br><hr><br>
 
-<!-- Script not added yet! -->
 <button class="btn" id="edit-profile-button">Edit Profile</button><hr>
 
 <div id="profile-form-container">
-    <h4>Update User Profile Form:</h4>
+    <h4>Update {{ user.username }}</h4>
 
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ user_form.as_p }}
         {{ profile_form.as_p }}
-        <br><hr>
-        <input type="submit" value="Update User" class="btn">
-    </form>
+        <br>
+        <input type="submit" value="Save Changes" class="btn">
+    </form><br>
 
-    <hr>
-    <a href="{% url 'profile_delete' user.id %}"class="btn">Delete User</a>
-    <hr>
+    <a href="{% url 'profile_confirm_delete' user.id %}"class="btn red">Delete Account</a>
 </div>
 
 <script>

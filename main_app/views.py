@@ -115,6 +115,10 @@ def profile_delete(request, user_id):
     user.delete()
     return redirect('home')
 
+# Confirm Delete Page:
+def profile_confirm_delete(request, user_id):
+    user = User.objects.get(id = user_id)
+    return render(request, 'profiles/confirm_delete.html', {'user': user})
 
     # authenitcation views
 def signup(request):

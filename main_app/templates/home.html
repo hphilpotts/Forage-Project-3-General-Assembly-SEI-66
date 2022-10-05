@@ -2,11 +2,13 @@
 
 {% block content %}
 
-<h1>Forage - Home Page</h1>
+<h1>Forage - Home Page</h1><br><br>
 
-<p>What should we put here?</p><br><br><br><br><br>
-<p>Perhaps a sample of what the board and image index pages look like?</p><br><br><br>
-<p>And perhaps big links to sign in / sign up?</p><br><br><br>
+<p>What should we put here?</p><br><br><br><br>
+<p>Perhaps a sample of what the board and image index pages look like?</p>
+<p>Or do we want an actual clickable index or mini-index to appear?</p><br><br><br>
+<a href="{% url 'login' %}" class="btn">Click here to log in</a><br><br>
+<a href="{% url 'signup' %}">Not got an account yet? Sign up today!</a><br><br>
 
 
 {% endblock %}
