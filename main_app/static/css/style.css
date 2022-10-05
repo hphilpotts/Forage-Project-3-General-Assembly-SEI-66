@@ -78,6 +78,10 @@ footer.page-footer {
 
 /* || USER PROFILE STYLES */
 
+.p-container {
+    box-shadow: 2px 5px 10px darkgray;
+}
+
 .profile-greentext {
     color: #8bc34a;
 }

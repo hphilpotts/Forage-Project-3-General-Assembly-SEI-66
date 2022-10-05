@@ -7,7 +7,7 @@
 {% load static %}
 
 <h1 class="profile-greentext">{{ user.username }} - Profile</h1>
-<div class="profile-pic-container">
+<div class="profile-pic-container p-container">
 {% if user.profile.user_profile_pic != 'no image' %}
 <img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" class="profile-pic">
 {% else %}
@@ -19,7 +19,7 @@
 {% else %}
 <h6>Click 'Edit Profile' below to add your name!</h6>
 {% endif %}
-<div id="profile-bio-container">
+<div class="p-container" id="profile-bio-container">
 {% if user.profile.user_bio %}
 <p>{{ user.profile.user_bio }}</p>
 {% else %}
