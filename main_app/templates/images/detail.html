@@ -3,13 +3,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{{ image.subject }}
+
 <!-- dazzlingly brillant code goes in here -->
 <br>
 <div class="detail-img">
-<h1>{{ image.subject }}</h1>
-<h2>{{ image.description }}</h2>
 
- <span class="image_detail"><img class  src='/media/{{image.img}}' /></span>
+    <div class="info">
+        <h1>Subject: {{ image.subject }}</h1><br>
+        <p>Description: {{ image.description }}</p>
+    </div>
+    {% load static %}
+    <span class="image_detail"><img class src='/media/{{image.img}}' /></span>
+
+
 </div>
+</div>
+<div class="photo_editdelete">
+
+<a class="btn-floating btn-large cyan pulse" href="{% url 'images_update' image.id %}" ><i class="material-icons">edit</i></a>
+</div>
+
+<!-- <div class="wrapper">
+    <div class="box box1"><img src='/media/{{image.img}}' alt="a balloon"></div>
+</div>            
+     -->
+
 {% endblock %}

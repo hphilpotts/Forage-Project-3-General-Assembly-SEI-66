@@ -13,6 +13,7 @@ from django.utils.timezone import now
 
 # image model
 class Image(models.Model):
+
     img = models.ImageField(upload_to = 'main_app/static/uploads', default="", blank= TRUE )
     subject = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
