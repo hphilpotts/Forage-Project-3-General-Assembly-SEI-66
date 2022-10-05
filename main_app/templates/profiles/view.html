@@ -25,71 +25,49 @@
 
 
 
-<!-- Hero Boards within here: -->
+<!-- Hero Boards here: -->
 <div class="p-hero-outer">
 
+    <!-- iterates over user's boards (filtered from views.py) -->
+    {% for board in boards %}
     <div class="p-hero-row">
         <div class="p-hero-title">
-            <span>Board 1 Title</span>
+            <!-- TODO remove primary key reference once testing complete -->
+            <span>{{board.title}} (primary key = {{board.pk}})</span>
         </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-    </div>
+        {% if board.images.count > 4 %}
+            <!-- If there are 5 or more images, run below-->
+            <!-- ? Could change this to select images from the board at random ? -->
+            {%  for image in board.images.all %}
+            <!-- Stop iterating over board.images once five images have populated -->
+                {% if forloop.counter < 6 %}
+                <div class="p-hero-card p-container-sm">
+                    <img src="/media/{{image.img}}" class="p-hero-image"/>
+                </div>
+                {% endif %}
+            {% endfor %}
 
-    <div class="p-hero-row">
-        <div class="p-hero-title">
-            <span>Board 2 Title</span>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
+        {% else %}
+            <!-- ? Possibly change this so no board row loads above at all if no of images < 5 ? -->
+            <!-- If the board has fewer than 5 images, loads blank -->
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+        {% endif %}
     </div>
-
-    <div class="p-hero-row">
-        <div class="p-hero-title">
-            <span>Board 3 Title</span>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-        <div class="p-hero-card p-container-sm">
-            <div class="p-hero-image"></div>
-        </div>
-    </div>
+    {% endfor %}
 
 </div>
 

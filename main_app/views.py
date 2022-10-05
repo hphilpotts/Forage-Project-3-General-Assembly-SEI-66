@@ -72,7 +72,7 @@ def add_to_board(request, image_id):
 
 # READ (Index):
 # ! Important
-# TODO: revert to @staff_memeber_required before deployment?
+# TODO: revert to @staff_memeber_required before deployment
 # @staff_member_required # protected route: staff only
 @login_required
 def profile_index(request):
@@ -111,7 +111,8 @@ def profile_detail(request, user_id):
 @login_required
 def profile_viewer(request, user_id):
     user = User.objects.get(id = user_id)
-    return render(request, 'profiles/view.html', {'user': user})
+    boards = Board.objects.filter(user = user.id)
+    return render(request, 'profiles/view.html', {'user': user, 'boards': boards})
 
 
 # DELETE
