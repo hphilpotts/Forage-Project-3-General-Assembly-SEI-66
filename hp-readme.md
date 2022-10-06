@@ -108,8 +108,18 @@ Made minor formatting changes to base.html and confirmdelete.
 
 Now adding 'hero board' functionality to user pages which currently look like:      
 
-[screenshot1]       
+[screenshot1]      
 
+[rest of day 5]     
 
+## Production Stage 4, Day 06:      
+
+`UserSignupForm` added to `forms.py`, this inherits from the built-in `UserCreateForm` but also includes a `required=True` email field (needed for reset pw).       
+
+After a morning of trial and error attempting email password reset, I am instead going to try in-site password changes (will not work for forgotten passwords!). Got this up and running fairly easily : I elected to use the built-in `PasswordChangeForm` within the `base.html` template (rather than - for example - using the Django CBV for this action).     
+
+All forms checked as having {% csrf_token %}.       
+
+I am now going to add user feedback for events using `messages`. Turns out that Bootstrap and Materialize do not get on together!       
 
 
