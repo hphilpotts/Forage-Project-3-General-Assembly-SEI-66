@@ -6,11 +6,13 @@
 
 <h1 class="profile-greentext">{{ user.username }}'s Profile</h1>
 <div class="profile-pic-container p-container">
-{% if user.profile.user_profile_pic != 'no image' %}
-<img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" class="profile-pic">
-{% else %}
-<img src="{% static 'images/project-default-profile-pic.gif' %}" alt="" class="profile-pic">
-{% endif %}
+    <div>
+        {% if user.profile.user_profile_pic != 'no image' %}
+        <img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" class="profile-pic">
+        {% else %}
+        <img src="{% static 'images/project-default-profile-pic.gif' %}" alt="" class="profile-pic">
+        {% endif %}
+    </div>
 </div>
 {% if user.first_name and user.last_name %}
 <h5 class="profile-greentext">{{ user.first_name }} {{ user.last_name }} </h5>
@@ -34,7 +36,7 @@
     <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row">
         <div class="p-hero-title">
             <!-- TODO remove primary key reference once testing complete -->
-            <span>{{board.title}} (primary key = {{board.pk}})</span>
+            <span>{{board.title}}</span>
         </div>
         {% if board.images.count > 4 %}
             <!-- If there are 5 or more images, run below-->

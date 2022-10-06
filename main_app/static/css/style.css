@@ -162,7 +162,7 @@ footer.page-footer {
 
 .profile-pic-container {
     padding: 10px;
-    background-color: white;
+    background-color: rgb(250, 250, 250);
 
     width: 60%;
     margin-left: auto;
@@ -188,8 +188,9 @@ footer.page-footer {
     padding: 1em;
     border: none;
     border-radius: 10px;
-    background-color: white;
+    background-color: rgb(250, 250, 250);
     font-style: italic;
+    font-size: 14pt;
 }
 
 .profile-form {
@@ -215,7 +216,7 @@ footer.page-footer {
     margin: 20px;
     padding: 20px;
 
-    background-color: white;
+    background-color: rgb(250, 250, 250);
 }
 
 /* -- Hero Boards w/i User Profile Page: */
@@ -231,7 +232,7 @@ footer.page-footer {
 .p-hero-row {
     display: flex;
     flex-direction: row;
-    background-color: white;
+    background-color: rgb(250, 250, 250);
     min-height: 20%;
     width: 100%;
     flex-direction: row;
