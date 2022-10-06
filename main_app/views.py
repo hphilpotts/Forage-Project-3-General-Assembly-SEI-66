@@ -25,6 +25,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Define the home view:
 def home(request):
+    # messages.info(request, 'This is a test message, please ignore.') # TODO: remove before deployment
     return render(request, 'home.html')
 
 # Define about view:

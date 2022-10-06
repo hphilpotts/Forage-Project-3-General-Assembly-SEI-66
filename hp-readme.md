@@ -120,6 +120,6 @@ After a morning of trial and error attempting email password reset, I am instead
 
 All forms checked as having {% csrf_token %}.       
 
-I am now going to add user feedback for events using `messages`. 
+I am now going to add user feedback for events using `messages`. Turns out that Bootstrap and Materialize do not get on together!       
 
 
