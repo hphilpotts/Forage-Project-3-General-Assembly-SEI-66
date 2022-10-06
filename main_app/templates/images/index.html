@@ -8,14 +8,12 @@
 <hr>
 
     {% for image in images %}
-    <div class="container">
+   
     <a href="{% url 'images_detail' image.id %}">
 
         {% load static %}
         <img id="pic" src='/media/{{image.img}}' />
-        
-            <img src="{% static '/images/top.png' %}" alt="" class="image" style="width:100%">
-        </div>
+    
     </a>
 
     {% endfor %}
