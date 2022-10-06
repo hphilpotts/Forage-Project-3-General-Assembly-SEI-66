@@ -1,22 +1,13 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
-<h1> Image</h1>
-
-
-
-{% for image in images %}
-
-<a href="{% url 'images_detail' image.id %}">
-
-    {% load static %}
-    <span class='box box1'><img  id="pic" width="150px" height="250px" src='/media/{{image.img}}'/></span>
-</a>
-
-
-
-{% endfor %}
-
-
+<span class="title">
+    <h1> Image</h1>
+</span>
+<hr>
+    {% for image in images %}
+    <a href="{% url 'images_detail' image.id %}">
+        {% load static %}
+        <img id="pic" src='/media/{{image.img}}' />
+    </a>
+    {% endfor %}
 {% endblock %}

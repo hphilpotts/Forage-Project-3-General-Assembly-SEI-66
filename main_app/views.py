@@ -42,6 +42,7 @@ class ImageCreate(LoginRequiredMixin, CreateView):
 class ImageUpdate(LoginRequiredMixin, UpdateView):
     model = Image
     fields = ['img', 'subject', 'description', ]
+    success_url = '/images/'
 
 class ImageDelete(LoginRequiredMixin, DeleteView):
     model = Image
