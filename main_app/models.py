@@ -17,7 +17,7 @@ class Image(models.Model):
     img = models.ImageField(upload_to = 'main_app/static/uploads', default="", blank= TRUE )
     subject = models.CharField(max_length=25)
     description = models.CharField(max_length=250)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     # created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

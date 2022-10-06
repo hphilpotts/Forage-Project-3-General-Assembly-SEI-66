@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<aside>
-<!-- board / board user information  -->
+<section id="boardpage">
+
+  
+
 <div id="board-information">
+<!-- board / board user information  -->
+<div >
    
     <h1>{{board.title }}</h1>
     <p> {{board.subject }}</p>
@@ -13,24 +17,56 @@
         <a href="{% url 'board_delete' board.id %}">Delete</a>
      {% endif %}
     
-</div>  
+</div> 
 
-<!-- Add Images  -->
+  <!-- Add New Image -->
+<div>
+    <h5><a id='pin-images'class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons"> +</i></a> &nbsp; Upload Image</h5>
+    <div class="boardform-overlay">
+        <div id="board-add-image">
+            <form  id='boardform' method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                {{ image_form.as_table }}
+                </table>
+                <input type="submit" value="Add Image" class="btn">
+            <button id= "cancel" class="btn" >cancel</button>
+            </form>
+        </div>
+    </div>
+<div>
 
-<h5><a id='pin-images'class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">+</i></a> &nbsp; Add New Image</h5>
-<div class="boardform-overlay">
-    <div id="board-add-image">
-        <form  method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            <table>
-            {{ image_form.as_table }}
-            </table>
-            <input type="submit" value="Add Image" class="btn">
-        <button id= "cancel" class="btn" >cancel</button>
-        </form>
-     </div>
+ <!-- Images Available to Add  -->
+   {% if board.user == request.user %}
+   <button class="open">Available Images</button>
+       <div class="popup-overlay"> 
+               <div class="popup-content"> 
+                    <div class='board-container'>
+                       {% if image.count %}
+       
+                       {% for image in image.all %}
+                       <div class='available-section'>
+                    
+                         <img class="img" id="board-images-add" height='250px' width='250px'src='/media/{{image.img}}'/>
+                        
+                       <div class="unassoc-image">
+                               <form action="{% url 'assoc_image' board.id image.id %}" method="post">
+                                   {% csrf_token %}
+                                   <button id= "add-image" type="submit" >+</button>
+                               </form>
+   
+                       </div>
+   
+                    </div>
+                       {% endfor %}
+                       {% endif %}
+                       
+                   </div>
+                   <button class="close">Close</button>
+                </div>
+       </div> 
+    {% endif %} 
 </div>
-</aside>
 
 <!-- board images  -->
 
@@ -44,7 +80,7 @@
         <img class="img" id="board-images" src='/media/{{image.img}}'/>
         
             
-        <div id="unassoc-image">
+        <div class="unassoc-image">
             <form action="{% url 'unassoc_image' board.id image.id %}" method="post">
                  {% csrf_token %}
                 {% if board.user == request.user %}
@@ -60,37 +96,10 @@
             
  </div>
 
- <!-- Images Available to Add  -->
- {% if board.user == request.user %}
-    <button class="open">Available Images</button>
-    <div class="popup-overlay">
-        <div class="popup-content">
-                <div class='grid-container'>
-                    {% if image.count %}
-    
-                    {% for image in image.all %}
-                    <div id='grid-section'>
-                        
-                            <img src='/media/{{image.img}}'/>
-                        
+<div>
+ 
 
-                        <div id="'assoc-image">
-                            <form action="{% url 'assoc_image' board.id image.id %}" method="post">
-                                {% csrf_token %}
-                                <button id= "" type="submit" class="btn-floating btn-large waves-effect waves-light"> <i class="material-icons">+</i> </button>
-                            </form>
-
-                        </div>
-
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                    <button class="close">Close</button>
-                </div>
-        </div>
-    </div>
- {% endif %} 
-
+</section>
 
 
 
@@ -117,7 +126,7 @@ console.log('clicked')
 $("#board-add-image, .boardform-overlay").removeClass('active');
 });
 
-$('main').attr('id', 'boarddetail');
+$('main').attr('class', 'boarddetail');
 
 </script>
 
