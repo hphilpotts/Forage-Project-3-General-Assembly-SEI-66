@@ -116,6 +116,8 @@ Now adding 'hero board' functionality to user pages which currently look like:
 
 `UserSignupForm` added to `forms.py`, this inherits from the built-in `UserCreateForm` but also includes a `required=True` email field (needed for reset pw).       
 
+After a morning of trial and error attempting email password reset, I am instead going to try in-site password changes (will not work for forgotten passwords!).        
+
 
 
 

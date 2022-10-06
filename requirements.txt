@@ -1,6 +1,0 @@
-# This is a list of required Python3 Libraries for this project:   
-    # * run `pip3 install <library>` for Mac
-    # * run `pip install <library>` for Windows 
-django
-pillow
-six
