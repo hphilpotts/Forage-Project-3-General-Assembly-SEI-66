@@ -96,7 +96,9 @@
             <input type="submit" value="Save Changes" class="btn">
         </form><br>
 
-        <button class="btn blue" id="hide-form-button">Go back</button><br><br>
+        <button class="btn blue" id="hide-form-button">Go back</button><br><br><hr><br>
+        <a href="{% url 'change_password' %}">Change My Password</a><br><br>
+        <hr>
         <a href="{% url 'profile_confirm_delete' user.id %}"class="btn red">Delete Account</a>
     </div>
 </div>
