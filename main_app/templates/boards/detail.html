@@ -3,7 +3,9 @@
 {% block content %}
 <section id="boardpage">
 
-<aside id="board-information">
+  
+
+<div id="board-information">
 <!-- board / board user information  -->
 <div >
    
@@ -17,55 +19,54 @@
     
 </div> 
 
-
-<!-- Add Images  -->
-
-<h5><a id='pin-images'class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">+</i></a> &nbsp; Add New Image</h5>
-<div class="boardform-overlay">
-    <div id="board-add-image">
-        <form  id='boardform' method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
-            {% csrf_token %}
-            <table>
-            {{ image_form.as_table }}
-            </table>
-            <input type="submit" value="Add Image" class="btn">
-        <button id= "cancel" class="btn" >cancel</button>
-        </form>
-     </div>
-</div>
+  <!-- Add New Image -->
+<div>
+    <h5><a id='pin-images'class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons"> +</i></a> &nbsp; Upload Image</h5>
+    <div class="boardform-overlay">
+        <div id="board-add-image">
+            <form  id='boardform' method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                {{ image_form.as_table }}
+                </table>
+                <input type="submit" value="Add Image" class="btn">
+            <button id= "cancel" class="btn" >cancel</button>
+            </form>
+        </div>
+    </div>
+<div>
 
  <!-- Images Available to Add  -->
- {% if board.user == request.user %}
-    <button class="open">Available Images</button>
-    <div class="popup-overlay"> 
-        <div class="popup-content"> 
-                <div class='board-container'>
-                    {% if image.count %}
-    
-                    {% for image in image.all %}
-                    <div class='available-section'>
-                        
-                            <img class="img" id="board-images-add" height='250px' width='250px'src='/media/{{image.img}}'/>
-                        
-
-                        <div class="unassoc-image">
-                            <form action="{% url 'assoc_image' board.id image.id %}" method="post">
-                                {% csrf_token %}
-                                <button id= "" type="submit" class="btn-floating btn-large waves-effect waves-light"> <i class="material-icons">+</i> </button>
-                            </form>
-
-                        </div>
-
+   {% if board.user == request.user %}
+   <button class="open">Available Images</button>
+       <div class="popup-overlay"> 
+               <div class="popup-content"> 
+                    <div class='board-container'>
+                       {% if image.count %}
+       
+                       {% for image in image.all %}
+                       <div class='available-section'>
+                       <a href="{% url 'images_detail' image.id %}" >
+                           <img class="img" id="board-images-add" height='250px' width='250px'src='/media/{{image.img}}'/>
+                        </a> 
+                       <div class="unassoc-image">
+                               <form action="{% url 'assoc_image' board.id image.id %}" method="post">
+                                   {% csrf_token %}
+                                   <button id= "" type="submit" class="btn-floating btn-large waves-effect waves-light"> <i class="material-icons">+</i> </button>
+                               </form>
+   
+                       </div>
+   
                     </div>
-                    {% endfor %}
-                    {% endif %}
-                    
+                       {% endfor %}
+                       {% endif %}
+                       
+                   </div>
+                   <button class="close">Close</button>
                 </div>
-            <button class="close">Close</button>
-         </div>
-    </div> 
- {% endif %} 
-</aside>
+       </div> 
+    {% endif %} 
+</div>
 
 <!-- board images  -->
 
@@ -95,8 +96,12 @@
             
  </div>
 
+<div>
+ 
 
 </section>
+
+
 
  
 <!--JS CODE -->

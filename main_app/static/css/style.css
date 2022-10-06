@@ -36,31 +36,29 @@ footer.page-footer {
     left: 23px
 }
 
+.boarddetail {
+    max-width:75%;
+    margin: auto;
+}
  .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: left;
     padding: 10px 10px;
-    margin: 0px;
-    background-size: contain;
-    border: 1px black solid;
+    margin: 25%;
     z-index: 1;
  }
 
 .grid-section {
     position: relative;
-    border: 1px black solid;
     z-index: 1;
 }
 
 /* the div that wrap around all the images  */
 .board-container {
-    /* width: 100vw; */
     columns: 4;
     column-gap: 2px;
-    margin-left: 20%;
-    border: solid black 1px;
-    overflow: scroll;
+   
 }
 
 /* holds each image  */
@@ -91,11 +89,15 @@ footer.page-footer {
 
 .board-container .board-section  #board-images {
     width: 100%; 
-    padding: 5px;
+    padding:5px;
     border-radius: 5%;
 
 }
 
+#board-images-add{
+    margin: 10px;
+    border-radius: 5%;
+}
 
 /* maka sure when the image is hoverd over the button to unassociate image diplays  */
 #board-images:hover + .unassoc-image {
@@ -122,7 +124,7 @@ footer.page-footer {
 
 
 #boardpage{
-   margin: 25px;
+   margin: 0 auto;
 }
 
 #board-information{
@@ -137,14 +139,13 @@ footer.page-footer {
     visibility:hidden;
 }
 .popup-overlay.active{
-    position: absolute;
+    position:relative;
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: left;
     padding: 10px 10px;
     margin: 0px;
     background-size: contain;
-    border: 1px black solid;
     z-index: 1;
  }   
 
@@ -163,15 +164,16 @@ footer.page-footer {
 
  .boardform-overlay.active{
     display: block;
-    width: 40%;
+    width: 50%;
     color: black;
     background-color: rgb(237, 229, 229);
     position: absolute;
     margin: 0 auto;
-    top: 40;
+    top: 45%;
+    left: 5%;
+    right: 5%;
     border-radius: 15px;
-     z-index: 1;
-     object-fit: contain;
+    z-index: 1;
  }  
 
  #board-add-image.active {
@@ -181,6 +183,12 @@ footer.page-footer {
     background-color: white;
  }
 
+
+.image-options{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+ }
 
 #remove-image {
     border-radius: 30%;
