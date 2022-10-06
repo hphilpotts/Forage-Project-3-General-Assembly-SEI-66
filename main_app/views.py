@@ -25,8 +25,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Define the home view:
 def home(request):
-
-  return render(request, 'home.html')
+    return render(request, 'home.html')
 
 # Define about view:
 def about(request):
