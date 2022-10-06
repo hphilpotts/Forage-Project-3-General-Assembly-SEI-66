@@ -37,7 +37,7 @@ footer.page-footer {
 }
 
 .boarddetail {
-    max-width:75%;
+    width:50%;
     margin: auto;
 }
  .grid-container {
@@ -125,6 +125,7 @@ footer.page-footer {
 
 #boardpage{
    margin: 0 auto;
+
 }
 
 #board-information{
@@ -197,6 +198,17 @@ footer.page-footer {
     width: 40px;
     height: 40px;
     margin: 0px;
+    text-align: center;
+    color: white;
+}
+
+#add-image {
+    border-radius: 30%;
+    border-color: teal;
+    background-color: teal;
+    width: 35px;
+    height: 35px;
+    margin: 2px;
     text-align: center;
     color: white;
 }

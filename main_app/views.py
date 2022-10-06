@@ -195,6 +195,7 @@ def add_image(request, board_id):
     if form.is_valid():
         print(' image form valid')
         new_image = form.save(commit =False)
+        form.instance.user = request.user
         new_image.save()
     return add_image_board( board_id = board_id, image_id=new_image.id)
 

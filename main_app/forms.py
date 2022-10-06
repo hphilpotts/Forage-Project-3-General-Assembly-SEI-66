@@ -31,6 +31,6 @@ class ImageForm(ModelForm):
 
     class Meta:
         model = Image
-        fields = '__all__'
+        fields = ['img', 'subject', 'description', ]
 
 

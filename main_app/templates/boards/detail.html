@@ -46,13 +46,13 @@
        
                        {% for image in image.all %}
                        <div class='available-section'>
-                       <a href="{% url 'images_detail' image.id %}" >
-                           <img class="img" id="board-images-add" height='250px' width='250px'src='/media/{{image.img}}'/>
-                        </a> 
+                    
+                         <img class="img" id="board-images-add" height='250px' width='250px'src='/media/{{image.img}}'/>
+                        
                        <div class="unassoc-image">
                                <form action="{% url 'assoc_image' board.id image.id %}" method="post">
                                    {% csrf_token %}
-                                   <button id= "" type="submit" class="btn-floating btn-large waves-effect waves-light"> <i class="material-icons">+</i> </button>
+                                   <button id= "add-image" type="submit" >+</button>
                                </form>
    
                        </div>
