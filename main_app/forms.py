@@ -25,8 +25,7 @@ class UpdateProfileForm(ModelForm):
 
 
 class ImageForm(ModelForm):
-
-    # img = forms.ImageField()
+    img = forms.ImageField()
     # subject = forms.CharField(max_length=25)
     # description = forms.CharField(max_length=250)
 

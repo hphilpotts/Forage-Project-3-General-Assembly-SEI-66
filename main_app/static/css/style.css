@@ -1,7 +1,7 @@
 /* || GLOBAL STYLES */
 
 * {
-    text-align: center;
+     text-align: center; 
 
 }
 
@@ -36,34 +36,135 @@ footer.page-footer {
     left: 23px
 }
 
-.grid-container {
+/* .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto auto   ;
-    grid-template-rows: auto auto auto auto  ;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: left;
     padding: 10px 10px;
     margin: 0px;
     background-size: contain;
+    border: 1px black solid;
+} */
+
+
+/* the div that wrap around all the images  */
+.board-container {
+    /* width: 100vw; */
+    columns: 4;
+    column-gap: 2px;
+    margin:0;
 }
+
+/* holds each image  */
+ .board-section {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    border-radius: 5%;
+    
+}  
+
+/* The button for unassociating an image  */
+#unassoc-image {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  } 
+
+
+.board-container .board-section  #board-images {
+    width: 100%; 
+    padding: 5px;
+    border-radius: 5%;
+
+}
+
+
+
+
+/* maka sure when the image is hoverd over the button to unassociate image diplays  */
+ #board-images:hover + #unassoc-image {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }  
+
+/* make sure the button stays when you hoover over that section  */
+#unassoc-image:hover {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px; 
+}
+
+
 .popup-overlay {
-   visibility:hidden;
+   display:none;
  }
     
 .popup-content {
     visibility:hidden;
 }
 .popup-overlay.active{
-     visibility:visible;
+    display:block;
+    width: 50%;
+    color: black;
+    background-color: #8bc34ab0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+    border-radius: 15px;
  }   
 
 .popup-content.active {
         visibility:visible;
  }
 
-#boarddetail {
-    margin: 0;
-}
+ #board-add-image {
+    display: none;
+ }
 
+
+ .boardform-overlay{
+    display: none;
+ }
+
+ .boardform-overlay.active{
+    display: block;
+    width: 50%;
+    color: black;
+    background-color: rgb(237, 229, 229);
+    position: absolute;
+    margin: 0 auto;
+    top: 30%;
+    left: 25%;
+    border-radius: 15px;
+    z-index: 1;
+ }  
+
+ #board-add-image.active {
+    margin: 20px;
+    padding: 20px;
+    display: block;
+    background-color: white;
+ }
+
+
+#remove-image {
+    border-radius: 30%;
+    border-color: crimson;
+    background-color: crimson;
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    text-align: center;
+    color: white;
+}
 
 
 #pic {
