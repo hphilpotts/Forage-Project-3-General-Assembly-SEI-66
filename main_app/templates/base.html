@@ -53,9 +53,16 @@
 
     <img src="{% static '/images/top.png' %}" alt="" class="top">
 
+
+    <!-- Messages here -->
+    {% include 'main_app/includes/messages.html' %}
+
     <main class="container">
+
         {% block content %}
+        <!-- Templates drop into here -->
         {% endblock %}
+
     </main>
     <footer class="page-footer light-green">
         <div class="left"> <span class="butback"><button class='button' onclick="myFunction()">Dark Mode</button> </span></div>
