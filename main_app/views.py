@@ -1,29 +1,32 @@
 from http.client import HTTPResponse
-import profile
+from multiprocessing import context
 from django.shortcuts import render, redirect
 
+# User messages, emails to user:
+from django.contrib import messages
+from django.core.mail import send_mail, BadHeaderError # * can be used as 'contact us' form, if required
 
 from .models import Image, Board
-from .forms import ImageForm, UpdateProfileForm, UpdateUserForm
+from .forms import ImageForm, UpdateProfileForm, UpdateUserForm, UserSignupForm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import PasswordChangeForm
 
 from main_app.models import Board, User, Profile
 
 # Authorization imports:
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.admin.views.decorators import staff_member_required # ! required before deployment
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 # Define the home view:
 def home(request):
-
-  return render(request, 'home.html')
+    # messages.info(request, 'This is a test message, please ignore.') # TODO: remove before deployment
+    return render(request, 'home.html')
 
 # Define about view:
 def about(request):
@@ -140,18 +143,33 @@ def profile_confirm_delete(request, user_id):
 def signup(request):
     error_message = ""
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = UserSignupForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, "Sign up successful! Add more details in your User Profile page.")
             return redirect('profile_detail', user_id = user.id) # change this once index or profile is added
         else:
-            error_message = "Invalid signup - Please try again later"
-    form = UserCreationForm()
+            error_message = 'Invalid signup - Please try again later'
+            messages.error(request, error_message)
+    form = UserSignupForm()
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
 
-# Reset password:
+# Change password:
+def change_password(request):
+    error_message = ""
+    if request.method == "POST":
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Password change probably successful?")
+            return redirect('profile_detail', user_id = request.user.id)
+        else:
+            messages.error(request, "Nope.")
+    form = PasswordChangeForm(user=request.user)
+    context = {'form': form, 'error_message': error_message }
+    return render(request, 'passwords/change_password.html', context)
 
 
 # --------------------
@@ -188,6 +206,7 @@ def boards_detail(request, board_id,):
    
     return render(request, 'boards/detail.html', {'board': board, 'image': image , 'image_form': image_form})
 
+@login_required
 def add_image(request, board_id):
     print('add image fire')
     print(request.POST)
@@ -196,6 +215,7 @@ def add_image(request, board_id):
     if form.is_valid():
         print(' image form valid')
         new_image = form.save(commit =False)
+        form.instance.user = request.user
         new_image.save()
     return add_image_board( board_id = board_id, image_id=new_image.id)
 
@@ -203,6 +223,7 @@ def add_image(request, board_id):
     #  print('no image fired')
     #  return None
 
+@login_required
 def add_image_board(board_id , image_id):
     Board.objects.get(id = board_id).images.add(image_id)
     return redirect('board_detail', board_id =board_id)

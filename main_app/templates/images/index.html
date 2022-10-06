@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
 <span class="title">
@@ -7,16 +6,15 @@
 </span>
 <hr>
 
+
+
+
     {% for image in images %}
-   
     <a href="{% url 'images_detail' image.id %}">
-
         {% load static %}
+        <span class="hover">
         <img id="pic" src='/media/{{image.img}}' />
-    
+        </span>
     </a>
-
     {% endfor %}
-
-
 {% endblock %}

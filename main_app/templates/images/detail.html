@@ -1,36 +1,25 @@
 <!-- Template  -->
-
 {% extends 'base.html' %}
-
 {% block content %}
-
 <!-- dazzlingly brillant code goes in here -->
 <br>
 <div class="detail-img">
 
-    <div class="info">
-        <div class="info1">
-            <h2>Subject: {{ image.subject }}</h2>
-            <p>Description: {{ image.description }}</p>
-        </div>
-        {% load static %}
-        <div class="image_detail">
-            <img class="image_full" src='/media/{{image.img}}' />
-        </div>
-
+  <div class="info">
+    <div class="info1">
+      <h2>Subject: {{ image.subject }}</h2>
+      <p>Description: {{ image.description }}</p>
+      <p> Uploaded By: {{image.user}}</p>
     </div>
-
-
-
-    <div class="photo_editdelete">
-
-        <a class="btn-floating btn-large cyan pulse" href="{% url 'images_update' image.id %}"><i
-                class="material-icons">edit</i></a>
+    {% load static %}
+    <div class="image_detail">
+      <img class="image_full" src='/media/{{image.img}}' />
     </div>
+  </div>
+  <div class="photo_editdelete">
+    <a class="btn-floating btn-large cyan pulse" href="{% url 'images_update' image.id %}"><i
+        class="material-icons">edit</i></a>
+  </div>
 </div>
-<!-- <div class="wrapper">
-    <div class="box box1"><img src='/media/{{image.img}}' alt="a balloon"></div>
-</div>            
-     -->
 
 {% endblock %}
