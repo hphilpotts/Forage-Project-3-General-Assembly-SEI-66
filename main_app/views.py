@@ -1,7 +1,9 @@
 from http.client import HTTPResponse
-import profile
 from django.shortcuts import render, redirect
 
+# User messages, emails to user:
+from django.contrib import messages
+from django.core.mail import send_mail, BadHeaderError # * can be used as 'contact us' form, if required
 
 from .models import Image, Board
 from .forms import ImageForm, UpdateProfileForm, UpdateUserForm, UserSignupForm
@@ -9,13 +11,13 @@ from .forms import ImageForm, UpdateProfileForm, UpdateUserForm, UserSignupForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm # ? still needed ?
 
 from main_app.models import Board, User, Profile
 
 # Authorization imports:
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.admin.views.decorators import staff_member_required # ! required before deployment
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
@@ -137,15 +139,16 @@ def profile_confirm_delete(request, user_id):
 
 # Signup:
 def signup(request):
-    error_message = ""
+    error_message = "Invalid signup - Please try again later"
     if request.method == "POST":
         form = UserSignupForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, "Sign up successful! Add more details in your User Profile page.")
             return redirect('profile_detail', user_id = user.id) # change this once index or profile is added
         else:
-            error_message = "Invalid signup - Please try again later"
+            messages.error(request, error_message)
     form = UserSignupForm()
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)

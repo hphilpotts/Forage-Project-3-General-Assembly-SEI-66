@@ -54,8 +54,20 @@
         </nav>
     </header>
     <main class="container">
+
+        <!-- User messages: -->
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
         {% block content %}
+        <!-- Templates drop into here -->
         {% endblock %}
+
     </main>
     <footer class="page-footer light-green">
         <div class="left"> <span class="butback"><button class='button' onclick="myFunction()">Dark Mode</button> </span></div>
