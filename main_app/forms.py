@@ -1,7 +1,23 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from .models import Profile , Image
+
+# Sign up form - extends UserCreationForm to also include email at signup:
+class UserSignupForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
+
+    def save(self, commit=True):
+        user = super(UserSignupForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user
 
 # Edit User form - currently working: renders and saves.
 class UpdateUserForm(forms.ModelForm):

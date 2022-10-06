@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 
 from .models import Image, Board
-from .forms import ImageForm, UpdateProfileForm, UpdateUserForm
+from .forms import ImageForm, UpdateProfileForm, UpdateUserForm, UserSignupForm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
@@ -139,14 +139,14 @@ def profile_confirm_delete(request, user_id):
 def signup(request):
     error_message = ""
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = UserSignupForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('profile_detail', user_id = user.id) # change this once index or profile is added
         else:
             error_message = "Invalid signup - Please try again later"
-    form = UserCreationForm()
+    form = UserSignupForm()
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
 

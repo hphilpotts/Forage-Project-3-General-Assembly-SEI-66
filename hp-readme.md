@@ -108,7 +108,13 @@ Made minor formatting changes to base.html and confirmdelete.
 
 Now adding 'hero board' functionality to user pages which currently look like:      
 
-[screenshot1]       
+[screenshot1]      
+
+[rest of day 5]     
+
+## Production Stage 4, Day 06:      
+
+`UserSignupForm` added to `forms.py`, this inherits from the built-in `UserCreateForm` but also includes a `required=True` email field (needed for reset pw).       
 
 
 
