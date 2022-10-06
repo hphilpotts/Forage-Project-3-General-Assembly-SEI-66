@@ -9,11 +9,13 @@
 <!-- User Profile: READ (Detail) -->
 <h1 class="profile-greentext">{{ user.username }} - Profile</h1>
 <div class="profile-pic-container p-container">
-    {% if user.profile.user_profile_pic != 'no image' %}
-    <img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" class="profile-pic">
-    {% else %}
-    <img src="{% static 'images/project-default-profile-pic.gif' %}" alt="" class="profile-pic">
-    {% endif %}
+    <div class="profile-pic-border">
+        {% if user.profile.user_profile_pic != 'no image' %}
+        <img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" class="profile-pic p-container-sm">
+        {% else %}
+        <img src="{% static 'images/project-default-profile-pic.gif' %}" alt="" class="profile-pic p-container-sm">
+        {% endif %}
+    </div>
 </div>
 
 {% if user.first_name and user.last_name %}
@@ -41,10 +43,10 @@
     {% for board in boards %}
     {% if forloop.counter < 5 %}
     <!-- boards are clickable links -->
-    <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row">
+    <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row p-container">
         <div class="p-hero-title">
             <!-- TODO remove primary key reference once testing complete -->
-            <span class="p-hero-title-text">{{board.title}} (primary key = {{board.pk}})</span>
+            <span class="p-hero-title-text">{{board.title}}</span>
         </div>
         {% if board.images.count > 4 %}
             <!-- If there are 5 or more images, run below-->

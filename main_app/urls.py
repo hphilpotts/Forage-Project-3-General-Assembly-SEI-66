@@ -34,7 +34,7 @@ urlpatterns = [
 
     # authenitcation urls 
     # Signup:
-     path('accounts/signup/', views.signup, name='signup'),
+     path('accounts/signup/', views.signup, name='signup'),      
 
 
 
