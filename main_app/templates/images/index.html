@@ -2,21 +2,23 @@
 
 {% block content %}
 
-<h1> Image</h1>
+<span class="title">
+    <h1> Image</h1>
+</span>
+<hr>
 
+    {% for image in images %}
+    <div class="container">
+    <a href="{% url 'images_detail' image.id %}">
 
+        {% load static %}
+        <img id="pic" src='/media/{{image.img}}' />
+        
+            <img src="{% static '/images/top.png' %}" alt="" class="image" style="width:100%">
+        </div>
+    </a>
 
-{% for image in images %}
-
-<a href="{% url 'images_detail' image.id %}">
-
-    {% load static %}
-   <img  id="pic"  src='/media/{{image.img}}'/>
-</a>
-
-
-
-{% endfor %}
+    {% endfor %}
 
 
 {% endblock %}
