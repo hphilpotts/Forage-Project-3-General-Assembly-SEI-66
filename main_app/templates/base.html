@@ -36,9 +36,6 @@
                     
                     <li><a href="{% url 'images_create'%}">Add Image</a></li>
                     <li><a href="{% url 'image_Index' %}">View Images</a></li>
-
-
-                    <li><a href="{% url 'board_index' %}">All Boards</a></li>
                     <li><a href="{% url 'board_create'%}">Create Board</a></li>
 
                     <!--* appending `request` before user.id fixed the changing username bug!  -->
@@ -53,6 +50,9 @@
             </div>
         </nav>
     </header>
+
+    <img src="{% static '/images/top.png' %}" alt="" class="top">
+
 
     <!-- Messages here -->
     {% include 'main_app/includes/messages.html' %}

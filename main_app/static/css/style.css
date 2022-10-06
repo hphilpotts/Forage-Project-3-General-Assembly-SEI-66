@@ -36,23 +36,29 @@ footer.page-footer {
     left: 23px
 }
 
-/* .grid-container {
+.boarddetail {
+    width:50%;
+    margin: auto;
+}
+ .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: auto auto auto;
     justify-content: left;
     padding: 10px 10px;
-    margin: 0px;
-    background-size: contain;
-    border: 1px black solid;
-} */
+    margin: 25%;
+    z-index: 1;
+ }
 
+.grid-section {
+    position: relative;
+    z-index: 1;
+}
 
 /* the div that wrap around all the images  */
 .board-container {
-    /* width: 100vw; */
     columns: 4;
     column-gap: 2px;
-    margin:0;
+   
 }
 
 /* holds each image  */
@@ -64,8 +70,16 @@ footer.page-footer {
     
 }  
 
+.available-section {
+    width: 100%;
+    position: relative;
+    border-radius: 5%;
+    
+    
+}  
+
 /* The button for unassociating an image  */
-#unassoc-image {
+.unassoc-image {
     display: none;
     position: absolute;
     top: 6px;
@@ -75,16 +89,25 @@ footer.page-footer {
 
 .board-container .board-section  #board-images {
     width: 100%; 
-    padding: 5px;
+    padding:5px;
     border-radius: 5%;
 
 }
 
-
-
+#board-images-add{
+    margin: 10px;
+    border-radius: 5%;
+}
 
 /* maka sure when the image is hoverd over the button to unassociate image diplays  */
- #board-images:hover + #unassoc-image {
+#board-images:hover + .unassoc-image {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }  
+
+ #board-images-add:hover + .unassoc-image {
     display: block;
     position: absolute;
     top: 6px;
@@ -92,7 +115,7 @@ footer.page-footer {
   }  
 
 /* make sure the button stays when you hoover over that section  */
-#unassoc-image:hover {
+.unassoc-image:hover {
     display: block;
     position: absolute;
     top: 6px;
@@ -100,6 +123,15 @@ footer.page-footer {
 }
 
 
+#boardpage{
+   margin: 0 auto;
+
+}
+
+#board-information{
+    float: left;
+    border: solid black 1;
+}
 .popup-overlay {
    display:none;
  }
@@ -108,17 +140,14 @@ footer.page-footer {
     visibility:hidden;
 }
 .popup-overlay.active{
-    display:block;
-    width: 50%;
-    color: black;
-    background-color: #8bc34ab0;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    top: 10%;
-    border-radius: 15px;
+    position:relative;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: left;
+    padding: 10px 10px;
+    margin: 0px;
+    background-size: contain;
+    z-index: 1;
  }   
 
 .popup-content.active {
@@ -141,8 +170,9 @@ footer.page-footer {
     background-color: rgb(237, 229, 229);
     position: absolute;
     margin: 0 auto;
-    top: 30%;
-    left: 25%;
+    top: 45%;
+    left: 5%;
+    right: 5%;
     border-radius: 15px;
     z-index: 1;
  }  
@@ -155,6 +185,12 @@ footer.page-footer {
  }
 
 
+.image-options{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+ }
+
 #remove-image {
     border-radius: 30%;
     border-color: crimson;
@@ -162,6 +198,17 @@ footer.page-footer {
     width: 40px;
     height: 40px;
     margin: 0px;
+    text-align: center;
+    color: white;
+}
+
+#add-image {
+    border-radius: 30%;
+    border-color: teal;
+    background-color: teal;
+    width: 35px;
+    height: 35px;
+    margin: 2px;
     text-align: center;
     color: white;
 }
@@ -366,4 +413,63 @@ footer.page-footer {
     width: 100%;
     color: black;
 }
+
+.top {
+    background-size: contain;
+    width: 100%;
+}
+
+.detail-img {
+    background-color: #9FDA5A;
+    padding: 30px;
+    position:relative;
+    top: 60px;
+    border-radius: 40px;
+    color: white;
+    height: 600px;
+    width: 100%;
+   }
+  .image_detail {
+    position: absolute;
+    width: 38%;
+    right: 25%;
+    object-fit: cover;
+   }
+   .photo_editdelete {
+    position:absolute;
+    right: 40px;
+    bottom:40px;
+  }
+  .info {
+    display:flex ;
+    align-items: center;
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 95%;
+    height: 90%;
+    color:#8bc34a;
+    border-radius: 20px;
+    padding: 25px;
+    background-size: auto;
+  }
+  .image_full{
+    border-radius: 20px;
+  }
+  .info1{
+    position:absolute;
+    float:left;
+    width: 40%;
+  }
+
+ #pic {
+    padding: 1px;
+    background-size: cover;
+    height: 370px;
+    width: 250px;
+    padding: 20px;
+    border-radius: 40px;
+}
+#pic:hover {
+    filter: brightness(80%);
+  }
 
