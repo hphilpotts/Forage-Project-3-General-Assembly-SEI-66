@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1> All Boards </h1>
+
+{% for board in boards %}
+
+<div class = "card">
+    <div class="card-content" >
+        <a href= "{% url 'board_detail' board.id %}">
+        <span class="card-title">{{ board.title}}</span> </a>
+        <p>Subject:{{board.subject}} </p>
+        <p>Created On: {{board.date}} </p>
+        <p>By: {{board.user}} </p>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

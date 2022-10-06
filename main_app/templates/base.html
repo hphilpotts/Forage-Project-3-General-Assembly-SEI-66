@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'Forage' - Project 3: Django-SQL</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper light-green">
+                
+                <ul>
+                    <li>&nbsp;</li>
+                    <li><a href="/" class="left brand-logo">Forage</a></li>
+                    
+
+                </ul>
+                
+                <ul class="right">
+                    
+                    <li><a href="/about">About</a></li>
+                   
+                    {% if user.is_authenticated %}
+                    
+
+                    
+                    <li><a href="{% url 'images_create'%}">Add Image</a></li>
+                    <li><a href="{% url 'image_Index' %}">View Images</a></li>
+
+
+                    <li><a href="{% url 'board_index' %}">All Boards</a></li>
+                    <li><a href="{% url 'board_create'%}">Create Board</a></li>
+
+                    <!--* appending `request` before user.id fixed the changing username bug!  -->
+                    <li><a href="{% url 'profile_detail' request.user.id %}">Hi, {{ request.user.username }}</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'signup' %}">Signup</a></li>
+                    <li><a href="{% url 'login' %}">Sign In</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="page-footer light-green">
+        <div class="left"> <span class="butback"><button class='button' onclick="myFunction()">Dark Mode</button> </span></div>
+        <div class="right">
+            All Rights Reserved, &copy; 2022 Forage
+        </div>
+    </footer>
+</body>
+</html>
+<script>
+    function myFunction() {
+       var element = document.body;
+       element.classList.toggle("dark-mode");
+    }
+</script>
+    
+    
+

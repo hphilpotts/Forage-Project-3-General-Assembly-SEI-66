@@ -1,0 +1,123 @@
+<!-- Template  -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- User Profile: READ (Detail) -->
+<h1 class="profile-greentext">{{ user.username }} - Profile</h1>
+<div class="profile-pic-container p-container">
+    <div class="profile-pic-border">
+        {% if user.profile.user_profile_pic != 'no image' %}
+        <img src="/media/{{user.profile.user_profile_pic}}" alt="profile pic property: {{user.profile.user_profile_pic}}" class="profile-pic p-container-sm">
+        {% else %}
+        <img src="{% static 'images/project-default-profile-pic.gif' %}" alt="" class="profile-pic p-container-sm">
+        {% endif %}
+    </div>
+</div>
+
+{% if user.first_name and user.last_name %}
+<h6 class="profile-greentext">{{ user.first_name }} {{ user.last_name }}</h6>
+{% else %}
+<h6>Click 'Edit Profile' below to add your name!</h6>
+{% endif %}
+<div class="p-container" id="profile-bio-container">
+    {% if user.profile.user_bio %}
+    <p>{{ user.profile.user_bio }}</p>
+    {% else %}
+    <p>Click 'Edit Profile' below to add a bio!</p>
+    {% endif %}
+</div>
+
+<br><button class="btn" id="edit-profile-button">Edit My Profile</button><br><br>
+
+
+
+
+<!-- Hero Boards here: -->
+<div class="p-hero-outer">
+
+    <!-- iterates over user's boards (filtered from views.py) a max of four times -->
+    {% for board in boards %}
+    {% if forloop.counter < 5 %}
+    <!-- boards are clickable links -->
+    <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row p-container">
+        <div class="p-hero-title">
+            <!-- TODO remove primary key reference once testing complete -->
+            <span class="p-hero-title-text">{{board.title}}</span>
+        </div>
+        {% if board.images.count > 4 %}
+            <!-- If there are 5 or more images, run below-->
+            <!-- ? Could change this to select images from the board at random ? -->
+            {%  for image in board.images.all %}
+            <!-- Stop iterating over board.images once five images have populated -->
+                {% if forloop.counter < 6 %}
+                <!--* adding anchor tags here changes positioning...?  -->
+                <div class="p-hero-card p-container-sm">
+                    <img src="/media/{{image.img}}" class="p-hero-image"/>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+        {% else %}
+            <!-- ? Possibly change this so no board row loads above at all if no of images < 5 ? -->
+            <!-- If the board has fewer than 5 images, loads blank -->
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+            <div class="p-hero-card p-container-sm">
+                <div class="p-hero-image"></div>
+            </div>
+        {% endif %}
+    </div></a>
+    {% endif %}
+    {% endfor %}
+
+</div>
+
+<!-- User Profile: UPDATE - Edit My Profile Form: -->
+<!-- Loads with display='none' and shows/hides on button click (see <button> above). -->
+<!-- Script for this is within tags at bottom of file. -->
+<div class="profile-form" id="profile-form-container">
+    <div class="profile-form" id="profile-form-inner">
+        <h4>Update {{ user.username }}</h4>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <br>
+            <input type="submit" value="Save Changes" class="btn">
+        </form><br>
+
+        <a href="{% url 'profile_confirm_delete' user.id %}"class="btn red">Delete Account</a>
+    </div>
+</div>
+
+<script>
+    // Show/hide form on button click:
+    const profileForm = document.getElementById('profile-form-container');
+    profileForm.style.display = 'none';
+    const profileFormButton = document.getElementById('edit-profile-button');
+    profileFormButton.onclick = function() {
+        console.log('click')
+        if (profileForm.style.display != 'none') {
+            profileForm.style.display = 'none'
+        } else {
+            profileForm.style.display = 'block'
+        }
+    };
+</script>
+
+{% endblock %}

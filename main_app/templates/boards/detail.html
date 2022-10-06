@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<aside>
+<!-- board / board user information  -->
+<div id="board-information">
+   
+    <h1>{{board.title }}</h1>
+    <p> {{board.subject }}</p>
+    <p>Created by <a href="{% url 'profile_viewer' user.id %}"> {{board.user}} </a> on {{board.date}} </p>
+    {% if board.user == request.user %}
+        <a href="{% url 'board_update' board.id %}">Edit</a>
+        <a href="{% url 'board_delete' board.id %}">Delete</a>
+     {% endif %}
+    
+</div>  
+
+<!-- Add Images  -->
+
+<h5><a id='pin-images'class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">+</i></a> &nbsp; Add New Image</h5>
+<div class="boardform-overlay">
+    <div id="board-add-image">
+        <form  method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+            {{ image_form.as_table }}
+            </table>
+            <input type="submit" value="Add Image" class="btn">
+        <button id= "cancel" class="btn" >cancel</button>
+        </form>
+     </div>
+</div>
+</aside>
+
+<!-- board images  -->
+
+ <div class='board-container'>
+
+        {% if board.images.count %}
+        {% for image in board.images.all %}
+    
+     <div class='board-section'>
+
+        <img class="img" id="board-images" src='/media/{{image.img}}'/>
+        
+            
+        <div id="unassoc-image">
+            <form action="{% url 'unassoc_image' board.id image.id %}" method="post">
+                 {% csrf_token %}
+                {% if board.user == request.user %}
+                <button id= "remove-image" type="submit" >X</button>
+            </form>
+                {% endif %}
+        </div>
+    </div>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+            
+ </div>
+
+ <!-- Images Available to Add  -->
+ {% if board.user == request.user %}
+    <button class="open">Available Images</button>
+    <div class="popup-overlay">
+        <div class="popup-content">
+                <div class='grid-container'>
+                    {% if image.count %}
+    
+                    {% for image in image.all %}
+                    <div id='grid-section'>
+                        
+                            <img src='/media/{{image.img}}'/>
+                        
+
+                        <div id="'assoc-image">
+                            <form action="{% url 'assoc_image' board.id image.id %}" method="post">
+                                {% csrf_token %}
+                                <button id= "" type="submit" class="btn-floating btn-large waves-effect waves-light"> <i class="material-icons">+</i> </button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    <button class="close">Close</button>
+                </div>
+        </div>
+    </div>
+ {% endif %} 
+
+
+
+
+ 
+<!--JS CODE -->
+
+<script>
+$('.open').on("click", function() {
+$(".popup-overlay, .popup-content").addClass('active');
+});
+
+//removes the "active" class to .popup and .popup-content when the "Close" button is clicked 
+$(".close, .popup-overlay").on("click", function() {
+$(".popup-overlay, .popup-content").removeClass('active');
+});
+
+$('#pin-images').on("click", function() {
+console.log('clicked')
+$("#board-add-image, .boardform-overlay ").addClass('active');
+});
+
+$('#cancel').on("click", function() {
+console.log('clicked')
+$("#board-add-image, .boardform-overlay").removeClass('active');
+});
+
+$('main').attr('id', 'boarddetail');
+
+</script>
+
+{% endblock %}

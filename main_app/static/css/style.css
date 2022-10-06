@@ -1,0 +1,369 @@
+/* || GLOBAL STYLES */
+
+* {
+     text-align: center; 
+
+}
+
+body {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer.page-footer {
+    padding-top: 0px;
+    text-align: right;
+}
+
+.btn {
+    background-color: #8bc34a;
+}
+
+/* ---------- */
+
+.img:hover {
+    filter: brightness(80%);
+    background-size: cover;
+  }
+
+.brand-logo{
+    left: 23px
+}
+
+/* .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: left;
+    padding: 10px 10px;
+    margin: 0px;
+    background-size: contain;
+    border: 1px black solid;
+} */
+
+
+/* the div that wrap around all the images  */
+.board-container {
+    /* width: 100vw; */
+    columns: 4;
+    column-gap: 2px;
+    margin:0;
+}
+
+/* holds each image  */
+ .board-section {
+    width: 100%;
+    position: relative;
+    margin: auto;
+    border-radius: 5%;
+    
+}  
+
+/* The button for unassociating an image  */
+#unassoc-image {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  } 
+
+
+.board-container .board-section  #board-images {
+    width: 100%; 
+    padding: 5px;
+    border-radius: 5%;
+
+}
+
+
+
+
+/* maka sure when the image is hoverd over the button to unassociate image diplays  */
+ #board-images:hover + #unassoc-image {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+  }  
+
+/* make sure the button stays when you hoover over that section  */
+#unassoc-image:hover {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 6px; 
+}
+
+
+.popup-overlay {
+   display:none;
+ }
+    
+.popup-content {
+    visibility:hidden;
+}
+.popup-overlay.active{
+    display:block;
+    width: 50%;
+    color: black;
+    background-color: #8bc34ab0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+    border-radius: 15px;
+ }   
+
+.popup-content.active {
+        visibility:visible;
+ }
+
+ #board-add-image {
+    display: none;
+ }
+
+
+ .boardform-overlay{
+    display: none;
+ }
+
+ .boardform-overlay.active{
+    display: block;
+    width: 50%;
+    color: black;
+    background-color: rgb(237, 229, 229);
+    position: absolute;
+    margin: 0 auto;
+    top: 30%;
+    left: 25%;
+    border-radius: 15px;
+    z-index: 1;
+ }  
+
+ #board-add-image.active {
+    margin: 20px;
+    padding: 20px;
+    display: block;
+    background-color: white;
+ }
+
+
+#remove-image {
+    border-radius: 30%;
+    border-color: crimson;
+    background-color: crimson;
+    width: 40px;
+    height: 40px;
+    margin: 0px;
+    text-align: center;
+    color: white;
+}
+
+
+#pic {
+    padding: 1px;
+   
+    background-size: cover;
+    height: 170px;
+    width: 250px;
+
+}
+
+body {
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+.dark-mode {
+    background-color: rgb(68, 68, 68);
+    color: white;
+  }
+
+  .button {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+  
+    border: none;
+  }
+
+.detail-img {
+    
+    display: flex;
+    width: 80%;
+    height:400px;
+    margin: auto;
+    width: 50%;
+    top: 30px;
+
+    align-items: center;
+
+  }
+ .image_detail {
+    display: flex;
+    
+    height: 300px;
+    width: 200px;
+    object-fit: cover;
+    float: right;
+    padding-left: 140px; 
+    object-fit: cover;
+
+ }
+ .info {
+    float: left;
+   
+}
+footer.page-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+   
+}
+.photo_editdelete{
+    float: right;
+    
+}
+
+.delete{
+    padding: 40px;
+}
+
+
+
+.box img {
+    width: 320px;
+    height: 200px;
+}
+
+
+/* || USER PROFILE STYLES */
+
+/* -- Profile READ and UPDATE: */
+
+.p-container {
+    box-shadow: 2px 5px 5px darkgray;
+}
+
+.p-container-sm {
+    box-shadow: 2px 4px 10px darkgray;
+}
+
+.profile-greentext {
+    color: #8bc34a;
+}
+
+.profile-pic-container {
+    padding: 10px;
+    background-color: rgb(250, 250, 250);
+
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    
+    border: none;
+    border-radius: 15px;
+}
+
+.profile-pic {
+    max-height: 200px;
+    max-width: 200px;
+    border: none;
+    border-radius: 15px;
+}
+
+#profile-bio-container {
+    width: auto;
+    min-height: 4em;
+    margin: 0% 20%;
+    padding: 1em;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(250, 250, 250);
+    font-style: italic;
+    font-size: 14pt;
+}
+
+.profile-form {
+    border: 0px none;
+    border-radius: 10px;
+}
+
+#profile-form-container {
+    width: 50%;
+    color: black;
+    background-color: #8bc34ab0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+    border-radius: 15px;
+
+}
+
+#profile-form-inner {
+    margin: 20px;
+    padding: 20px;
+
+    background-color: rgb(250, 250, 250);
+}
+
+/* -- Hero Boards w/i User Profile Page: */
+
+.p-hero-outer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 20vh;
+    min-width: 900px;
+}
+
+.p-hero-row {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(250, 250, 250);
+    min-height: 20%;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: none;
+    border-radius: 15px;
+    margin: 0.5% 0%;
+}
+
+.p-hero-card {
+    display: flex;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 1%;
+    padding: 1%;
+    width: 18%;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-hero-image {
+    background-color: darkgrey;
+    height: 160px;
+    width: 140px;
+}
+
+.p-hero-title {
+    width: 100%;
+    color: black;
+}
+

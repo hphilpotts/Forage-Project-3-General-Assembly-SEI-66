@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br><h1>Forage - About Page</h1><br><br>
+    <p>About text: something along the lines of... </p>
+    <p>
+        Forage is an image-forward 'mood board' app, where users can build and add to their Boards by adding images. The images the user adds to their Boards can either be 'foraged' from other users' images, or they can be images that the user has uploaded themselves.
+    </p><br><br>
+    <p>This web app was built by <a href="https://git.generalassemb.ly/hvb">hvb</a>, <a href="https://git.generalassemb.ly/ic188002">ic188002</a> and <a href="https://git.generalassemb.ly/hphilpotts">hphilpotts</a> using Django framework and postgreSQL, as part of a team project completed during General Assembly London's SEI-66 Online course.</p><br>
+    <p><a href="https://git.generalassemb.ly/hvb/project03">Link to GitHub Repo</a></p><br><br><br>
+    <p>And maybe some illustrative images?</p><br><br>
+    <a href="{% url 'home' %}" class="btn">Back to Home</a><br><br>
+
+
+{% endblock %}
