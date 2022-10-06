@@ -217,14 +217,14 @@ def add_image(request, board_id):
         new_image = form.save(commit =False)
         form.instance.user = request.user
         new_image.save()
-    return add_image_board(request board_id = board_id, image_id=new_image.id)
+    return add_image_board(request, board_id = board_id, image_id=new_image.id)
 
     # else:
     #  print('no image fired')
     #  return None
 
 @login_required
-def add_image_board(request board_id , image_id):
+def add_image_board(request, board_id , image_id):
     Board.objects.get(id = board_id).images.add(image_id)
     return redirect('board_detail', board_id =board_id)
 
