@@ -134,7 +134,9 @@ def profile_confirm_delete(request, user_id):
     user = User.objects.get(id = user_id)
     return render(request, 'profiles/confirm_delete.html', {'user': user})
 
-    # authenitcation views
+# -- Authentication views:
+
+# Signup:
 def signup(request):
     error_message = ""
     if request.method == "POST":
@@ -148,6 +150,11 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message }
     return render(request, 'registration/signup.html', context)
+
+# Reset password:
+
+
+# --------------------
 
 
 class BoardCreate(LoginRequiredMixin, CreateView):
