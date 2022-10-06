@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'project03.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME':os.getenv('DATABASENAME'),
-        'USER': os.getenv('DATABASEUSER'),
-        'PASSWORD':os.getenv('DATABASEPASSWORD')
+        'NAME':"",
+        'USER': "",
+        'PASSWORD': ""
     }
 }
 
@@ -139,3 +139,6 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())
