@@ -463,3 +463,43 @@ footer.page-footer {
   .container:hover .middle {
     opacity: 1;
   }
+
+  .form {
+    position:absolute;
+    right: 30px;
+    top: 160px;
+    background-color: white;
+    padding:20px;
+    border-radius: 40px;
+    max-width: 70%;
+}
+.bob {
+    background-color: rgb(140, 217, 95);
+    width: 100px;
+    color: #ffffff;
+}
+.boxed {
+  
+    background-color: #9fda5a;
+    padding: 30px;
+    position:relative;
+    top: 130px;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    height: 600px;
+}
+.delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 13px;
+    width: 100px;
+    height: 37px;
+    position:absolute;
+    bottom: 22px;
+    padding: 25px;
+
+}
