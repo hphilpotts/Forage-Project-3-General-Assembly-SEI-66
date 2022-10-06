@@ -33,25 +33,21 @@
 
 <br><button class="btn" id="edit-profile-button">Edit My Profile</button><br><br>
 
-
-
-
 <!-- Hero Boards here: -->
 <div class="p-hero-outer">
 
-    <!-- iterates over user's boards (filtered from views.py) a max of four times -->
+    <!-- * removed limit on number of boards rendered -->
+    <!-- TODO: reinstate this `if forloop.counter < n` etc., with boards 5+ hidden behind button? -->
     {% for board in boards %}
-    {% if forloop.counter < 5 %}
     <!-- boards are clickable links -->
     <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row p-container">
         <div class="p-hero-title">
-            <!-- TODO remove primary key reference once testing complete -->
             <span class="p-hero-title-text">{{board.title}}</span>
         </div>
         {% if board.images.count > 4 %}
             <!-- If there are 5 or more images, run below-->
             <!-- ? Could change this to select images from the board at random ? -->
-            {%  for image in board.images.all %}
+            {% for image in board.images.all %}
             <!-- Stop iterating over board.images once five images have populated -->
                 {% if forloop.counter < 6 %}
                 <!--* adding anchor tags here changes positioning...?  -->
@@ -81,7 +77,6 @@
             </div>
         {% endif %}
     </div></a>
-    {% endif %}
     {% endfor %}
 
 </div>
@@ -89,7 +84,7 @@
 <!-- User Profile: UPDATE - Edit My Profile Form: -->
 <!-- Loads with display='none' and shows/hides on button click (see <button> above). -->
 <!-- Script for this is within tags at bottom of file. -->
-<div class="profile-form" id="profile-form-container">
+<div class="profile-form" id="profile-form-container" style="font-size: 16pt;">
     <div class="profile-form" id="profile-form-inner">
         <h4>Update {{ user.username }}</h4>
 
@@ -101,23 +96,24 @@
             <input type="submit" value="Save Changes" class="btn">
         </form><br>
 
+        <button class="btn blue" id="hide-form-button">Go back</button><br><br>
         <a href="{% url 'profile_confirm_delete' user.id %}"class="btn red">Delete Account</a>
     </div>
 </div>
 
 <script>
-    // Show/hide form on button click:
+    // Show form on button click:
     const profileForm = document.getElementById('profile-form-container');
     profileForm.style.display = 'none';
     const profileFormButton = document.getElementById('edit-profile-button');
     profileFormButton.onclick = function() {
-        console.log('click')
-        if (profileForm.style.display != 'none') {
-            profileForm.style.display = 'none'
-        } else {
-            profileForm.style.display = 'block'
-        }
+        profileForm.style.display = 'block';
     };
+    // Hide form on button click
+    const hideFormButton = document.getElementById('hide-form-button');
+    hideFormButton.onclick = function() {
+        profileForm.style.display = 'none'
+    }
 </script>
 
 {% endblock %}

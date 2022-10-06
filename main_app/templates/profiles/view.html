@@ -30,12 +30,11 @@
 <!-- Hero Boards here: -->
 <div class="p-hero-outer">
 
-    <!-- iterates over user's boards (filtered from views.py) a max of 4 times -->
+    <!-- * removed limit on number of boards rendered -->
+    <!-- TODO: reinstate this `if forloop.counter < n` etc., with boards 5+ hidden behind button? -->
     {% for board in boards %}
-    {% if forloop.counter < 5 %}
     <a href="{% url 'board_detail' board.id %}"><div class="p-hero-row">
         <div class="p-hero-title">
-            <!-- TODO remove primary key reference once testing complete -->
             <span>{{board.title}}</span>
         </div>
         {% if board.images.count > 4 %}
@@ -70,10 +69,7 @@
             </div>
         {% endif %}
     </div></a>
-    {% endif %}
     {% endfor %}
-
-    <!-- TODO - add 'show all user's boards functionality -->
 
 </div>
 
