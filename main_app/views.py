@@ -1,23 +1,20 @@
-from http.client import HTTPResponse
-from multiprocessing import context
 from django.shortcuts import render, redirect
 
 # User messages, emails to user:
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.core.mail import send_mail, BadHeaderError # * can be used as 'contact us' form, if required
 
 from .models import Image, Board
 from .forms import ImageForm, UpdateProfileForm, UpdateUserForm, UserSignupForm
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.http import HttpResponseRedirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import PasswordChangeForm
 
-from main_app.models import Board, User, Profile
+from main_app.models import Board, User
 
 # Authorization imports:
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required # ! required before deployment
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -25,7 +22,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Define the home view:
 def home(request):
-    # messages.info(request, 'This is a test message, please ignore.') # TODO: remove before deployment
+    messages.info(request, 'Welcome to the Forage App Homepage!') # TODO: remove before deployment
     return render(request, 'home.html')
 
 # Define about view:
@@ -33,23 +30,27 @@ def about(request):
   return render(request, 'about.html')
 
      # image views
-class ImageCreate(LoginRequiredMixin, CreateView):
+class ImageCreate(LoginRequiredMixin, SuccessMessageMixin,CreateView):
     model = Image
     fields = ['img', 'subject', 'description', ] # All fields mentioned in models.py file
     success_url = '/images/'
+    success_message = 'Image created successfully!'
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
      
 
-class ImageUpdate(LoginRequiredMixin, UpdateView):
+class ImageUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Image
     fields = ['img', 'subject', 'description', ]
     success_url = '/images/'
+    success_message = 'Imagee updated successfully!'
 
-class ImageDelete(LoginRequiredMixin, DeleteView):
+class ImageDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Image
     success_url = '/images/'
+    success_message = 'Image deletec successfully!'
+
 
 
 # def image_Index(request):
@@ -78,10 +79,7 @@ def add_to_board(request, image_id):
 # User Profile views:
 
 # READ (Index):
-# ! Important
-# TODO: revert to @staff_memeber_required before deployment
-# @staff_member_required # protected route: staff only
-@login_required
+@staff_member_required # protected route: staff only
 def profile_index(request):
     users = User.objects.all()
     return render(request, 'profiles/index.html', {'users': users})
@@ -104,7 +102,10 @@ def profile_detail(request, user_id):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, "User updated successfully.")
             return redirect('profile_detail', user_id = user_id)
+        else:
+            messages.error(request, "User has not been updated, please try again.")
 
     else:
         user_form = UpdateUserForm(instance=request.user)
@@ -129,12 +130,14 @@ def profile_delete(request, user_id):
         return redirect('home')
     user = User.objects.get(id = user_id)
     user.delete()
+    messages.warning(request, "User has been deleted.")
     return redirect('home')
 
 # Confirm Delete Page:
 @login_required
 def profile_confirm_delete(request, user_id):
     user = User.objects.get(id = user_id)
+    messages.warning(request, "Deleting user...are you sure?")
     return render(request, 'profiles/confirm_delete.html', {'user': user})
 
 # -- Authentication views:
@@ -163,34 +166,41 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user, data=request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Password change probably successful?")
+            messages.success(request,"Password change (probably) successful!")
             return redirect('profile_detail', user_id = request.user.id)
         else:
-            messages.error(request, "Nope.")
+            messages.error(request, "Error in changing password.")
     form = PasswordChangeForm(user=request.user)
     context = {'form': form, 'error_message': error_message }
     return render(request, 'passwords/change_password.html', context)
 
 
+
 # --------------------
 
 
-class BoardCreate(LoginRequiredMixin, CreateView):
+class BoardCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Board
     fields = [ 'title', 'subject' ]
+    success_message = 'Board created successfully!'
+
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class BoardUpdate(LoginRequiredMixin, UpdateView):
+class BoardUpdate(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Board
     fields = [ 'title', 'subject']
+    success_message = 'Board updated successfully!'
 
 
-class BoardDelete(LoginRequiredMixin, DeleteView):
+
+class BoardDelete(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Board
     success_url = '/boards/'
+    success_message = 'Board deleted successfully!'
+
 
 @login_required
 def boards_index(request):
@@ -217,14 +227,16 @@ def add_image(request, board_id):
         new_image = form.save(commit =False)
         form.instance.user = request.user
         new_image.save()
-    return add_image_board( board_id = board_id, image_id=new_image.id)
+        messages.success(request, "Image uploaded!")
+
+    return add_image_board(request, board_id = board_id, image_id=new_image.id)
 
     # else:
     #  print('no image fired')
     #  return None
 
 @login_required
-def add_image_board(board_id , image_id):
+def add_image_board(request, board_id , image_id):
     Board.objects.get(id = board_id).images.add(image_id)
     return redirect('board_detail', board_id =board_id)
 
@@ -233,6 +245,8 @@ def add_image_board(board_id , image_id):
 def assoc_image(request , board_id, image_id):
 
      Board.objects.get(id = board_id).images.add(image_id)
+     messages.success(request, "Image has been added!")
+
      return redirect('board_detail', board_id =board_id)
 
 @login_required
@@ -240,6 +254,8 @@ def unassoc_image(request , board_id, image_id):
 
     
     Board.objects.get(id = board_id).images.remove(image_id)
+    messages.warning(request, "Image removed!")
+
     return redirect('board_detail', board_id = board_id)
 
 
