@@ -5,12 +5,7 @@
 
 }
 
-body {
-    background-color: rgb(240, 240, 240);
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
+
 
 main {
     flex: 1 0 auto;
@@ -27,10 +22,6 @@ footer.page-footer {
 
 /* ---------- */
 
-.img:hover {
-    filter: brightness(80%);
-    background-size: cover;
-  }
 
 .brand-logo{
     left: 23px
@@ -246,14 +237,6 @@ footer.page-footer {
 }  
 
 
-#pic {
-    padding: 1px;
-   
-    background-size: cover;
-    height: 170px;
-    width: 250px;
-
-}
 
 body {
     background-color: white;
@@ -296,10 +279,7 @@ body {
     object-fit: cover;
 
  }
- .info {
-    float: left;
-   
-}
+
 footer.page-footer {
     position: fixed;
     left: 0;
@@ -307,13 +287,19 @@ footer.page-footer {
     width: 100%;
    
 }
-.photo_editdelete{
-    float: right;
-    
-}
-
 .delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 40px;
+    background-color: white;
+    border-radius: 13px;
+    width: 100px;
+    height: 37px;
+    position:absolute;
+    bottom: 22px;
+    padding: 25px;
+
 }
 
 
@@ -446,6 +432,44 @@ footer.page-footer {
     color: black;
 }
 
+
+.boxed {
+  
+    background-color: #9fda5a;
+    padding: 30px;
+    position:relative;
+    top: 130px;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    height: 600px;
+}
+.bob {
+    background-color: rgb(140, 217, 95);
+    width: 100px;
+    color: #ffffff;
+}
+.top {
+    
+    background-size: contain;
+    width: 100%;
+}
+.form {
+    position:absolute;
+    right: 30px;
+    top: 160px;
+    background-color: white;
+    padding:20px;
+    border-radius: 40px;
+    max-width: 70%;
+}
+
+
+
+
+.detail-img {
+    background-color: #9fda5a;
+}
 .top {
     background-size: contain;
     width: 100%;
@@ -453,6 +477,7 @@ footer.page-footer {
 
 .detail-img {
     background-color: #9FDA5A;
+
     padding: 30px;
     position:relative;
     top: 60px;
@@ -460,6 +485,34 @@ footer.page-footer {
     color: white;
     height: 600px;
     width: 100%;
+
+  }
+.image_detail {
+    position: absolute;
+
+    width: 38%;
+    right: 25%;
+    object-fit: cover;
+  
+ }
+
+
+
+
+ .photo_editdelete {
+   position:absolute;
+   right: 40px;
+   bottom:40px;
+
+ 
+}
+.info {
+    display:flex ;
+    align-items: center;
+    
+    position: absolute;
+    background-color: #ffffff;
+
    }
   .image_detail {
     position: absolute;
@@ -477,13 +530,81 @@ footer.page-footer {
     align-items: center;
     position: absolute;
     background-color: #FFFFFF;
+
     width: 95%;
     height: 90%;
     color:#8bc34a;
     border-radius: 20px;
     padding: 25px;
     background-size: auto;
+
+}
+.image_full{
+    border-radius: 20px;
+}
+.title {
+    color: rgb(80, 154, 110);
+}
+.info1{
+    position:absolute;
+    float:left;
+    width: 40%;
+
+}
+.container:hover .image {
+    opacity: 0.3;
   }
+
+
+
+
+
+
+
+
+
+
+
+  .form {
+    position:absolute;
+    right: 30px;
+    top: 160px;
+    background-color: white;
+    padding:20px;
+    border-radius: 40px;
+    max-width: 70%;
+}
+.bob {
+    background-color: rgb(140, 217, 95);
+    width: 100px;
+    color: #ffffff;
+}
+.boxed {
+  
+    background-color: #9fda5a;
+    padding: 30px;
+    position:relative;
+    top: 130px;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    height: 600px;
+}
+.delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 13px;
+    width: 100px;
+    height: 37px;
+    position:absolute;
+    bottom: 22px;
+    padding: 25px;
+
+}
+
   .image_full{
     border-radius: 20px;
   }
@@ -505,3 +626,29 @@ footer.page-footer {
     filter: brightness(80%);
   }
 
+.logo {
+    position:absolute;
+    width: 4%;
+    top: 0px;
+    left: 9%;
+}
+.hover {
+    background-image: none;
+}
+.hover:hover {
+    background-image: url(" https://ibb.co/8gYvB8S");
+    z-index: 1;
+}
+.logoform {
+    position:absolute;
+    width: 2%;
+    top: 0px;
+    left: 7%;
+}
+
+.logoformupload {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+}
