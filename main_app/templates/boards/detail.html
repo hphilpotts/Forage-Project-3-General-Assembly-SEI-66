@@ -5,23 +5,24 @@
 
   
 
-<div id="board-information">
+
 <!-- board / board user information  -->
-<div >
-   
+<div id="boardname">
     <h1>{{board.title }}</h1>
-    <p> {{board.subject }}</p>
     <p>Created by <a href="{% url 'profile_viewer' user.id %}"> {{board.user}} </a> on {{board.date}} </p>
-    {% if board.user == request.user %}
-        <a href="{% url 'board_update' board.id %}">Edit</a>
-        <a href="{% url 'board_delete' board.id %}">Delete</a>
-     {% endif %}
-    
 </div> 
 
+<div class="board-information">
+    {% if board.user == request.user %}
+    <a style="color:white ;" href="{% url 'board_update' board.id %}"> <button class="boarduser-functions" style="background-color:rgb(198, 194, 195)">Edit</button></a>
+    <a style="color:white ;"  href="{% url 'board_delete' board.id %}"><button class="boarduser-functions" style="background-color:rgb(238, 17, 61)">  Delete</button></a>
+     {% endif %}
+
+
+
   <!-- Add New Image -->
-<div>
-    <h5><a id='pin-images'class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons"> +</i></a> &nbsp; Upload Image</h5>
+  {% if board.user == request.user %}
+    <button class="boarduser-functions" id='pin-images' style="background-color: #8bc34ab0;" >Upload Image</button>
     <div class="boardform-overlay">
         <div id="board-add-image">
             <form  id='boardform' method="post" action="{% url 'add_image' board.id %}" enctype="multipart/form-data">
@@ -34,11 +35,12 @@
             </form>
         </div>
     </div>
-<div>
+
+
 
  <!-- Images Available to Add  -->
-   {% if board.user == request.user %}
-   <button class="open">Available Images</button>
+  
+   <button class="open  boarduser-functions" style="background-color:rgb(14, 182, 182);">Available Images</button>
        <div class="popup-overlay"> 
                <div class="popup-content"> 
                     <div class='board-container'>
@@ -69,13 +71,12 @@
 </div>
 
 <!-- board images  -->
-
- <div class='board-container'>
+<div class='board-container' id="board-display">
 
         {% if board.images.count %}
         {% for image in board.images.all %}
     
-     <div class='board-section'>
+    <div class='board-section'>
 
         <img class="img" id="board-images" src='/media/{{image.img}}'/>
         
@@ -90,14 +91,14 @@
         </div>
     </div>
         {% endfor %}
+        {% else%}
+       <!-- need to consider the message here -->
+        <!-- <p id="empty-board">Create your Mood</p> -->
+        
         {% endif %}
 
-    </div>
-            
  </div>
 
-<div>
- 
 
 </section>
 

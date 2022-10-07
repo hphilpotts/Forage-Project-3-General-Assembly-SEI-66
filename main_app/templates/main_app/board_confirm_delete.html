@@ -2,16 +2,19 @@
     
 {% block content %}
 
+<div class="profile-form" id="profile-form-container" style="font-size: 16pt;">
+ <div class="profile-form" id="profile-form-inner">
 <h1>Delete Board</h1>
 
 <h4>Are you sure you want to delete <span class="teal-text"> {{object.title}}</span>
 </h4>
 
-<form action="" method="post" enctype="multipart/form-data">
+<form class="board-form"  action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <input type="submit" value="Delete" class="'btn">
     <a href="{% url 'board_detail' board.id %}">Cancel</a>
 
 </form>
-
+</div>
+</div>
 {% endblock %}

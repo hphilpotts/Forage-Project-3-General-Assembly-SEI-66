@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-1u1_i9laxs1gx-h6mk2(d^if^s9le&_5e-j9ic4emdbihk=)#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'project03.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME':os.getenv('DATABASENAME'),
-        'USER': os.getenv('DATABASEUSER'),
-        'PASSWORD':os.getenv('DATABASEPASSWORD')
+        'NAME':"",
+        'USER': "",
+        'PASSWORD': ""
     }
 }
 
@@ -139,3 +139,6 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())

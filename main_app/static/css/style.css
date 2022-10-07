@@ -37,8 +37,19 @@ footer.page-footer {
 }
 
 .boarddetail {
-    width:50%;
+    width:80%;
     margin: auto;
+}
+
+#boardname{
+    margin-top: 100px;
+    color: #8bc34a;
+   
+}
+
+#board-display{
+    margin-top: 10px;
+    width: 95%;
 }
  .grid-container {
     display: grid;
@@ -56,8 +67,16 @@ footer.page-footer {
 
 /* the div that wrap around all the images  */
 .board-container {
-    columns: 4;
+    columns: 6;
     column-gap: 2px;
+   
+}
+
+#board-container-about {
+    margin-top:5px;
+    columns: 3;
+    column-gap: 2px;
+    overflow: hidden;
    
 }
 
@@ -94,6 +113,12 @@ footer.page-footer {
 
 }
 
+#board-container-about .board-section  #about-images {
+    width: 100%; 
+    padding:5px;
+    border-radius: 5%;
+
+}
 #board-images-add{
     margin: 10px;
     border-radius: 5%;
@@ -123,15 +148,16 @@ footer.page-footer {
 }
 
 
-#boardpage{
-   margin: 0 auto;
-
+.boarduser-functions{
+    margin: 20px 5px;
+    border-radius: 5px;
+    font: 5px;
+    width: 200px;
+    height: 50px;
+    color:white;  
+    border: none;
 }
 
-#board-information{
-    float: left;
-    border: solid black 1;
-}
 .popup-overlay {
    display:none;
  }
@@ -143,6 +169,7 @@ footer.page-footer {
     position:relative;
     display: grid;
     grid-template-columns: auto auto auto;
+    background-color: rgb(237, 229, 229); 
     justify-content: left;
     padding: 10px 10px;
     margin: 0px;
@@ -170,7 +197,7 @@ footer.page-footer {
     background-color: rgb(237, 229, 229);
     position: absolute;
     margin: 0 auto;
-    top: 45%;
+    top: 25%;
     left: 5%;
     right: 5%;
     border-radius: 15px;
@@ -185,16 +212,9 @@ footer.page-footer {
  }
 
 
-.image-options{
-    display: flex;
-    flex-direction: column;
-    margin: 0px;
- }
-
 #remove-image {
     border-radius: 30%;
-    border-color: crimson;
-    background-color: crimson;
+    background-color: rgb(238, 17, 61);
     width: 40px;
     height: 40px;
     margin: 0px;
@@ -204,7 +224,6 @@ footer.page-footer {
 
 #add-image {
     border-radius: 30%;
-    border-color: teal;
     background-color: teal;
     width: 35px;
     height: 35px;
@@ -212,6 +231,19 @@ footer.page-footer {
     text-align: center;
     color: white;
 }
+
+.aboutcontainer {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.aboutcontent {
+    width: 50%;
+    float: left;
+    font-size: large;
+    padding: 15px
+   
+}  
 
 
 #pic {
