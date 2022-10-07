@@ -73,7 +73,7 @@ footer.page-footer {
 }
 
 #board-container-about {
-    margin-top:25px;
+    margin-top:5px;
     columns: 3;
     column-gap: 2px;
     overflow: hidden;
@@ -240,6 +240,8 @@ footer.page-footer {
 .aboutcontent {
     width: 50%;
     float: left;
+    font-size: large;
+    padding: 15px
    
 }  
 
@@ -447,7 +449,6 @@ footer.page-footer {
 .top {
     background-size: contain;
     width: 100%;
-    position: fixed;
 }
 
 .detail-img {
