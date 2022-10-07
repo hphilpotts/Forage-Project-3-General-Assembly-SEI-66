@@ -4,10 +4,8 @@
 
 <div class="boxed">
     {% if object %}
-    <h1>Edit <span class="teal-text">{{ object.name }} </span></h1>
-    <hr>
+    <h1>Edit <span class="teal-text">{{ object.name }}   </span></h1>
     <div class="delete"><a href="{% url 'images_delete' image.id %}">Delete</a></div>
-
     {% else %}
     <h1> Upload an Image</h1>
     {% endif %}
@@ -18,12 +16,14 @@
             <table>
                 {{ form.as_table }}
             </table>
-
+        
             <input type="submit" value="submit" class="btn bob" />
 
 
         </form>
+
     </div>
+   
 </div>
 
 {% endblock %}

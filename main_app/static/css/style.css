@@ -607,3 +607,16 @@ footer.page-footer {
     background-image: url(" https://ibb.co/8gYvB8S");
     z-index: 1;
 }
+.logoform {
+    position:absolute;
+    width: 2%;
+    top: 0px;
+    left: 7%;
+}
+
+.logoformupload {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 5px;
+}
