@@ -1,6 +1,68 @@
-# Pinterest-type App - Django-SQL       
+<p align="center">
+    <img src="readme/GA-header.png">
+</p>
 
-## GA London SEI-66 Project 3: Django Framework, postgreSQL Database         
+# 'Forage' : SEI Project 3        
+
+## Description:     
+<!-- TODO : link Helene and Ivan's GitHubs -->
+This is a image-based, _Pinterest_-type 'mood board' web app, built as a team of three () in one week using Python within a Django framework, linked to PostgreSQL SQL database. Users can sign up, upload images, create mood boards and then link both their own or other users' images to theit 'boards' This project was completed as the third project for General Assembly London's Software Engineering Immersive course, and was presented to my Instructional Team and fellow SEI cohort on 07/10/22.          
+
+My particular focus for this project was primarily on User functionality: signup, authentication and authorisation, profile CRUD operations and password reset. I also worked on formatting and _Materialize_ 'Toast' notifications for User feedback. This project was my first experience of working as a 'Team Member' (rather than Team Leader) within a group, and my first experience of working in a group of 3 or more developers.      
+
+![Screenshot of the finished site](readme/apphomepage.png)     
+
+## Links:       
+[Deployment link](https://namesei66.herokuapp.com/)      
+[Google Doc README](https://docs.google.com/document/d/1nJy5gzf3n5Jnp8f--a1C0feFb3mQ6IKMfbIpt3UtLls/edit?usp=sharing)      
+
+## Getting started & Install:       
+
+To use the app, please feel free to create an account (your real email is not required!) and start exploring.       
+
+_Please note_ that at present, there is an issue with image upload where Heroku's ephemeral file storage deletes any newly uploaded images after less than 24 hours. As such, many of the image links are currently broken where uploaded files have been removed, and any images newly uploaded will not persist past a 24 hour period before breaking.
+
+To contribute, please fork from GitHub and then run `pip install -r requirements.txt` to install the required dependencies, alternatively see `requirements.txt`, submitting a pull request for any completed contributions.        
+
+## Technologies used:       
+- Written using HTML5, CSS3, Python3 in Visual Studio Code.        
+- Built using a Django framework linked to a PostgreSQL database.       
+- Psycopg2 PosrgreSQL database driver, sqlparse SQL parser.         
+- Materialize CSS library, Pillow Python imaging library.        
+- Hosted on Heroku.     
+
+## Brief & Project aims:       
+
+The brief for this project was to create a Full Stack web application as a group, in one week, using Python, Django and PostgreSQL. Technical requirements included:        
+- Use at least 2 related models, one of which being User, with all major CRUD operations required for at least one model.       
+- Add authentication and authorisation to restrict access to appropriate users. Include signup, sign in, change password and logout functionality. Give user feedback after each action.     
+- Layout and style frontend using clean and well-formatted CSS (and if required - use a framework for this).        
+
+Stretch goals included:     
+- Send verification email upon registration, allow password reset via email.        
+- Allow users to upload images.     
+
+The aim of the project was to consolidate two intensive weeks of learning the Python programming language and working with Django and SQL databases (specifically PostgreSQL). Further to this, this project allowed me to take what I had learned about group Git and working as a pair, and then apply this to working in a larger team of three - this time as a 'Team Member' rather than 'Team Leader'. Concepts covered included relational database modelling, Django Models, Class-based views and MVT architecture.          
+
+## Key takeaways and learnings:       
+
+I enjoyed this project as it was an opportunity to create a web app using a 'new' language after 6 weeks of JavaScript. I had 'dabbled' in Python before starting the course - so had a bit of familiarity with its syntax - but crucially I found that the conecepts and skills learned on JS translated across really quickly into Python having come back to it after a few months. Picking things up comparatively quickly was a great feeling!
+
+It was a great experience working as a team of three for the first time, especially as we all had such different strengths and weaknesses (and indeed personalities and approaches!). Our 'team culture' was supportive and many of the challenges faced in Project 2 were much easier to overcome the second time around.      
+
+Lastly, I had fun working with Django, especially using the 'baked in' functionality as compared to Express' more minimalist framework. I found it to be quick to 'pick up' and I was a fan of the built-in admin app and auth features. Looking back, Python and Django seems somewhat 'alien' to me now, but I know that this project was great for my confidence, and has been a great foundation, putting me in a great place when I do revisit Python and Django in the future.            
+
+## Successes and Challenges:         
+
+- I found using Django Templating Language a real challenge at times: I would expect certain functionality seen in Python to also be available in DTL (when it wasn't), and I found the documentation / help articles / _stackoverflow_ answers to be a lot more sparse as compared to other technologies.     
+
+Migrations      
+
+## Bugs & Issues:       
+
+## Future Improvements:           
+
+---         
 
 _Rough notes of process to be converted to a lovely readme at a later date!_        
 
