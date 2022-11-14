@@ -43,9 +43,9 @@ Stretch goals included:
 
 The aim of the project was to consolidate two intensive weeks of learning the Python programming language and working with Django and SQL databases (specifically PostgreSQL). Further to this, this project allowed me to take what I had learned about group Git and working as a pair, and then apply this to working in a larger team of three - this time as a 'Team Member' rather than 'Team Leader'. Concepts covered included relational database modelling, Django Models, Class-based views and MVT architecture.          
 
-## Key takeaways and learnings:       
-
 ![Early plans](readme/earlyplans.png)       
+
+## Key takeaways and learnings:       
 
 I enjoyed this project as it was an opportunity to create a web app using a 'new' language after 6 weeks of JavaScript. I had spent some time self-teaching Python before starting the course - so had a bit of familiarity with its syntax - but crucially I found that the concepts and skills learned on JS translated across really quickly into Python having come back to it after a few months. Picking things up comparatively quickly was a great feeling!
 
@@ -60,6 +60,9 @@ Key learnings were as follows:
 - Configuring back-end email is not easy! Making the decision to go in a different direction and invest time into other features was the right one. That said, I would love to go back and get this working in future!      
 - User Profile models are a powerful and effective way of adding functionality to the built-in User model. I am very glad that I chose this approach rather than the alternatives!        
 - Leveraging individual strengths and talents is a great way of getting the most out of everyone. We did a great job of supporting each other in this way, by focusing on areas where we were more comfortable, and seeking help in areas where we were less comfortable.       
+
+![Help message sent on slack](readme/help.png)      
+_A really helpful pointer from Helene via Slack - one of many examples of where we helped and supported each other when facing challenges!_     
 
 ## Successes and Challenges:         
 
