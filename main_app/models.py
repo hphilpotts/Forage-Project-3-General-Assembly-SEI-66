@@ -53,9 +53,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     user_bio = models.TextField(max_length=500)
     user_profile_pic = models.ImageField(default='no image', upload_to='profilepics')
-        # My understanding is that Django saves locally by default:
-        # path should be something like '/media/profilepics/<filename>.jpg' or similar
-        # may need to make changes to naming and storage, see https://docs.djangoproject.com/en/4.1/topics/files/
 
     def __str__(self):
         return self.user.username
