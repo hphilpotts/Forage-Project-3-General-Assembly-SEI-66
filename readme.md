@@ -144,7 +144,7 @@ After multiple rewrites I came to the following solution using both an HTML form
 
 ![Edit user form](readme/editprofileform.png)        
 _Form within profiles/detail.html_      
----
+<hr>
 ![Update user form](readme/formsdotpy.png)       
 _Form within forms.py_      
 
@@ -184,10 +184,10 @@ Eventually getting this to work using:
 
 ![Signup view](readme/signup.png)       
 _Signup within views.py_       
----
+<hr>
 ![apps.py](readme/appsdotpy.png)        
 _Override in apps.py_       
----
+<hr>
 ![signals.py](readme/signalsdotpy.png)      
 _signals.py_        
 
@@ -201,7 +201,7 @@ After adding authorisation protection to views - another technical brief require
 
 ![Hero board screenshot](readme/heroboard.png)
 _Hero Boards with blank images_
----
+<hr>
 ![Hero board code](readme/heroboardcode.png)        
 _Code within profile/detail.html which renders Hero Boards dynamically with first five images_
 
