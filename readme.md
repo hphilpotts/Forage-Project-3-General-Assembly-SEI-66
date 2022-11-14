@@ -5,8 +5,7 @@
 # 'Forage' : SEI Project 3        
 
 ## Description:     
-<!-- TODO : link Helene and Ivan's GitHubs -->
-This is a image-based, _Pinterest_-type 'mood board' web app, built as a team of three () in one week using Python within a Django framework, linked to PostgreSQL SQL database. Users can sign up, upload images, create mood boards and then link both their own or other users' images to theit 'boards' This project was completed as the third project for General Assembly London's Software Engineering Immersive course, and was presented to my Instructional Team and fellow SEI cohort on 07/10/22.          
+This is a image-based, _Pinterest_-type 'mood board' web app, built as a team of three ([Helene](https://github.com/HelenevB), [Ivan](https://github.com/ic188002) and I) in one week using Python within a Django framework, linked to PostgreSQL SQL database. Users can sign up, upload images, create mood boards and then link both their own or other users' images to theit 'boards' This project was completed as the third project for General Assembly London's Software Engineering Immersive course, and was presented to my Instructional Team and fellow SEI cohort on 07/10/22.          
 
 My particular focus for this project was primarily on User functionality: signup, authentication and authorisation, profile CRUD operations and password reset. I also worked on formatting and _Materialize_ 'Toast' notifications for User feedback. This project was my first experience of working as a 'Team Member' (rather than Team Leader) within a group, and my first experience of working in a group of 3 or more developers.      
 
@@ -45,6 +44,8 @@ Stretch goals included:
 The aim of the project was to consolidate two intensive weeks of learning the Python programming language and working with Django and SQL databases (specifically PostgreSQL). Further to this, this project allowed me to take what I had learned about group Git and working as a pair, and then apply this to working in a larger team of three - this time as a 'Team Member' rather than 'Team Leader'. Concepts covered included relational database modelling, Django Models, Class-based views and MVT architecture.          
 
 ## Key takeaways and learnings:       
+
+![Early plans](readme/earlyplans.png)       
 
 I enjoyed this project as it was an opportunity to create a web app using a 'new' language after 6 weeks of JavaScript. I had spent some time self-teaching Python before starting the course - so had a bit of familiarity with its syntax - but crucially I found that the concepts and skills learned on JS translated across really quickly into Python having come back to it after a few months. Picking things up comparatively quickly was a great feeling!
 
@@ -94,20 +95,27 @@ Further to the challenges detailed in 'Key takeaways and learnings' above (parti
 
 Team formed: Helene (Team Lead), Ivan and I. We decided on a 'Pinterest-type' app for our project.      
 
-We have set up a Trello board to manage workflow, established a main Repo and forked successfully to Team Members. This has been something of a learning curve - having been Team Lead on the previous group project I have had to get used to the extra steps required when forking!           
+We have set up a [Trello board](https://trello.com/b/UhwpeKBK/project-3-django-sql) to manage workflow, established a main Repo and forked successfully to Team Members. This has been something of a learning curve - having been Team Lead on the previous group project I have had to get used to the extra steps required when forking!           
 
-<!-- TODO : add image of trello board -->
-<!-- TODO : add link to trello board -->
+![Wireframe](readme/wireframe.png)      
+_Early wireframe_       
+
+
+
+![Trello board](readme/trello.png)      
+_Screenshot of our Trello board_        
 
 Early Wireframe completed and ERD started. Advice taken on how to relation our tables. At one stage, we were deciding between a three-table join table (User, Image, Board) and three join tables. Eventually we decided upon a single join table for Image-Board M-M and 1-M for User-Image and User-Board.
 
-<!-- TODO : add wireframe and ERD images -->
+![ERD](readme/erd.png)      
+_ERD created on Figma_      
 
 ### 30/09/22 | Day 1 | Planning stage continued, begin building:        
 
-Project/site roadmap set up in Excel document:      
+Project/site roadmap set up in spreadsheet:     
 
-<!-- TODO : add image of exel doc -->
+![screenshot of spreadsheet](readme/spreadsheet.png)        
+_Part of the roadmap sheet_     
 
 Django project initialisation completed, repos set up etc. I believe at some point here I adjusted the Git configuration and/or settings for my repository in error which meant that (for example) `pull upstream` did not work correctly, instead resulting in a cycle of rebasing and many, many merge/version control problems down the line...
 
