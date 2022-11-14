@@ -77,9 +77,9 @@ Further to the challenges detailed in 'Key takeaways and learnings' above (parti
 
 ## Bugs & Issues:       
 
-- Uploaded images are lost (and therefore <img src=''/> links break) after <24 hours: this is due to Heroku's ephemeral filesystem.       
+- Uploaded images are lost (and therefore `<img src=''/>` links break) after <24 hours: this is due to Heroku's ephemeral filesystem.       
 - 'Dark Mode' not yet working.      
-- 'Not got an account?'..etc. message does not show up well against homepage background.        
+- 'Not got an account?' message does not show up well against homepage background.        
 
 
 ## Future Improvements:           
@@ -119,7 +119,7 @@ I also completed basic template set up: base, home and about, as well as a `copy
 
 I decided to extend built-in Django User model by adding User Profile model linked One-One. This was not yet tested though as the auth functionality had not been added at this stage. I added a Model to `models.py`, with image upload functionality - to be tweaked once testing can begin.    
 
-![User Profile Model](readme/userprofile.png)
+![User Profile Model](readme/userprofile.png)       
 _Finished User Profle Model_
 
 I then created a database in _pgAdmin4_ and successfully migrated, this was checked as working ok via the GUI.        
@@ -142,10 +142,10 @@ Inital values would populate into the `User` aspects of the form but do not popu
 
 After multiple rewrites I came to the following solution using both an HTML form and forms.py:       
 
-[Edit user form](readme/editprofileform.png)        
+![Edit user form](readme/editprofileform.png)        
 _Form within profiles/detail.html_      
-
-[Update user form](readme/formsdotpy.png)       
+---
+![Update user form](readme/formsdotpy.png)       
 _Form within forms.py_      
 
 I then found an issue in testing: when creating a new user through the site (rather than admin panel), I got the following:     
@@ -184,10 +184,10 @@ Eventually getting this to work using:
 
 ![Signup view](readme/signup.png)       
 _Signup within views.py_       
-
+---
 ![apps.py](readme/appsdotpy.png)        
 _Override in apps.py_       
-
+---
 ![signals.py](readme/signalsdotpy.png)      
 _signals.py_        
 
@@ -201,7 +201,7 @@ After adding authorisation protection to views - another technical brief require
 
 ![Hero board screenshot](readme/heroboard.png)
 _Hero Boards with blank images_
-
+---
 ![Hero board code](readme/heroboardcode.png)        
 _Code within profile/detail.html which renders Hero Boards dynamically with first five images_
 
