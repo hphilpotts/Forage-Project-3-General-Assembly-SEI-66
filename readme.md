@@ -221,7 +221,52 @@ All forms were then checked as having {% csrf_token %} protection.
 
 My final area of focus ahead of the deadline was on User feedback - a technical requirement which we had not yet attempted to implement.        
 
-One of the first things I found out (the hard way, of course) - was that Materialize and Boostrap do not get along together: as such, I would need to understand and implement Materialize messaging, rather than use the Boostrap version with which I was already familiar.       
+One of the first things I found out (the hard way, of course) - was that Materialize and Boostrap do not get along together: as such, I would need to understand and implement Materialize messaging, rather than use the Boostrap version with which I was already familiar.     
 
+I implemented as below in `base.html`:      
 
+```
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0/dist/css/materialize.min.css">
 
+[...]
+
+    <main class="container">
+
+        {% include 'main_app/includes/messages.html' %}
+        
+        {% block content %}
+        <!-- Templates drop into here -->
+        {% endblock %}
+
+    </main>
+
+[...]
+
+<script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0/dist/js/materialize.min.js"></script>
+```
+
+And - as one example - in `views.py`:       
+
+```
+    if form.is_valid():
+        user = form.save()
+        login(request, user)
+        messages.success(request, "Sign up successful! Add more details in your User Profile page.")
+        return redirect('profile_detail', user_id = user.id) # change this once index or profile is added
+    else:
+        error_message = 'Invalid signup - Please try again later'
+        messages.error(request, error_message)
+```
+
+Messages would render plainly as:`<p>{{message}}</p>`, fine. I found I could get Toast to render messages if, for example, a click button was pressed: `[...] onclick.M.toast(‘I’m toast!’)[...]`, also fine. But when I tried to get the toast scripts to run, such as `<script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script> `, I would get 'M is not defined'.      
+
+The issue of course was that `message` was not loading in time before the toast script ran. This took a long time to puzzle out! Finally, right before finishing for the day, I was able to implement fully funcitoning messages like so:       
+
+![Toast messages finally work](readme/toastworks.png)       
+_Use of DOMContentLoaded eventListener in messages.html_        
+
+### 06/10/22 | Day 6 | Presentation:        
+
+As with Project 2, we decided not to make any further edits before presenting, instead focusing on adding content, which once again just about persisted for long enough to present before being removed from Heroku.       
+
+This time, I pulled together a slideshow - with screenshot of VS Code - to go over my key bits of code: this was a great idea and made presenting a lot easier. No more frantic scrolling/clicking trying to navigate whilst talking!       
