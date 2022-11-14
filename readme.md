@@ -5,7 +5,7 @@
 # 'Forage' : SEI Project 3        
 
 ## Description:     
-This is a image-based, _Pinterest_-type 'mood board' web app, built as a team of three ([Helene](https://github.com/HelenevB), [Ivan](https://github.com/ic188002) and I) in one week using Python within a Django framework, linked to PostgreSQL SQL database. Users can sign up, upload images, create mood boards and then link both their own or other users' images to theit 'boards' This project was completed as the third project for General Assembly London's Software Engineering Immersive course, and was presented to my Instructional Team and fellow SEI cohort on 07/10/22.          
+This is a image-based, _Pinterest_-type 'mood board' web app, built as a team of three ([Helene](https://github.com/HelenevB), [Ivan](https://github.com/ic188002) and I) in one week using Python within a Django framework, linked to PostgreSQL SQL database. Users can sign up, upload images, create mood boards and then link both their own or other users' images to their 'boards' This project was completed as the third project for General Assembly London's Software Engineering Immersive course, and was presented to my Instructional Team and fellow SEI cohort on 07/10/22.          
 
 My particular focus for this project was primarily on User functionality: signup, authentication and authorisation, profile CRUD operations and password reset. I also worked on formatting and _Materialize_ 'Toast' notifications for User feedback. This project was my first experience of working as a 'Team Member' (rather than Team Leader) within a group, and my first experience of working in a group of 3 or more developers.      
 
@@ -26,7 +26,7 @@ To contribute, please fork from GitHub and then run `pip install -r requirements
 ## Technologies used:       
 - Written using HTML5, CSS3, Python3 in Visual Studio Code.        
 - Built using a Django framework linked to a PostgreSQL database.       
-- Psycopg2 PosrgreSQL database driver, sqlparse SQL parser.         
+- Psycopg2 PostgreSQL database driver, sqlparse SQL parser.         
 - Materialize CSS library, Pillow Python imaging library.        
 - Hosted on Heroku.     
 
@@ -51,12 +51,12 @@ I enjoyed this project as it was an opportunity to create a web app using a 'new
 
 It was a great experience working as a team of three for the first time, especially as we all had such different strengths and weaknesses (and indeed personalities and approaches!). Our 'team culture' was supportive and many of the challenges faced in Project 2 were much easier to overcome the second time around.      
 
-Lastly, I had fun working with Django, especially using the 'baked in' functionality as compared to Express' more minimalist framework. I found it to be quick to pick up and I was a fan of the built-in admin app and auth features. Looking back, Python and Django seems somewhat 'alien' to me now, but I know that this project was great for my confidence, and has been a great foundation, putting me in a great place when I do revisit Python and Django in the future.        
+Lastly, I had fun working with Django, especially using the 'baked in' functionality as compared to Express' more minimalist framework. I found it to be quick to pick up and I was a fan of the built-in admin app and auth features. Looking back, Python and Django seems somewhat 'alien' to me now, but I know that this project was great for my confidence, and has been a great foundation, putting me in a great place for when I revisit Python and Django in the future.        
 
 Key learnings were as follows:      
-- Git / GitHub repository setup and configuration are _extremely_ important. I got this wrong at the start of this project which meant that the structure and routines that I was used to for version control would not work as expected. This caused a lot of inital difficulty! By adapting my approach I was eventually able to find a way of working that overcame these difficulties.       
+- Git / GitHub repository setup and configuration are _extremely_ important. I got this wrong at the start of this project which meant that the structure and routines that I was used to for version control would not work as expected. This caused a lot of initial difficulty! By adapting my approach I was eventually able to find a way of working that overcame these difficulties.       
 - Careful - and detailed - planning is key when working with SQL databases. 'In-flight' changes to the ERD can cause a lot of headaches: it is much better to spend the time getting this right from 'day one' rather than spending more time making changes later on.      
-- Migrations can be - for lack of a better term - a nightmare when things go wrong! This led to occasional instances where we would 'break' our database and have to try and resuscitate it. By the same token, `__pycache__` files caused us a lot of unneccessary drama: it was only later in the project that we realised that our `.gitignore` file was key to minimising conflicts (as opposed to manual deletions of problematic files - _not the right way of doing things_!).        
+- Migrations can be - for lack of a better term - a nightmare when things go wrong! This led to occasional instances where we would 'break' our database and have to try and resuscitate it. By the same token, `__pycache__` files caused us a lot of unnecessary drama: it was only later in the project that we realised that our `.gitignore` file was key to minimising conflicts (as opposed to manual deletions of problematic files - _not the right way of doing things_!).        
 - Configuring back-end email is not easy! Making the decision to go in a different direction and invest time into other features was the right one. That said, I would love to go back and get this working in future!      
 - User Profile models are a powerful and effective way of adding functionality to the built-in User model. I am very glad that I chose this approach rather than the alternatives!        
 - Leveraging individual strengths and talents is a great way of getting the most out of everyone. We did a great job of supporting each other in this way, by focusing on areas where we were more comfortable, and seeking help in areas where we were less comfortable.       
@@ -66,12 +66,12 @@ _A really helpful pointer from Helene via Slack - one of many examples of where 
 
 ## Successes and Challenges:         
 
-This project was as rewarding as it was challenging, with the confidence and knowledge gained as a result of overcoming challenges being the most important successes. The 'learns' above were amongst the most major successes, stemming from some of the most difficult aspects of or moments within the project. Some further 'wins' for me were:   
+This project was as rewarding as it was challenging, with the confidence and knowledge gained as a result of overcoming challenges being the most important successes. The 'learns' above were amongst the most major successes, stemming from some of the most difficult aspects of /moments within the project. Some further 'wins' for me were:   
 
 - Personally implementing User Profile models, along with all major CRUD functions. This covered the majority of technical requirements for the project; whilst challenging at times, it was also very rewarding - getting everything up and running was a great feeling and I really enjoyed working with authentication and authorisation for the first time on a project.        
 - Gaining further confidence with CSS: I found work on styling notably easier this time around, and was able to produce better results much more quickly than I had in earlier projects. We were able to roll out much of the styling work completed on User Profile templates to other templates - being able to make this contribution represented, for me, a real step forward in my confidence and competence with CSS.     
-- Getting really positive feedback from our Lead Instructor for implementing Materialize 'Toast' notifications. This was a challenging piece of work, and getting acknowledgment following the presentation that this was a complex (and given our experience, impressive) addition was a fantastic feeling and a real boost for my confidence!        
-- Delivering a project that (despite many delays due to git issues) hit all technical brief requirements and is - Heroku image issue notwithstanding - largely bug-free was a real success, thanks largely to our careful planning and realistic expecations.       
+- Getting really positive feedback from our Lead Instructor for implementing Materialize 'Toast' notifications. This was a challenging piece of work, and getting acknowledgement following the presentation that this was a complex (and given our experience, impressive) addition was a fantastic feeling and a real boost for my confidence!        
+- Delivering a project that (despite many delays due to git issues) hit all technical brief requirements and is - Heroku image issue notwithstanding - largely bug-free was a real success, thanks largely to our careful planning and realistic expectations.       
 
 Further to the challenges detailed in 'Key takeaways and learnings' above (particularly version control and migrations) other key challenges included:      
 
@@ -85,7 +85,7 @@ Further to the challenges detailed in 'Key takeaways and learnings' above (parti
 
 - Uploaded images are lost (and therefore `<img src=''/>` links break) after <24 hours: this is due to Heroku's ephemeral filesystem.       
 - 'Dark Mode' not yet working.      
-- 'Not got an account?' message does not show up well against homepage background.        
+- 'Not got an account?' message does not show up well against the homepage background.        
 
 ## Future Improvements:           
 
@@ -121,30 +121,28 @@ Project/site roadmap set up in spreadsheet:
 ![screenshot of spreadsheet](readme/spreadsheet.png)        
 _Part of the roadmap sheet_     
 
-Django project initialisation completed, repos set up etc. I believe at some point here I adjusted the Git configuration and/or settings for my repository in error which meant that (for example) `pull upstream` did not work correctly, instead resulting in a cycle of rebasing and many, many merge/version control problems down the line...
-
-...not something I will be repeating!       
+Django project initialisation completed, repos set up etc. I believe at some point here I adjusted the Git configuration and/or settings for my repository in error which resulted in a constant cycle of rebasing and many merge/version control problems down the line. Not something I will be repeating...      
 
 I also completed basic template set up: base, home and about, as well as a `copyme.html` template from which to work in order to save everyone time. This was about all for today - the rest of the time was spent wrangling with Git. Frustrating but a lesson learned!       
 
 ### 03/10/22 | Day 2 | Production:        
 
-I decided to extend built-in Django User model by adding User Profile model linked One-One. This was not yet tested though as the auth functionality had not been added at this stage. I added a Model to `models.py`, with image upload functionality - to be tweaked once testing can begin.    
+I decided to extend the built-in Django User model by adding a User Profile model linked One-One. This was not yet tested though as the auth functionality had not been added at this stage. I added a Model to `models.py`, with image upload functionality - to be tweaked once testing can begin.    
 
 ![User Profile Model](readme/userprofile.png)       
-_Finished User Profle Model_
+_Finished User Profile Model_
 
 I then created a database in _pgAdmin4_ and successfully migrated, this was checked as working ok via the GUI.        
 
 Next, I made a start on the auth route and signup functionality before adding a User Details page (adding the 'R' from CRUD operations!).          
 
-Again, Git / merge issues hampered progress - these issues persisted even with help from our TA, and then Lead Instructor.      
+Again, Git / merge issues hampered progress - these issues persisted even with help from our TA, and then Lead Instructor. I eventually found a workaround through very gradual use of fetch and merge, this worked well through to the end of the project.      
 
 ### 04/10/22 | Day 3 | Production:      
 
-I decided to work on`Update_User_Form` and `User` before moving on to `Update_Profile_Form` and `Profile` properties. Getting both `Update_User_Form` and `Update_Profile_Form` to work alongside each other in one template required adding a second form and input to the `profiles/detail.html` template, as well as the use of `enctype="multipart/form-data"`: this allowed both to render as one form with one submit button.     
+I decided to work on `Update_User_Form` and `User` before moving on to `Update_Profile_Form` and `Profile` properties. Getting both `Update_User_Form` and `Update_Profile_Form` to work alongside each other in one template required adding a second form and input to the `profiles/detail.html` template, as well as the use of `enctype="multipart/form-data"`: this allowed both to render as one form with one submit button.     
 
-Inital values would populate into the `User` aspects of the form but do not populate into the `Profile` aspects. In order to get this to happen I initially used:  
+Initial values would populate into the `User` aspects of the form but do not populate into the `Profile` aspects. In order to get this to happen I initially used:  
 
 ```
         profile_form = UpdateProfileForm(instance=request.user)
@@ -168,7 +166,7 @@ RelatedObjectDoesNotExist at /users/5/
 User has no profile.
 ```     
 
-Documentation/articles suggested the requirement for a `signals.py` file which will create a User Profile whenever a `User` is created through `signup`. Added this, still getting the same issue. Overriding the `ready()` method in `AppConfig` within `apps.py` means that signals are registered and auto-profile funcionality is working.        
+Documentation/articles suggested the requirement for a `signals.py` file which will create a User Profile whenever a `User` is created through `signup`. Added this, still getting the same issue. Overriding the `ready()` method in `AppConfig` within `apps.py` means that signals are registered and auto-profile functionality is working.        
 
 Tested again: `User` values are being saved but `Profile` values are not. After some digging, I tried the following solution to automate Profile creation:       
 
@@ -206,7 +204,7 @@ _Override in apps.py_
 ![signals.py](readme/signalsdotpy.png)      
 _signals.py_        
 
-I found I was getting errors when attempting to use newly merged Create Board / Create Image. I had lost migrations during merges: running `python3 manage.py migrate main_app` on a new DB fixed this.        
+I found I was getting errors when attempting to use the newly merged Create Board / Create Image. I had lost migrations during merges: running `python3 manage.py migrate main_app` on a new DB fixed this.        
 
 I then protected User Profile routes: User index restricted to staff only, profile detail views restricted to logged in users only, additionally the edit (and when implemented, delete) views restricted to users whose ID matches the user_id being acted upon. Delete User functionality also added. At this stage, all major User CRUD operations have been implemented - a major step after a challenging few days!             
 
@@ -227,13 +225,13 @@ The remainder of the day was mostly spent on styling and bug fixing - whilst the
 
 I initially worked on email password reset: `UserSignupForm` added to `forms.py`, this inherits from the built-in `UserCreateForm` but also includes a `required=True` email field.         
 
-After a morning of trial and error attempting email password reset, I decided instead go for try in-site password changes. Whilst this would not work for forgotten passwords, time was running out and back-end email server set up was proving very challenging. I got this up and running fairly easily: electing to use the built-in `PasswordChangeForm` within the `base.html` template (rather than - for example - using the Django CBV for this action).     
+After a morning of trial and error attempting email password reset, I decided instead to go for in-site password changes. Whilst this would not work for forgotten passwords, time was running out and back-end email server set up was proving very challenging. I got this up and running fairly easily: electing to use the built-in `PasswordChangeForm` within the `base.html` template (rather than - for example - using the Django CBV for this action).     
 
 All forms were then checked as having {% csrf_token %} protection.       
 
 My final area of focus ahead of the deadline was on User feedback - a technical requirement which we had not yet attempted to implement.        
 
-One of the first things I found out (the hard way, of course) - was that Materialize and Boostrap do not get along together: as such, I would need to understand and implement Materialize messaging, rather than use the Boostrap version with which I was already familiar.     
+One of the first things I found out (the hard way, of course) - was that Materialize and Bootstrap do not get along together: as such, I would need to understand and implement Materialize messaging, rather than use the Bootstrap version with which I was already familiar.     
 
 I implemented as below in `base.html`:      
 
@@ -270,9 +268,9 @@ And - as one example - in `views.py`:
         messages.error(request, error_message)
 ```
 
-Messages would render plainly as:`<p>{{message}}</p>`, fine. I found I could get Toast to render messages if, for example, a click button was pressed: `[...] onclick.M.toast(‘I’m toast!’)[...]`, also fine. But when I tried to get the toast scripts to run, such as `<script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script> `, I would get 'M is not defined'.      
+Messages would render plainly as: `<p>{{message}}</p>`, fine. I found I could get Toast to render messages if, for example, a click button was pressed: `[...] onclick.M.toast(‘I’m toast!’)[...]`, also fine. But when I tried to get the toast scripts to run, such as `<script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script> `, I would get 'M is not defined'.      
 
-The issue of course was that `message` was not loading in time before the toast script ran. This took a long time to puzzle out! Finally, right before finishing for the day, I was able to implement fully funcitoning messages like so:       
+The issue of course was that `message` was not loading in time before the toast script ran. This took a long time to puzzle out! Finally, right before finishing for the day, I was able to implement fully functioning messages like so:       
 
 ![Toast messages finally work](readme/toastworks.png)       
 _Use of DOMContentLoaded eventListener in messages.html_        
@@ -281,4 +279,4 @@ _Use of DOMContentLoaded eventListener in messages.html_
 
 As with Project 2, we decided not to make any further edits before presenting, instead focusing on adding content, which once again just about persisted for long enough to present before being removed from Heroku.       
 
-This time, I pulled together a slideshow - with screenshot of VS Code - to go over my key bits of code: this was a great idea and made presenting a lot easier. No more frantic scrolling/clicking trying to navigate whilst talking!       
+This time, I pulled together a slideshow - including screenshots of VS Code - to go over my key bits of code: this was a great idea and made presenting a lot easier. No more frantic scrolling/clicking trying to navigate whilst talking!       
