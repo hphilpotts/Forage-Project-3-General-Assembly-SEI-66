@@ -81,10 +81,11 @@ Further to the challenges detailed in 'Key takeaways and learnings' above (parti
 
 ## Bugs & Issues:       
 
+![Broken image links](readme/brokenimg.png)
+
 - Uploaded images are lost (and therefore `<img src=''/>` links break) after <24 hours: this is due to Heroku's ephemeral filesystem.       
 - 'Dark Mode' not yet working.      
 - 'Not got an account?' message does not show up well against homepage background.        
-
 
 ## Future Improvements:           
 
