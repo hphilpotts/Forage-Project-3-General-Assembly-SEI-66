@@ -5,9 +5,9 @@
 # 'Forage' : SEI Project 3        
 
 ## Description:     
-This is a image-based, _Pinterest_-type 'mood board' web app, built as a team of three ([Helene](https://github.com/HelenevB), [Ivan](https://github.com/ic188002) and I) in one week using Python within a Django framework, linked to PostgreSQL SQL database. Users can sign up, upload images, create mood boards and then link both their own or other users' images to their 'boards' This project was completed as the third project for General Assembly London's Software Engineering Immersive course, and was presented to my Instructional Team and fellow SEI cohort on 07/10/22.          
+This is an image-based, _Pinterest_-type 'mood board' web app, built as a team of three ([Helene](https://github.com/HelenevB), [Ivan](https://github.com/ic188002) and I) in one week using Python within a Django framework, linked to PostgreSQL SQL database. Users can sign up, upload images, create mood boards and then link both their own or other users' images to their 'boards' This project was completed as the third project for General Assembly London's Software Engineering Immersive course, and was presented to my Instructional Team and fellow SEI cohort on 07/10/22.          
 
-My particular focus for this project was primarily on User functionality: signup, authentication and authorisation, profile CRUD operations and password reset. I also worked on formatting and _Materialize_ 'Toast' notifications for User feedback. This project was my first experience of working as a 'Team Member' (rather than Team Leader) within a group, and my first experience of working in a group of 3 or more developers.      
+My particular focus for this project was primarily on User functionality: signup, authentication and authorisation, profile CRUD operations and password reset. I also worked on formatting and _Materialize_ 'Toast' notifications for User feedback. This project was my first experience of working as a 'team member' (rather than team leader) within a group, and my first experience of working in a group of 3 or more developers.      
 
 ![Screenshot of the finished site](readme/apphomepage.png)     
 
@@ -90,7 +90,7 @@ Further to the challenges detailed in 'Key takeaways and learnings' above (parti
 ## Future Improvements:           
 
 - Fix uploaded image issue: either by re-hosting elsewhere or using storage such as S3 buckets.     
-- Implement back-end email server in order to add email password reset/email verification.      
+- Implement back-end email functionality in order to add email password reset/email verification.      
 - Resolve some CSS responsiveness issues / styling snags.       
 
 ## Production Process:      
