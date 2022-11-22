@@ -99,7 +99,12 @@ Further to the challenges detailed in 'Key takeaways and learnings' above (parti
 
 Team formed: Helene (Team Lead), Ivan and I. We decided on a 'Pinterest-type' app for our project.      
 
-We have set up a [Trello board](https://trello.com/b/UhwpeKBK/project-3-django-sql) to manage workflow, established a main Repo and forked successfully to Team Members. This has been something of a learning curve - having been Team Lead on the previous group project I have had to get used to the extra steps required when forking!           
+We have set up a [Trello board](https://trello.com/b/UhwpeKBK/project-3-django-sql) to manage workflow, established a main Repo and forked successfully to Team Members. This has been something of a learning curve - having been Team Lead on the previous group project I have had to get used to the extra steps required when forking!         
+
+Helene was to complete basic Django app setup, after which we divided ownership based upon models and their associated CRUD operations, templates, views and URLs. Helene was to work on Boards, Ivan on Images and I would take responsibility for Users/Profiles.         
+
+UI/UX had no specific owner - this was instead shared with each member ‘chipping in’, typically through taking cues from styling already implemented. For example: I implemented Materialize CSS, with my form styling rolled out across the app, Helene added ‘masonry’ image layouts and Ivan created the header and logos for the site.          
+
 
 ![Wireframe](readme/wireframe.png)      
 _Early wireframe_       
