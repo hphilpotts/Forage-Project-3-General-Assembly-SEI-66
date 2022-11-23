@@ -13,7 +13,6 @@ My particular focus for this project was primarily on User functionality: signup
 
 ## Links:       
 [Deployment link](https://namesei66.herokuapp.com/)      
-[Google Doc README](https://docs.google.com/document/d/1nJy5gzf3n5Jnp8f--a1C0feFb3mQ6IKMfbIpt3UtLls/edit?usp=sharing)      
 
 ## Getting started & Install:       
 
@@ -44,54 +43,6 @@ Stretch goals included:
 The aim of the project was to consolidate two intensive weeks of learning the Python programming language and working with Django and SQL databases (specifically PostgreSQL). Further to this, this project allowed me to take what I had learned about group Git and working as a pair, and then apply this to working in a larger team of three - this time as a 'Team Member' rather than 'Team Leader'. Concepts covered included relational database modelling, Django Models, Class-based views and MVT architecture.          
 
 ![Early plans](readme/earlyplans.png)       
-
-## Key takeaways and learnings:       
-
-I enjoyed this project as it was an opportunity to create a web app using a 'new' language after 6 weeks of JavaScript. I had spent some time self-teaching Python before starting the course - so had a bit of familiarity with its syntax - but crucially I found that the concepts and skills learned on JS translated across really quickly into Python having come back to it after a few months. Picking things up comparatively quickly was a great feeling!
-
-It was a great experience working as a team of three for the first time, especially as we all had such different strengths and weaknesses (and indeed personalities and approaches!). Our 'team culture' was supportive and many of the challenges faced in Project 2 were much easier to overcome the second time around.      
-
-Lastly, I had fun working with Django, especially using the 'baked in' functionality as compared to Express' more minimalist framework. I found it to be quick to pick up and I was a fan of the built-in admin app and auth features. Looking back, Python and Django seems somewhat 'alien' to me now, but I know that this project was great for my confidence, and has been a great foundation, putting me in a great place for when I revisit Python and Django in the future.        
-
-Key learnings were as follows:      
-- Git / GitHub repository setup and configuration are _extremely_ important. I got this wrong at the start of this project which meant that the structure and routines that I was used to for version control would not work as expected. This caused a lot of initial difficulty! By adapting my approach I was eventually able to find a way of working that overcame these difficulties.       
-- Careful - and detailed - planning is key when working with SQL databases. 'In-flight' changes to the ERD can cause a lot of headaches: it is much better to spend the time getting this right from 'day one' rather than spending more time making changes later on.      
-- Migrations can be - for lack of a better term - a nightmare when things go wrong! This led to occasional instances where we would 'break' our database and have to try and resuscitate it. By the same token, `__pycache__` files caused us a lot of unnecessary drama: it was only later in the project that we realised that our `.gitignore` file was key to minimising conflicts (as opposed to manual deletions of problematic files - _not the right way of doing things_!).        
-- Configuring back-end email is not easy! Making the decision to go in a different direction and invest time into other features was the right one. That said, I would love to go back and get this working in future!      
-- User Profile models are a powerful and effective way of adding functionality to the built-in User model. I am very glad that I chose this approach rather than the alternatives!        
-- Leveraging individual strengths and talents is a great way of getting the most out of everyone. We did a great job of supporting each other in this way, by focusing on areas where we were more comfortable, and seeking help in areas where we were less comfortable.       
-
-![Help message sent on slack](readme/help.png)      
-_A really helpful pointer from Helene via Slack - one of many examples of where we helped and supported each other when facing challenges!_     
-
-## Successes and Challenges:         
-
-This project was as rewarding as it was challenging, with the confidence and knowledge gained as a result of overcoming challenges being the most important successes. The 'learns' above were amongst the most major successes, stemming from some of the most difficult aspects of /moments within the project. Some further 'wins' for me were:   
-
-- Personally implementing User Profile models, along with all major CRUD functions. This covered the majority of technical requirements for the project; whilst challenging at times, it was also very rewarding - getting everything up and running was a great feeling and I really enjoyed working with authentication and authorisation for the first time on a project.        
-- Gaining further confidence with CSS: I found work on styling notably easier this time around, and was able to produce better results much more quickly than I had in earlier projects. We were able to roll out much of the styling work completed on User Profile templates to other templates - being able to make this contribution represented, for me, a real step forward in my confidence and competence with CSS.     
-- Getting really positive feedback from our Lead Instructor for implementing Materialize 'Toast' notifications. This was a challenging piece of work, and getting acknowledgement following the presentation that this was a complex (and given our experience, impressive) addition was a fantastic feeling and a real boost for my confidence!        
-- Delivering a project that (despite many delays due to git issues) hit all technical brief requirements and is - Heroku image issue notwithstanding - largely bug-free was a real success, thanks largely to our careful planning and realistic expectations.       
-
-Further to the challenges detailed in 'Key takeaways and learnings' above (particularly version control and migrations) other key challenges included:      
-
-- Fully grasping the concepts around relationed SQL databases (having previously worked with NoSQL databases): in particular, properly 'getting' how join tables work and are used was difficult, especially at the start of the project when producing our ERD. I thought I understood these concepts before we started this project but soon found my understanding challenged! Happily though, this project was - as intended - a great way to condense and clarify my understanding of SQL concepts, and I came out of it with a much more robust grasp of these!       
-- I found using Django Templating Language a real challenge at times: I would expect certain functionality seen in Python to also be available in DTL (when it wasn't), and I found the documentation / help articles / _stackoverflow_ answers to be a lot more sparse as compared to other technologies.     
-- Implementing Toast message notifications as above took a lot of trial and error: I was able to get `<p>{{message}}</p>` to work, `[...] onclick.M.toast(‘I’m a toast message!’)[...]` to work, but not - as per the Materialize documentation - `<script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>` (instead getting 'M' is not defined). Finding the solution of including a `DOMContentLoaded` event listener within the script tag before running `M.toast` was a big moment as it was the first time I had come across 'synchronicity' issues: finally finding a solution without external help or guidance was perhaps the high point of the project despite it being a major challenge to resolve.           
-
-## Bugs & Issues:       
-
-![Broken image links](readme/brokenimg.png)
-
-- Uploaded images are lost (and therefore `<img src=''/>` links break) after <24 hours: this is due to Heroku's ephemeral filesystem.       
-- 'Dark Mode' not yet working.      
-- 'Not got an account?' message does not show up well against the homepage background.        
-
-## Future Improvements:           
-
-- Fix uploaded image issue: either by re-hosting elsewhere or using storage such as S3 buckets.     
-- Implement back-end email functionality in order to add email password reset/email verification.      
-- Resolve some CSS responsiveness issues / styling snags.       
 
 ## Production Process:      
 
@@ -285,3 +236,51 @@ _Use of DOMContentLoaded eventListener in messages.html_
 As with Project 2, we decided not to make any further edits before presenting, instead focusing on adding content, which once again just about persisted for long enough to present before being removed from Heroku.       
 
 This time, I pulled together a slideshow - including screenshots of VS Code - to go over my key bits of code: this was a great idea and made presenting a lot easier. No more frantic scrolling/clicking trying to navigate whilst talking!       
+
+## Key takeaways and learnings:       
+
+I enjoyed this project as it was an opportunity to create a web app using a 'new' language after 6 weeks of JavaScript. I had spent some time self-teaching Python before starting the course - so had a bit of familiarity with its syntax - but crucially I found that the concepts and skills learned on JS translated across really quickly into Python having come back to it after a few months. Picking things up comparatively quickly was a great feeling!
+
+It was a great experience working as a team of three for the first time, especially as we all had such different strengths and weaknesses (and indeed personalities and approaches!). Our 'team culture' was supportive and many of the challenges faced in Project 2 were much easier to overcome the second time around.      
+
+Lastly, I had fun working with Django, especially using the 'baked in' functionality as compared to Express' more minimalist framework. I found it to be quick to pick up and I was a fan of the built-in admin app and auth features. Looking back, Python and Django seems somewhat 'alien' to me now, but I know that this project was great for my confidence, and has been a great foundation, putting me in a great place for when I revisit Python and Django in the future.        
+
+Key learnings were as follows:      
+- Git / GitHub repository setup and configuration are _extremely_ important. I got this wrong at the start of this project which meant that the structure and routines that I was used to for version control would not work as expected. This caused a lot of initial difficulty! By adapting my approach I was eventually able to find a way of working that overcame these difficulties.       
+- Careful - and detailed - planning is key when working with SQL databases. 'In-flight' changes to the ERD can cause a lot of headaches: it is much better to spend the time getting this right from 'day one' rather than spending more time making changes later on.      
+- Migrations can be - for lack of a better term - a nightmare when things go wrong! This led to occasional instances where we would 'break' our database and have to try and resuscitate it. By the same token, `__pycache__` files caused us a lot of unnecessary drama: it was only later in the project that we realised that our `.gitignore` file was key to minimising conflicts (as opposed to manual deletions of problematic files - _not the right way of doing things_!).        
+- Configuring back-end email is not easy! Making the decision to go in a different direction and invest time into other features was the right one. That said, I would love to go back and get this working in future!      
+- User Profile models are a powerful and effective way of adding functionality to the built-in User model. I am very glad that I chose this approach rather than the alternatives!        
+- Leveraging individual strengths and talents is a great way of getting the most out of everyone. We did a great job of supporting each other in this way, by focusing on areas where we were more comfortable, and seeking help in areas where we were less comfortable.       
+
+![Help message sent on slack](readme/help.png)      
+_A really helpful pointer from Helene via Slack - one of many examples of where we helped and supported each other when facing challenges!_     
+
+## Successes and Challenges:         
+
+This project was as rewarding as it was challenging, with the confidence and knowledge gained as a result of overcoming challenges being the most important successes. The 'learns' above were amongst the most major successes, stemming from some of the most difficult aspects of /moments within the project. Some further 'wins' for me were:   
+
+- Personally implementing User Profile models, along with all major CRUD functions. This covered the majority of technical requirements for the project; whilst challenging at times, it was also very rewarding - getting everything up and running was a great feeling and I really enjoyed working with authentication and authorisation for the first time on a project.        
+- Gaining further confidence with CSS: I found work on styling notably easier this time around, and was able to produce better results much more quickly than I had in earlier projects. We were able to roll out much of the styling work completed on User Profile templates to other templates - being able to make this contribution represented, for me, a real step forward in my confidence and competence with CSS.     
+- Getting really positive feedback from our Lead Instructor for implementing Materialize 'Toast' notifications. This was a challenging piece of work, and getting acknowledgement following the presentation that this was a complex (and given our experience, impressive) addition was a fantastic feeling and a real boost for my confidence!        
+- Delivering a project that (despite many delays due to git issues) hit all technical brief requirements and is - Heroku image issue notwithstanding - largely bug-free was a real success, thanks largely to our careful planning and realistic expectations.       
+
+Further to the challenges detailed in 'Key takeaways and learnings' above (particularly version control and migrations) other key challenges included:      
+
+- Fully grasping the concepts around relationed SQL databases (having previously worked with NoSQL databases): in particular, properly 'getting' how join tables work and are used was difficult, especially at the start of the project when producing our ERD. I thought I understood these concepts before we started this project but soon found my understanding challenged! Happily though, this project was - as intended - a great way to condense and clarify my understanding of SQL concepts, and I came out of it with a much more robust grasp of these!       
+- I found using Django Templating Language a real challenge at times: I would expect certain functionality seen in Python to also be available in DTL (when it wasn't), and I found the documentation / help articles / _stackoverflow_ answers to be a lot more sparse as compared to other technologies.     
+- Implementing Toast message notifications as above took a lot of trial and error: I was able to get `<p>{{message}}</p>` to work, `[...] onclick.M.toast(‘I’m a toast message!’)[...]` to work, but not - as per the Materialize documentation - `<script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:2000});</script>` (instead getting 'M' is not defined). Finding the solution of including a `DOMContentLoaded` event listener within the script tag before running `M.toast` was a big moment as it was the first time I had come across 'synchronicity' issues: finally finding a solution without external help or guidance was perhaps the high point of the project despite it being a major challenge to resolve.           
+
+## Bugs & Issues:       
+
+![Broken image links](readme/brokenimg.png)
+
+- Uploaded images are lost (and therefore `<img src=''/>` links break) after <24 hours: this is due to Heroku's ephemeral filesystem.       
+- 'Dark Mode' not yet working.      
+- 'Not got an account?' message does not show up well against the homepage background.        
+
+## Future Improvements:           
+
+- Fix uploaded image issue: either by re-hosting elsewhere or using storage such as S3 buckets.     
+- Implement back-end email functionality in order to add email password reset/email verification.      
+- Resolve some CSS responsiveness issues / styling snags.       
